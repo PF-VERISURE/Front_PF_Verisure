@@ -1,9 +1,9 @@
 import React from 'react'
 
-const organism = () => {
+const Organism = () => {
   return (
     <div>organism</div>
   )
 }
 
-export default organism
+export default Organism

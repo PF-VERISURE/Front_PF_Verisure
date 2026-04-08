@@ -1,9 +1,9 @@
 import React from 'react'
 
-const molecule = () => {
+const Molecule = () => {
   return (
     <div>molecule</div>
   )
 }
 
-export default molecule
+export default Molecule

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const atom = () => {
+const Atom = () => {
   return (
     <div>atom</div>
   )
 }
 
-export default atom
+export default Atom

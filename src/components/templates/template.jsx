@@ -1,9 +1,9 @@
 import React from 'react'
 
-const template = () => {
+const Template = () => {
   return (
     <div>template</div>
   )
 }
 
-export default template
+export default Template
