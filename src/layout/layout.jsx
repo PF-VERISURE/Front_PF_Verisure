@@ -1,9 +1,14 @@
 import React from 'react'
+import { Outlet } from "react-router-dom";
+import Logo from '../components/atoms/Logo/Logo'
 
-const layout = () => {
+const Layout = () => {
   return (
-    <div>layout</div>
+    <>
+      <Logo/>
+      <Outlet/>
+    </>
   )
 }
 
-export default layout
+export default Layout
