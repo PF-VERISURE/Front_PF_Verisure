@@ -1,6 +1,6 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
-import Login from '../components/pages/Login'
+import Rutas from '../components/pages/Rutas'
 import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore'
 import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
@@ -12,6 +12,7 @@ import AdminVolonteerProfile from '../components/pages/admin/AdminVolonteerProfi
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import Layout from '../layout/layout';
 import AdminOngProfiles from '../components/pages/admin/AdminONGProfiles';
+import Login  from '../components/pages/Login/Login';
 
 
 export const router = createBrowserRouter ([
@@ -21,8 +22,13 @@ export const router = createBrowserRouter ([
     children: [
       {
         index: true,
-        element: <Login/>,
+        element: <Rutas/>,
       },
+
+      {
+            path: "login",
+            Component: Login
+          },
       {
         path: "admin",
         Component: AdminDashboard,
@@ -43,7 +49,9 @@ export const router = createBrowserRouter ([
             path: "volontario/perfiles",
             Component: AdminVolonteerProfile
           }
+          
         ]
+
       },
       {
         path:"volontario",
