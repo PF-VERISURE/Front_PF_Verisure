@@ -1,0 +1,11 @@
+.logo {
+    width: 5rem;
+}
+
+.NombreVerisure {
+    display: flex;
+}
+
+.volontariado {
+    font-family: var(--font-family-primary)
+}
