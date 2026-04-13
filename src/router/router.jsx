@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
-import Login from '../components/pages/Login'
+import Login from '../components/pages/Login/Login'
+import Layout from '../layout/layout';
 import AdminONGPerfiles from '../components/pages/admin/AdminONGPerfiles'
 import VolontarioExplore from '../components/pages/volontario/VolontarioExplore'
 import VolontarioProyectos from '../components/pages/volontario/VolontarioProyectos'
@@ -11,7 +12,9 @@ import AdminMetricas from '../components/pages/Admin/AdminMetricas'
 import AdminProyectos from '../components/pages/Admin/AdminProyectos'
 import AdminVolontarioPerfiles from '../components/pages/Admin/AdminVolontarioPerfiles'
 import OngNuevoProyecto from '../components/pages/ong/OngNuevoProyecto'
-import Layout from '../layout/layout';
+
+
+
 
 
 export const router = createBrowserRouter ([
@@ -21,7 +24,7 @@ export const router = createBrowserRouter ([
     children: [
       {
         index: true,
-        Component: Login
+        element: <Login/>,
       },
       {
         path: "admin",
