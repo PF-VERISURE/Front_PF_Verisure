@@ -1,17 +1,17 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
 import Login from '../components/pages/Login'
-import AdminONGPerfiles from '../components/pages/admin/AdminONGPerfiles'
-import VolontarioExplore from '../components/pages/volontario/VolontarioExplore'
-import VolontarioProyectos from '../components/pages/volontario/VolontarioProyectos'
-import VolontarioCertificados from '../components/pages/volontario/VolontarioCertificados'
-import OngProyectos from '../components/pages/ong/OngProyectos'
+import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore'
+import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
+import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
+import OngProjects from '../components/pages/ong/OngProject'
 import AdminDashboard from '../components/pages/Admin/AdminDashboard'
-import AdminMetricas from '../components/pages/Admin/AdminMetricas'
-import AdminProyectos from '../components/pages/Admin/AdminProyectos'
-import AdminVolontarioPerfiles from '../components/pages/Admin/AdminVolontarioPerfiles'
-import OngNuevoProyecto from '../components/pages/ong/OngNuevoProyecto'
+import AdminMetrics from '../components/pages/admin/AdminMetrics'
+import AdminProject from '../components/pages/admin/AdminProject'
+import AdminVolonteerProfile from '../components/pages/admin/AdminVolonteerProfile'
+import OngNewProject from '../components/pages/ong/OngNewProject'
 import Layout from '../layout/layout';
+import AdminOngProfiles from '../components/pages/admin/AdminONGProfiles';
 
 
 export const router = createBrowserRouter ([
@@ -29,43 +29,43 @@ export const router = createBrowserRouter ([
         children:[
           {
             path: "metricas",
-            Component: AdminMetricas
+            Component: AdminMetrics
           },
           {
             path: "proyectos",
-            Component: AdminProyectos
+            Component: AdminProject
           },
           {
             path: "ong/perfiles",
-            Component: AdminONGPerfiles
+            Component: AdminOngProfiles
           },
           {
             path: "volontario/perfiles",
-            Component: AdminVolontarioPerfiles
+            Component: AdminVolonteerProfile
           }
         ]
       },
       {
         path:"volontario",
-        Component: VolontarioExplore,
+        Component: VolonteerExplore,
         children:[
           {
             path: "proyectos",
-            Component: VolontarioProyectos
+            Component: VolonteerProject
           },
           {
             path: "certificados",
-            Component: VolontarioCertificados
+            Component: VolonteerCertificates
           }
         ]
       },
       {
         path: "ong",
-        Component: OngProyectos,
+        Component: OngProjects,
         children:[
           {
             path: "nuevo_proyecto",
-            Component: OngNuevoProyecto
+            Component: OngNewProject
           }
       ]
       },

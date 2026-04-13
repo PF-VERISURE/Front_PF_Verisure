@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminMetricas = () => {
+const AdminMetrics = () => {
   console.log("AdminMetricas rendered")
   return (
     <>
@@ -9,4 +9,4 @@ const AdminMetricas = () => {
   )
 }
 
-export default AdminMetricas
+export default AdminMetrics
