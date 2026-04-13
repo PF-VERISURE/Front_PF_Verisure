@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminONGPerfiles = () => {
+const AdminOngProfiles = () => {
   return (
     <>
       <div>AdminONGPerfiles</div>
@@ -9,4 +9,4 @@ const AdminONGPerfiles = () => {
   )
 }
 
-export default AdminONGPerfiles
+export default AdminOngProfiles
