@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 
-const Login = () => {
+const Rutas = () => {
   return (
     <>    
       <div>
@@ -34,9 +34,12 @@ const Login = () => {
       <div>
         <NavLink to="/ong/nuevo_proyecto">ong/nuevo_proyecto</NavLink>
       </div>
+      <div>
+        <NavLink to="/login">Login</NavLink>
+      </div>
     </>
 
   )
 }
 
-export default Login
+export default Rutas

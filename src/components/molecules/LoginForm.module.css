@@ -1,0 +1,28 @@
+.form {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--rgb-secondary-black);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #8a8a8a;
+}
+
+.buttonContainer {
+  margin-top: 12px;
+}
