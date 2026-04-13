@@ -3,7 +3,9 @@ import style from "./UserName.module.css"
 
 const UserName = () => {
   return (
-    <div className={style.username}>Usuario</div>
+    <p className={style.username}>
+        Usuario
+    </p>
   )
 }
 

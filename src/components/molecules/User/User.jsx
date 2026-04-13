@@ -5,10 +5,10 @@ import style from "./User.module.css"
 
 const User = () => {
   return (
-    <div className={style.user}>
+    <main className={style.user}>
         <UserName/>
         <UserIcon/>
-    </div>
+    </main>
   )
 }
 

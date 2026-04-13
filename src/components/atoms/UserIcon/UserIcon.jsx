@@ -4,9 +4,9 @@ import style from "./UserIcon.module.css"
 
 const UserIcon = () => {
   return (
-    <div>
+    <main>
         <img src={img} alt='Icono de usuario' className={style.img}/>
-    </div>
+    </main>
   )
 }
 
