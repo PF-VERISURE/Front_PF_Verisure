@@ -5,10 +5,10 @@ import style from "./LogoAndName.module.css"
 
 const LogoAndName = () => {
   return (
-    <div className={style.LogoAndName}>
+    <main className={style.LogoAndName}>
       <Logo/>
       <VerisureName/>
-    </div>
+    </main>
   )
 }
 

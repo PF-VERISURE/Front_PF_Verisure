@@ -1,12 +1,16 @@
 import { useState } from "react";
-import InputField from "../atoms/InputField/InputField";
-import PrimaryButton from "../atoms/PrimaryButton/PrimaryButton";
+import { useNavigate } from "react-router";
+import InputField from "../../atoms/InputField/InputField";
+import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import styles from "./LoginForm.module.css";
+import UserService from "../../../services/UserService"
 
 function LoginForm() {
+// const { login } = useContext(UserContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    correo: "",
-    contraseña: "",
+    email: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -18,9 +22,19 @@ function LoginForm() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log("Datos login:", formData);
+    try {
+    const response = await UserService.login(formData);
+    console.log("Datos login:", response);
+    const profile = await UserService.getEmployeeProfile();
+    console.log("PROFILE:", profile);
+
+    navigate("/");
+    } catch (error) {
+    console.error("Login failed:", error);
+    
+    }
   };
 
   return (
@@ -33,9 +47,8 @@ function LoginForm() {
       <InputField
         label="Correo"
         type="email"
-        name="correo"
-       
-        value={formData.correo}
+        name="email"
+        value={formData.email}
         onChange={handleChange}
       />
 
@@ -44,7 +57,7 @@ function LoginForm() {
         type="password"
         name="password"
       
-        value={formData.contraseña}
+        value={formData.password}
         onChange={handleChange}
       />
 

@@ -1,0 +1,61 @@
+import axios from "axios";
+import api from './api';
+
+const ProjectService =() =>{
+    const url = "/api/v1/project";
+
+    const createProject= async (formData) => {
+        try{
+            const response = await api.post(url, formData);
+            return response.data;
+        } catch(error){
+            console.error ("Error creating new project", error);
+            throw error;
+        }
+    };
+
+    const getAllProjects = async() =>{
+        try{
+            const response = await api.get(url);
+            return response.data;
+        } catch (error) {
+            console.error ("Error getting projects", error);
+            throw error;
+        }
+    }
+
+    const getProjectById = async(id) =>{
+        try{
+            const response = await api.get(`${url}/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error ("Error to obtains project details", error);
+            throw error;
+        }
+    }
+
+    const updateProject = async (projectId, userData) => {
+    try {
+        const response = await api.put(`${url}/${projectId}`,userData); 
+        return response.data;
+        } catch (error) {
+        console.error("Error updating project", error);
+        throw error;
+        }
+    }
+
+    const deleteProject = async(articleId) => {
+        try{
+            const response = await api. delete(`${url}/${projectId}`);
+            return response.data;
+        } catch(error){
+            console.error ("Error deleting project", error);
+            throw error;
+        }
+    }
+
+return {createProject,getAllProjects, getProjectById, updateProject, deleteProject }
+
+}
+
+export default ProjectService;
