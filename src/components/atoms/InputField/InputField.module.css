@@ -7,7 +7,7 @@
 .label {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--rgb-secondary-black);
+  color: var(--rgb-black);
 }
 
 .input {
@@ -22,6 +22,6 @@
 }
 
 .input:focus {
-  border-color: var(--rgb-primary-red);
-  background-color: #ffffff;
+  border-color: var(--rgb-red);
+  background-color: var(--color-background);
 }
