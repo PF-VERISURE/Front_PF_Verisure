@@ -13,6 +13,7 @@ import OngNewProject from '../components/pages/ong/OngNewProject'
 import Layout from '../layout/layout';
 import AdminOngProfiles from '../components/pages/admin/AdminONGProfiles';
 import Login  from '../components/pages/Login/Login';
+import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 
 
 export const router = createBrowserRouter ([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter ([
         path: "admin",
         Component: AdminDashboard,
         children:[
+          {
+            index: true,
+            Component: AdminPage
+          },
           {
             path: "metricas",
             Component: AdminMetrics
