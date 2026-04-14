@@ -27,8 +27,6 @@ function LoginForm() {
     try {
     const response = await UserService.login(formData);
     console.log("Datos login:", response);
-    const profile = await UserService.getEmployeeProfile();
-    console.log("PROFILE:", profile);
 
     navigate("/");
     } catch (error) {

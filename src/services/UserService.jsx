@@ -109,4 +109,4 @@ import api from "./api";
 //     }
 // };
 
-export default {login, getEmployeeById, getAllEmployees, getOngsById, getAllOngs, getMyOngProfile  };
+export default {login, getEmployeeById, getAllEmployees, getOngsById, getAllOngs, getMyOngProfile, getMyEmployeeProfile  };
