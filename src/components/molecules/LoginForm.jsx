@@ -5,8 +5,8 @@ import styles from "./LoginForm.module.css";
 
 function LoginForm() {
   const [formData, setFormData] = useState({
-    Correo: "",
-    Contraeña: "",
+    correo: "",
+    contraseña: "",
   });
 
   const handleChange = (event) => {
@@ -32,7 +32,7 @@ function LoginForm() {
 
       <InputField
         label="Correo"
-        type="correo"
+        type="email"
         name="correo"
        
         value={formData.correo}
@@ -41,8 +41,8 @@ function LoginForm() {
 
       <InputField
         label="Contraseña"
-        type="contraseña"
-        name="contraseña"
+        type="password"
+        name="password"
       
         value={formData.contraseña}
         onChange={handleChange}
