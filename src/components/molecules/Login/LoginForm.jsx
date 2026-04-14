@@ -33,7 +33,6 @@ function LoginForm() {
     navigate("/");
     } catch (error) {
     console.error("Login failed:", error);
-    
     }
   };
 
