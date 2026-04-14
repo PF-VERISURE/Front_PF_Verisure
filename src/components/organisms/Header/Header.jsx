@@ -6,10 +6,10 @@ import User from '../../molecules/User/User'
 
 const Header = () => {
   return (
-    <div className={style.header}>
+    <main className={style.header}>
       <LogoAndName/>
       <User className={style.user}/>
-    </div>
+    </main>
   )
 }
 

@@ -4,10 +4,10 @@ import style from "./VerisureName.module.css"
 
 const VerisureName = () => {
   return (
-    <section className={style.verisurename}>
+    <main className={style.verisurename}>
       <p className={style.volonteer}> Volontariado </p>
       <img src={img} alt="Nombre Verisure" className={style.logo}/>
-    </section>
+    </main>
   )
 }
 
