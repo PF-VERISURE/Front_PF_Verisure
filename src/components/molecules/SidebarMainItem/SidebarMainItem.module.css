@@ -1,0 +1,27 @@
+.mainItem {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-m) 0 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  border-radius: 5px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--rgb-red);
+  font-size: 14px;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  color: #7a7a7a;
+}
