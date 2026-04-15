@@ -37,7 +37,7 @@ const { login } = useContext(UserContext);
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Bienvenido</h1>
+        <h1 className={styles.title}>Explora, descubre <br/> y mejora el mundo</h1>
         <p className={styles.subtitle}>Inicie sesión para continuar</p>
       </div>
 
