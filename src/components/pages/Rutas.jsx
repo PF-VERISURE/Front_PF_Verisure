@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from "react-router-dom";
+import { UserContext } from '../../context/User/UserContext';
+
 
 const Rutas = () => {
+
+const { user } = useContext(UserContext);
+console.log(user);
+
   return (
-    <>    
+    <>
+      <h1>{user ? `Welcome ${user.firstName}` : "No user"} </h1>    
       <div>
         <NavLink to="/admin">admin</NavLink>
       </div>
