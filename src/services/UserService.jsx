@@ -1,13 +1,14 @@
+import axios from "axios";
 import api from "./api";
 
     const url = "/api/v1";
 
         const login = async (credentials) => {
         try {
-        const response = await api.post(`${url}/auth/login`, credentials);
-        const token = response.data.token;
-        localStorage.setItem("token", token);
-        return response.data;
+        const response = await axios.post(`http://localhost:8080/api/v1/auth/login`, credentials);
+        // const token = response.data.token;
+        // localStorage.setItem("token", token);
+        return response;
         } catch (error) {
         console.error("Login error:", error.response?.data);
         throw error;

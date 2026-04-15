@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import InputField from "../../atoms/InputField/InputField";
 import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import styles from "./LoginForm.module.css";
-import UserService from "../../../services/UserService"
+import { UserContext } from '../../../context/User/UserContext';
 
 function LoginForm() {
-// const { login } = useContext(UserContext);
+const { login } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -25,7 +25,7 @@ function LoginForm() {
   const handleSubmit = async(event) => {
     event.preventDefault();
     try {
-    const response = await UserService.login(formData);
+    const response = await login(formData);
     console.log("Datos login:", response);
 
     navigate("/");
