@@ -2,9 +2,11 @@ import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
 import Rutas from '../components/pages/Rutas'
 import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore'
+import VolonteerDashboard from '../components/pages/volonteer/VolonteerDashboard'
 import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
 import OngProjects from '../components/pages/ong/OngProject'
+import OngDashboard from '../components/pages/ong/OngDashboard'
 import AdminDashboard from '../components/pages/Admin/AdminDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics'
 import AdminProject from '../components/pages/admin/AdminProject'
@@ -12,28 +14,28 @@ import AdminVolonteerProfile from '../components/pages/admin/AdminVolonteerProfi
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import Layout from '../layout/layout';
 import AdminOngProfiles from '../components/pages/admin/AdminONGProfiles';
-import Login  from '../components/pages/Login/Login';
+import Login from '../components/pages/Login/Login';
 import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 
 
-export const router = createBrowserRouter ([
+export const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
     children: [
       {
         index: true,
-        element: <Rutas/>,
+        element: <Rutas />,
       },
 
       {
-            path: "login",
-            Component: Login
-          },
+        path: "login",
+        Component: Login
+      },
       {
         path: "admin",
         Component: AdminDashboard,
-        children:[
+        children: [
           {
             index: true,
             Component: AdminPage
@@ -54,14 +56,18 @@ export const router = createBrowserRouter ([
             path: "voluntario/perfiles",
             Component: AdminVolonteerProfile
           }
-          
+
         ]
 
       },
       {
         path:"voluntario",
-        Component: VolonteerExplore,
+        Component: VolonteerDashboard,
         children:[
+          {
+            index: true,
+            Component: VolonteerExplore
+          },
           {
             path: "proyectos",
             Component: VolonteerProject
@@ -74,13 +80,17 @@ export const router = createBrowserRouter ([
       },
       {
         path: "ongs",
-        Component: OngProjects,
+        Component: OngDashboard,
         children:[
+          {
+            index: true,
+            Component: OngProjects
+          },
           {
             path: "nuevo_proyecto",
             Component: OngNewProject
           }
-      ]
+        ]
       },
     ]
   }
