@@ -75,8 +75,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "ongs",
-        Component: OngProjects,
+        Component: OngDashboard,
         children:[
+          {
+            index: true,
+            Component: OngProjects
+          },
           {
             path: "nuevo_proyecto",
             Component: OngNewProject
