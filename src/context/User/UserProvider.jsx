@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { UserContext } from "./UserContext";
-import UserPath from "../../services/UserPath";
-import AuthModal from "../../components/molecules/authModal/AuthModal";
+import UserService from "../../services/UserService";
+
 
 const UserProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [user, setUser] = useState(null);
 
-  const openAuthModal = () => setIsModalOpen(true);
-  const closeAuthModal = () => setIsModalOpen(false);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -34,7 +32,7 @@ const UserProvider = ({ children }) => {
     try {
       console.log("Intentando login...");
 
-      const response = await UserPath().login(credentials);
+      const response = await UserService.login(credentials);
 
       const authHeader = response.headers["authorization"];
       const token = authHeader ? authHeader.replace("Bearer ", "") : null;
@@ -55,7 +53,7 @@ const UserProvider = ({ children }) => {
       setUser(loggedUser);
       setIsLogged(true);
 
-      console.log("Login exitoso. Usuario:", userData.userName);
+      console.log("Login exitoso");
 
       return loggedUser;
     } catch (error) {
@@ -66,10 +64,9 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ isLogged, setIsLogged, login, logout, user, isModalOpen, openAuthModal, closeAuthModal,}}
+      value={{ isLogged, setIsLogged, login, logout, user,}}
     >
       {children}
-      <AuthModal isOpen={isModalOpen} onClose={closeAuthModal} />
     </UserContext.Provider>
   );
 };
