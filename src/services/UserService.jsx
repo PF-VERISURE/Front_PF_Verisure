@@ -1,7 +1,5 @@
 import api from "./api";
 
-
-const UserService =() =>{
     const url = "/api/v1";
 
         const login = async (credentials) => {
@@ -9,18 +7,16 @@ const UserService =() =>{
         const response = await api.post(`${url}/auth/login`, credentials);
         const token = response.data.token;
         localStorage.setItem("token", token);
-        return response;
-
+        return response.data;
         } catch (error) {
-        console.error("Login error", error);
+        console.error("Login error:", error.response?.data);
         throw error;
         }
     };
 
-    const getEmployeeProfile = async(id) =>{
+    const getEmployeeById = async(id) =>{
         try{
-            const response = await api.get(`${url}/users/me/employee/${id}`); //<= en la tabla de endpoints, este endpoint no tiene /id... esta OK ?
-            return response.data;
+            const response = await api.get(`${url}/admin/employees/${id}`); 
 
         } catch (error) {
             console.error ("Error para obtener datos del usuario", error);
@@ -28,9 +24,19 @@ const UserService =() =>{
         }
     };
 
-    const getOngsProfile = async(id) =>{
+    const getAllEmployees = async(id) =>{
         try{
-            const response = await api.get(`${url}/users/ongs/${id}`);
+            const response = await api.get(`${url}/admin/employees`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de los usuarios", error);
+            throw error;
+        }
+    };
+
+    const getOngsById = async(id) =>{
+        try{
+            const response = await api.get(`${url}/admin/gnos/${id}`);
             return response.data;
             
         } catch (error) {
@@ -39,11 +45,43 @@ const UserService =() =>{
         }
     };
 
+    const getAllOngs = async(id) =>{
+        try{
+            const response = await api.get(`${url}/admin/gnos`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de las ongs", error);
+            throw error;
+        }
+    };
+
+    const getMyOngProfile = async(id) =>{
+        try{
+            const response = await api.get(`${url}/gnos/profile`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de su perfil", error);
+            throw error;
+        }
+    };
+
+    const getMyEmployeeProfile = async(id) =>{
+        try{
+            const response = await api.get(`${url}/employees/profile`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de su perfil", error);
+            throw error;
+        }
+    };
+
+
+
     // READY FOR WHEN WE WANT TO IMPLEMENT ONG CREATION/DELETION
 
     // const createOngProfile = async(userData) => {
     //     try{
-    //         const response = await api.post(`${url}/admin/ongs`, userData);
+    //         const response = await api.post(`${url}/admin/gnos`, userData);
     //         return response.data;
     //     }catch (error) {
     //         console.error ("Error creating user", error);
@@ -53,7 +91,7 @@ const UserService =() =>{
 
     // const deleteOngProfile = async (id) => {
     //     try {
-    //         const response = await api.delete(`${url}/admin/ongs/${id}`);
+    //         const response = await api.delete(`${url}/admin/gnos/${id}`);
     //         return response.data;
     //     } catch (error) {
     //         console.error("Error deleting user", error);
@@ -71,8 +109,4 @@ const UserService =() =>{
 //     }
 // };
 
-
-return { getEmployeeProfile, getOngsProfile, login}
-}
-
-export default UserService;
+export default {login, getEmployeeById, getAllEmployees, getOngsById, getAllOngs, getMyOngProfile, getMyEmployeeProfile  };
