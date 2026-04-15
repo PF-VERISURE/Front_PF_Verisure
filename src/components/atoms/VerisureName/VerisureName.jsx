@@ -5,7 +5,7 @@ import style from "./VerisureName.module.css"
 const VerisureName = () => {
   return (
     <main className={style.verisurename}>
-      <p className={style.volonteer}> Volontariado </p>
+      <p className={style.volonteer}> Voluntariado </p>
       <img src={img} alt="Nombre Verisure" className={style.logo}/>
     </main>
   )
