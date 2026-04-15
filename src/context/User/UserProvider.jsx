@@ -33,9 +33,13 @@ const UserProvider = ({ children }) => {
       console.log("Intentando login...");
 
       const response = await UserService.login(credentials);
+      console.log("FULL RESPONSE:", response);
 
       const authHeader = response.headers["authorization"];
-      const token = authHeader ? authHeader.replace("Bearer ", "") : null;
+      if (!authHeader) {
+        throw new Error("No se recibió token del servidor");
+      }
+      const token = authHeader.replace("Bearer ", "");
       const userData = response.data;
 
       if (!token) {
@@ -43,9 +47,12 @@ const UserProvider = ({ children }) => {
       }
 
       const loggedUser = {
-        id: userData.id,
-        email: userData.email,
-      };
+      id: userData.profile.id,
+      email: userData.profile.email,
+      firstName: userData.profile.firstName,
+      lastName: userData.profile.lastName,
+      role: userData.role,
+    };
 
       localStorage.setItem("token", token);
       localStorage.setItem("userData", JSON.stringify(loggedUser));
