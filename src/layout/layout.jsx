@@ -1,9 +1,20 @@
 import React from 'react'
+import { Outlet } from "react-router-dom";
+import Header from '../components/organisms/Header/Header';
+import Footer from '../components/organisms/Footer/Footer';
+import "../index.css";
+import UserProvider from '../context/User/UserProvider';
 
-const layout = () => {
+const Layout = () => {
   return (
-    <div>layout</div>
+    <>
+      <UserProvider>
+          <Header/>
+          <Outlet/>
+          <Footer/>
+        </UserProvider>
+    </>
   )
 }
 
-export default layout
+export default Layout

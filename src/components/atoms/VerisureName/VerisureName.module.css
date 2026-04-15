@@ -1,0 +1,15 @@
+.verisurename {
+    display: flex;
+    align-items: center
+}
+
+.logo {
+    width: 7rem;
+    height: auto;
+}
+
+.volonteer {
+    font-family: var(--font-primary);
+    font-weight: bold;
+    font-size: 1rem
+}

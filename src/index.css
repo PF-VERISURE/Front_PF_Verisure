@@ -1,0 +1,42 @@
+:root{
+    --color-background: rgb(255, 255, 255);
+    --rgb-red: rgb(198, 40, 57);
+    --rgb-black: rgb(43, 47, 56);
+    --rgb-green: rgb(0, 104, 50);
+    --rgb-blue: rgb(31, 45, 128);
+
+    --font-primary:"Montserrat", sans-serif;
+    
+    --spacing-xxs: 2px;
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 48px;
+    --border-radius-default: 12px;
+
+    --cat-rbg-No_Pobreza: rgb(229, 36, 59);
+    --cat-rbg-Hambre_cero: rgb(221, 166, 58);
+    --cat-rbg-Buena_Salud: rgb(76, 159, 56);
+    --cat-rbg-Igualdad_Genero: rgb(255, 58, 33);
+    --cat-rbg-Agua_Limpia: rgb(38, 189, 226);
+    --cat-rbg-Energía_limpia: rgb(252, 195, 11);
+    --cat-rbg-Vida_Submarina: rgb(10, 151, 217);
+    --cat-rbg-Reduccion_Desigualdades: rgb(221, 19, 103);
+    --cat-rbg-Ciudad_Sostenibles: rgb(253, 157, 36);
+    --cat-rbg-Produccion_Responsables: rgb(191, 139, 46);
+
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--color-background);
+    font-family: var(--font-primary);
+    color: var(--rgb-secondary-black);
+}
