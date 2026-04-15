@@ -67,7 +67,7 @@ import api from "./api";
 
     const getMyEmployeeProfile = async(id) =>{
         try{
-            const response = await api.get(`${url}/employees/profile `); 
+            const response = await api.get(`${url}/employees/profile`); 
 
         } catch (error) {
             console.error ("Error para obtener datos de su perfil", error);
