@@ -10,27 +10,27 @@ const VolonteerSidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <div className={location.pathname === "/volontario" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={Compass}
                         label="Explorar Programas"
-                        onClick={() => navigate("/volontario")}
+                        onClick={() => navigate("/voluntario")}
                     />
                 </div>
 
-                <div className={location.pathname === "/volontario/proyectos" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario/proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={BookOpen}
                         label="Mis Programas"
-                        onClick={() => navigate("/volontario/proyectos")}
+                        onClick={() => navigate("/voluntario/proyectos")}
                     />
                 </div>
 
-                <div className={location.pathname === "/volontario/certificados" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario/certificados" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={Award}
                         label="Mis Certificados"
-                        onClick={() => navigate("/volontario/certificados")}
+                        onClick={() => navigate("/voluntario/certificados")}
                     />
                 </div>
             </div>

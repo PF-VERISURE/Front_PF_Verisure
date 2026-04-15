@@ -62,8 +62,12 @@ export const router = createBrowserRouter([
       },
       {
         path:"voluntario",
-        Component: VolonteerExplore,
+        Component: VolonteerDashboard,
         children:[
+          {
+            index: true,
+            Component: VolonteerExplore
+          },
           {
             path: "proyectos",
             Component: VolonteerProject
