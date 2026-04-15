@@ -14,9 +14,9 @@ import api from "./api";
         }
     };
 
-    const getEmployeeProfile = async(id) =>{
+    const getEmployeeById = async(id) =>{
         try{
-            const response = await api.get(`${url}/users/me/employee`); 
+            const response = await api.get(`${url}/admin/employees/${id}`); 
 
         } catch (error) {
             console.error ("Error para obtener datos del usuario", error);
@@ -24,9 +24,19 @@ import api from "./api";
         }
     };
 
-    const getOngsProfile = async(id) =>{
+    const getAllEmployees = async(id) =>{
         try{
-            const response = await api.get(`${url}/users/ongs/${id}`);
+            const response = await api.get(`${url}/admin/employees`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de los usuarios", error);
+            throw error;
+        }
+    };
+
+    const getOngsById = async(id) =>{
+        try{
+            const response = await api.get(`${url}/admin/gnos/${id}`);
             return response.data;
             
         } catch (error) {
@@ -35,11 +45,43 @@ import api from "./api";
         }
     };
 
+    const getAllOngs = async(id) =>{
+        try{
+            const response = await api.get(`${url}/admin/gnos`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de las ongs", error);
+            throw error;
+        }
+    };
+
+    const getMyOngProfile = async(id) =>{
+        try{
+            const response = await api.get(`${url}/gnos/profile`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de su perfil", error);
+            throw error;
+        }
+    };
+
+    const getMyEmployeeProfile = async(id) =>{
+        try{
+            const response = await api.get(`${url}/employees/profile`); 
+
+        } catch (error) {
+            console.error ("Error para obtener datos de su perfil", error);
+            throw error;
+        }
+    };
+
+
+
     // READY FOR WHEN WE WANT TO IMPLEMENT ONG CREATION/DELETION
 
     // const createOngProfile = async(userData) => {
     //     try{
-    //         const response = await api.post(`${url}/admin/ongs`, userData);
+    //         const response = await api.post(`${url}/admin/gnos`, userData);
     //         return response.data;
     //     }catch (error) {
     //         console.error ("Error creating user", error);
@@ -49,7 +91,7 @@ import api from "./api";
 
     // const deleteOngProfile = async (id) => {
     //     try {
-    //         const response = await api.delete(`${url}/admin/ongs/${id}`);
+    //         const response = await api.delete(`${url}/admin/gnos/${id}`);
     //         return response.data;
     //     } catch (error) {
     //         console.error("Error deleting user", error);
@@ -67,4 +109,4 @@ import api from "./api";
 //     }
 // };
 
-export default {login, getEmployeeProfile, getOngsProfile};
+export default {login, getEmployeeById, getAllEmployees, getOngsById, getAllOngs, getMyOngProfile, getMyEmployeeProfile  };
