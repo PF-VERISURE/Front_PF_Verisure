@@ -49,11 +49,11 @@ export const router = createBrowserRouter([
             Component: AdminProject
           },
           {
-            path: "ong/perfiles",
+            path: "ongs/perfiles",
             Component: AdminOngProfiles
           },
           {
-            path: "volontario/perfiles",
+            path: "voluntario/perfiles",
             Component: AdminVolonteerProfile
           }
 
@@ -61,13 +61,9 @@ export const router = createBrowserRouter([
 
       },
       {
-        path: "volontario",
-        Component: VolonteerDashboard,
-        children: [
-          {
-            index: true,
-            Component: VolonteerExplore
-          },
+        path:"voluntario",
+        Component: VolonteerExplore,
+        children:[
           {
             path: "proyectos",
             Component: VolonteerProject
