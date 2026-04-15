@@ -29,10 +29,10 @@ const Rutas = () => {
         <NavLink to="/voluntario/certificados">employees/certificados</NavLink>
       </div>
       <div>
-        <NavLink to="/ong">ongs</NavLink>
+        <NavLink to="/ongs">ongs</NavLink>
       </div>
       <div>
-        <NavLink to="/ong/nuevo_proyecto">ongs/nuevo_proyecto</NavLink>
+        <NavLink to="/ongs/nuevo_proyecto">ongs/nuevo_proyecto</NavLink>
       </div>
       <div>
         <NavLink to="/login">Login</NavLink>

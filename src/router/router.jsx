@@ -79,7 +79,7 @@ export const router = createBrowserRouter([
         ]
       },
       {
-        path: "ong",
+        path: "ongs",
         Component: OngDashboard,
         children:[
           {
