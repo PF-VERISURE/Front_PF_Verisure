@@ -1,8 +1,11 @@
 import styles from "./PrimaryButton.module.css";
 
-function PrimaryButton({ text, type = "button" }) {
+function PrimaryButton({ text, type, onClick, className }) {
+
+  const btnClass = `${styles.base} ${styles[className]}`;
+
   return (
-    <button type={type} className={styles.button}>
+    <button type={type} className={btnClass} onClick={onClick}>
       {text}
     </button>
   );
