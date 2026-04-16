@@ -2,7 +2,7 @@
 import React from 'react'
 import ProjectDetail from '../../atoms/ProjectDetail/ProjectDetail'
 import style from "./ProjectDetails.module.css"
-import { Calendar, MapPin, Users } from 'lucide-react'
+import { Calendar, MapPin, Users, ClipboardClock } from 'lucide-react'
 
 const ProjectDetails = () => {
   return (
@@ -20,6 +20,11 @@ const ProjectDetails = () => {
         <section className={style.section}>
             <Users/>
             <ProjectDetail text={"02/20"}/>
+        </section>
+
+        <section className={style.section}>
+            <ClipboardClock/>
+            <ProjectDetail text={"8 horas"}/>
         </section>
 
     </main>
