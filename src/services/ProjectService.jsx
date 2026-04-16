@@ -44,7 +44,7 @@ const ProjectService =() =>{
         }
     }
 
-    const deleteProject = async(articleId) => {
+    const deleteProject = async(projectId) => {
         try{
             const response = await api. delete(`${url}/${projectId}`);
             return response.data;
