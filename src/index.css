@@ -1,5 +1,6 @@
 :root{
-    --color-background: rgb(255, 255, 255);
+    --color-background-primary: rgb(255, 255, 255);
+    --color-background-secondary:  rgb(240, 236, 236);
     --rgb-red: rgb(198, 40, 57);
     --rgb-black: rgb(43, 47, 56);
     --rgb-green: rgb(0, 104, 50);
@@ -15,7 +16,17 @@
     --spacing-xl: 48px;
     --border-radius-default: 12px;
 
-    --cat-rgb_Fin-de-la-pobreza: rgb(229, 36, 59);
+    --cat-rbg-No_Pobreza: rgb(229, 36, 59);
+    --cat-rbg-Hambre_Cero: rgb(221, 166, 58);
+    --cat-rbg-Buena_Salud: rgb(76, 159, 56);
+    --cat-rbg-Igualdad_Genero: rgb(255, 58, 33);
+    --cat-rbg-Agua_Limpia: rgb(38, 189, 226);
+    --cat-rbg-Energia_Limpia: rgb(252, 195, 11);
+    --cat-rbg-Vida_Submarina: rgb(10, 151, 217);
+    --cat-rbg-Reduccion_Desigualdades: rgb(221, 19, 103);
+    --cat-rbg-Ciudad_Sostenibles: rgb(253, 157, 36);
+    --cat-rbg-Produccion_Responsables: rgb(191, 139, 46);
+
 }
 
 

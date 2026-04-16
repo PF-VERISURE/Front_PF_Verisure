@@ -1,11 +1,11 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+
+import ProjectCard from '../../organisms/ProjectCard/ProjectCard'
 
 const VolontarioExplore = () => {
   return (
     <>
-        <div>VolontarioExplore</div>
-        <Outlet/>
+        <ProjectCard/>
     </>
   )
 }
