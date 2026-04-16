@@ -6,6 +6,20 @@ import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../atoms/SecondaryButton/SecondaryButton";
 import styles from "./OngNewProject.module.css";
 
+const CATEGORIA_OPTIONS = [
+  { value: "Agua limpia y saneamiento", label: "Agua limpia y saneamiento" },
+  { value: "Salud y bienestar", label: "Salud y bienestar" },
+  { value: "Ciudades y comunidades sostenibles", label: "Ciudades y comunidades sostenibles" },
+  { value: "Energía asequible y no contaminante", label: "Energía asequible y no contaminante" },
+  { value: "Hambre cero", label: "Hambre cero" },
+   { value: "Igualdad de género", label: "Igualdad de género" },
+   { value: "Fin de la pobreza", label: "Fin de la pobreza" },
+   { value: "Producción y consumo responsables", label: "Producción y consumo responsables"},
+   { value: "Reducción de las desigualdades", label: "Reducción de las desigualdades"},
+   { value: "Vida submarina", label: "vida submarina"},
+
+]
+
 const MODALIDAD_OPTIONS = [
   { value: "presencial", label: "Presencial" },
   { value: "semipresencial", label: "Semipresencial" },
@@ -45,12 +59,12 @@ const OngNuevoProyecto = () => {
         </FormRow>
 
         <FormRow label="Categoría">
-          <input
+          <SelectField
             name="categoria"
-            type="text"
             value={form.categoria}
             onChange={handleChange}
-            className={styles.input}
+            options={CATEGORIA_OPTIONS}
+            placeholder="Seleccionar"
           />
         </FormRow>
 
