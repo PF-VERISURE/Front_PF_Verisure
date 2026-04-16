@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
 import Rutas from '../components/pages/Rutas'
-import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore'
+import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore/VolonteerExplore'
 import VolonteerDashboard from '../components/pages/volonteer/VolonteerDashboard'
 import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
