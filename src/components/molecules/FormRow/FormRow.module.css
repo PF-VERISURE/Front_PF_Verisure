@@ -1,0 +1,22 @@
+.row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.label {
+  background-color: var(--rgb-black);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: var(--spacing-m);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.field {
+  padding: var(--spacing-s) var(--spacing-m);
+  background-color: #ffffff;
+}
