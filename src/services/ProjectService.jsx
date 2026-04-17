@@ -2,7 +2,7 @@ import axios from "axios";
 import api from './api';
 
 const ProjectService =() =>{
-    const url = "/api/v1/project";
+    const url = "/api/v1/projects";
 
     const createProject= async (formData) => {
         try{

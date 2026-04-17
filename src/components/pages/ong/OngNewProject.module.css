@@ -1,0 +1,42 @@
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--rgb-blue);
+  text-decoration: none;
+  margin-bottom: var(--spacing-l);
+}
+
+.formTable {
+  border: 1px solid #d0d0d0;
+  border-radius: var(--border-radius-default);
+  overflow: hidden;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--spacing-s);
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: var(--font-primary);
+  color: var(--rgb-black);
+  background-color: #ffffff;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--rgb-red);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-l);
+  margin-top: var(--spacing-l);
+  justify-content: center;
+}
