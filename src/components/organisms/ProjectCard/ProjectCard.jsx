@@ -11,16 +11,17 @@ const ProjectCard = ({project}) => {
 // const [currentProject, setCurrentProject] = useState(project);
     const details = [
     { label: "Date", value: project.date },
-    { label: "Location", value: project.location_type },
-    { label: "Volunteers", value: project.required_volunteers },
-    { label: "Hours", value: project.hours },
+    { label: "Location", value: project.locationType },
+    // IMPLEMENT AS OffsetDateTime startDate; AND OffsetDateTime endDate;
+    { label: "Volunteers", value: project.requiredVolunteers },
+    { label: "Hours", value: project.totalHours },
     ];
 
 return (
   <main className={style.card}>
     <img 
-      href={project.image_url}
-      alt="Photo de plantación de árboles" 
+      href={project.imageUrl}
+      alt="Photo de illustracion del proyecto" 
       className={style.image}
     />
 

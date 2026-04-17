@@ -18,11 +18,11 @@ const OngSidebar = () => {
                     />
                 </div>
 
-                <div className={location.pathname === "/ongs" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/ongs/proyecto" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={FolderOpen}
                         label="Proyectos"
-                        onClick={() => navigate("/ongs")}
+                        onClick={() => navigate("/ongs/proyectos")}
                     />
                 </div>
             </div>

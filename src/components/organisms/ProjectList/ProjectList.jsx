@@ -8,7 +8,7 @@ const ProjectList = () => {
     useEffect(() => {
         const fetchProjects = async () => {
         try {
-            const data = await ProjectService().getAllProjects();
+            const data = await ProjectService().getPendingProjects();
             setProjects(data);
         } catch (error) {
             console.error(error);
