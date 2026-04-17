@@ -5,7 +5,7 @@ import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore'
 import VolonteerDashboard from '../components/pages/volonteer/VolonteerDashboard'
 import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
-import OngProjects from '../components/pages/ong/OngProject'
+import OngProjects from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
 import AdminDashboard from '../components/pages/Admin/AdminDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics'
@@ -84,7 +84,7 @@ export const router = createBrowserRouter([
         children:[
           {
             index: true,
-            Component: OngProjects
+            Component: OngNewProject
           },
           {
             path: "nuevo_proyecto",
