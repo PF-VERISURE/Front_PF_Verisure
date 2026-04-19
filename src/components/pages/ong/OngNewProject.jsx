@@ -85,28 +85,7 @@ const OngNewProject = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos del formulario:", form);
-  };
-
-  const handleCancel = () => {
-    setForm({
-      nombre: "",
-      categoria: "",
-      modalidad: "",
-      fechaInicio: "",
-      fechaFin: "",
-      participantes: "",
-      horas: "",
-      descripcion: "",
-    });
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
