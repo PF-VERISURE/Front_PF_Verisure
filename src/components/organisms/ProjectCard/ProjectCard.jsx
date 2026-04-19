@@ -7,20 +7,19 @@ import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 
 const ProjectCard = ({project}) => {
+  if (!project) return null;
 
-// const [currentProject, setCurrentProject] = useState(project);
     const details = [
-    { label: "Date", value: project.date },
-    { label: "Location", value: project.locationType },
-    // IMPLEMENT AS OffsetDateTime startDate; AND OffsetDateTime endDate;
-    { label: "Volunteers", value: project.requiredVolunteers },
-    { label: "Hours", value: project.totalHours },
+    { label: "Date", value: project.date || "Sin fecha" },
+    { label: "Location", value: project.locationType || "Sin modalidad" },
+    { label: "Volunteers", value: project.requiredVolunteers || "Sin número de voluntarios" },
+    { label: "Hours", value: project.totalHours || "Sin horas registradas" },
     ];
 
 return (
   <main className={style.card}>
     <img 
-      href={project.imageUrl}
+      src={project.imageUrl}
       alt="Photo de illustracion del proyecto" 
       className={style.image}
     />

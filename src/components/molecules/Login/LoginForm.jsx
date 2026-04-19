@@ -12,6 +12,7 @@ const { login } = useContext(UserContext);
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,6 +25,11 @@ const { login } = useContext(UserContext);
 
   const handleSubmit = async(event) => {
     event.preventDefault();
+    if (!formData.email.trim() || !formData.password) {
+      setError("Por favor completa todos los campos");
+      return;
+    }
+
     try {
     const response = await login(formData);
     console.log("Datos login:", response);
@@ -31,6 +37,7 @@ const { login } = useContext(UserContext);
     navigate("/");
     } catch (error) {
     console.error("Login failed:", error);
+    setError("Correo o contraseña incorrectos");
     }
   };
 
@@ -61,6 +68,7 @@ const { login } = useContext(UserContext);
       <div className={styles.buttonContainer}>
         <PrimaryButton type="submit" text="Log in" />
       </div>
+      {error && <p>{error}</p>}
     </form>
   );
 }

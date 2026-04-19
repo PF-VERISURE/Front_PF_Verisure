@@ -20,7 +20,7 @@ const ProjectList = () => {
 
     return (
         <section>
-        {projects.map((project) => (
+        {(projects || []).map((project) => (
             <ProjectCard key={project.id} project={project} />
         ))}
         </section>

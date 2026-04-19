@@ -57,6 +57,12 @@ const OngNewProject = () => {
    const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.title.trim() || !form.description.trim() || !form.startDate ||
+        !form.endDate || !form.locationType || !form.requiredVolunteers || !form.totalHours) {
+      alert("Por favor completa todos los campos obligatorios");
+      return;
+    }
+
     try {
     const payload = {
       title: form.title,

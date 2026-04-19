@@ -9,7 +9,7 @@ const ParticipantsModal = ({ participants, onClose }) => {
           <button className={styles.closeBtn} onClick={onClose}>✕</button>
         </div>
         <ul className={styles.list}>
-          {participants.map((nombre, index) => (
+          {(participants || []).map((nombre, index) => (
             <li key={index} className={styles.item}>{nombre}</li>
           ))}
         </ul>

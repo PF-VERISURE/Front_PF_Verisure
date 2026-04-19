@@ -46,6 +46,10 @@ const UserProvider = ({ children }) => {
         throw new Error("No se recibió token del servidor");
       }
 
+      if (!userData || !userData.profile) {
+        throw new Error("Respuesta del servidor inválida");
+      }
+
       const loggedUser = {
       id: userData.profile.id,
       email: userData.profile.email,
