@@ -1,0 +1,23 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 2fr 1.2fr;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  font-size: 0.78rem;
+  color: var(--rgb-black);
+  width: 100%;
+}
+
+.row span:nth-child(3) {
+  text-align: center;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: #fafafa;
+}

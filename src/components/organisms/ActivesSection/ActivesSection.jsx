@@ -1,0 +1,29 @@
+import ProjectActiveRow from "../../molecules/ProjectActiveRow/ProjectActiveRow";
+import styles from "./ActivesSection.module.css";
+
+const ActivesSection = ({ proyectos }) => {
+  return (
+    <div className={styles.section}>
+      <div className={styles.sectionTitle}>ACTIVOS</div>
+      <div className={styles.tableHeader}>
+        <span>ONG</span>
+        <span>Título del proyecto</span>
+        <span>Participantes</span>
+        <span>Número de vacantes</span>
+        <span>Acción</span>
+      </div>
+      {proyectos.map((p) => (
+        <ProjectActiveRow
+          key={p.id}
+          gnoName={p.gnoName}
+          title={p.title}
+          participants={p.participants}
+          totalApplications={p.totalApplications}
+          totalVolunteers={p.totalVolunteers}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default ActivesSection;

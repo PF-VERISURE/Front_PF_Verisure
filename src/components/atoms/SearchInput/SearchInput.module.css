@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 8px;
+  gap: 6px;
+  background-color: #fff;
+  width: 180px;
+}
+
+.icon {
+  color: #888;
+  flex-shrink: 0;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  width: 100%;
+  font-family: var(--font-primary);
+  color: var(--rgb-black);
+}
+
+.input::placeholder {
+  color: #bbb;
+}

@@ -1,0 +1,30 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.nuevo {
+  background-color: #e8f5e9;
+  color: var(--rgb-green);
+  border: 1px solid var(--rgb-green);
+}
+
+.pendienteInfo {
+  background-color: #fff8e1;
+  color: #f57c00;
+  border: 1px solid #f57c00;
+}
+
+.pendienteRevision {
+  background-color: #e3f2fd;
+  color: var(--rgb-blue);
+  border: 1px solid var(--rgb-blue);
+}
