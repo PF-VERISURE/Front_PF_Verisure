@@ -8,8 +8,8 @@ const ProjectArchivedRow = ({ gnoName, title, participants, totalApplications, t
   return (
     <>
       <div className={styles.row}>
-        <span>{gnoName}</span>
-        <span>{title}</span>
+        <span>{gnoName || "Sin nombre de ONG"}</span>
+        <span>{title || "Sin título de proyecto"}</span>
         <button className={styles.verBtn} onClick={() => setShowModal(true)}>
           Ver participantes
         </button>

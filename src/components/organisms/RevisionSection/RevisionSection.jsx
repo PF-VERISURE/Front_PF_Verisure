@@ -2,6 +2,15 @@ import ProjectRevisionRow from "../../molecules/ProjectRevisionRow/ProjectRevisi
 import styles from "./RevisionSection.module.css";
 
 const RevisionSection = ({ proyectos }) => {
+  if (proyectos.length === 0) {
+    return (
+      <div className={styles.section}>
+        <div className={styles.sectionTitle}>EN REVISIÓN</div>
+        <p>No hay proyectos en revisión</p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.section}>
       <div className={styles.sectionTitle}>EN REVISIÓN</div>

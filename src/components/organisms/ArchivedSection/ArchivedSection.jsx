@@ -2,6 +2,15 @@ import ProjectArchivedRow from "../../molecules/ProjectArchivedRow/ProjectArchiv
 import styles from "./ArchivedSection.module.css";
 
 const ArchivedSection = ({ proyectos }) => {
+  if (proyectos.length === 0) {
+    return (
+      <div className={styles.section}>
+        <div className={styles.sectionTitle}>ARCHIVADOS</div>
+        <p>No hay proyectos archivados</p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.section}>
       <div className={styles.sectionTitle}>ARCHIVADOS</div>
