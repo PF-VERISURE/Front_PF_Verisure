@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProjectService from "../../../services/ProjectService";
 import ProjectCard from "../../organisms/ProjectCard/ProjectCard";
+import style from "./ProjectList.module.css"
 
-const ProjectList = () => {
+const ProjectList = ({title}) => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -19,11 +20,14 @@ const ProjectList = () => {
     }, []);
 
     return (
-        <section>
-        {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-        ))}
-        </section>
+        <main className={style.main}>
+            <h1>{title}</h1>
+            <section className={style.cards}>
+            {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+            ))}
+            </section>
+        </main>
     );
 };
 
