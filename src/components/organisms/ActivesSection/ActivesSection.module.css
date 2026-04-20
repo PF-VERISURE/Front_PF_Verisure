@@ -7,8 +7,8 @@
 }
 
 .sectionTitle {
-  background-color: #fff;
-  color: var(--rgb-blue);
+  background-color: var(--rgb-green);
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
   text-align: center;

@@ -1,27 +1,9 @@
 import { Building2, FolderOpen, Tag, MapPin, Calendar, CalendarCheck, Users, ClipboardList, Clock, FileText } from "lucide-react";
 import styles from "./ProjectInfoModal.module.css";
 
-const SDG_LABELS = {
-  1: "Agua limpia y saneamiento",
-  2: "Salud y bienestar",
-  3: "Ciudades y comunidades sostenibles",
-  4: "Energía asequible y no contaminante",
-  5: "Hambre cero",
-  6: "Igualdad de género",
-  7: "Fin de la pobreza",
-  8: "Producción y consumo responsables",
-  9: "Reducción de las desigualdades",
-  10: "Vida submarina",
-};
-
 const formatDate = (dateStr) => {
   if (!dateStr) return "Sin fecha";
   return new Date(dateStr).toLocaleDateString("es-ES");
-};
-
-const getCategoryLabel = (sdgIds) => {
-  if (!sdgIds || sdgIds.length === 0) return "Sin categoría";
-  return sdgIds.map((id) => SDG_LABELS[id] || id).join(", ");
 };
 
 const ProjectInfoModal = ({ project, onClose }) => {
@@ -30,7 +12,7 @@ const ProjectInfoModal = ({ project, onClose }) => {
   const fields = [
     { label: "Nombre de la Ong", value: project.gnoName || "Sin nombre de ONG", icon: Building2 },
     { label: "Nombre del proyecto", value: project.title || "Sin título", icon: FolderOpen },
-    { label: "Categoría", value: getCategoryLabel(project.sdgIds), icon: Tag },
+    { label: "Categoría", value: (project.sdgs || []).join(", ") || "Sin categoría", icon: Tag },
     { label: "Modalidad", value: project.locationType || "Sin modalidad", icon: MapPin },
     { label: "Fecha de Inicio", value: formatDate(project.startDate), icon: Calendar },
     { label: "Fecha de finalización", value: formatDate(project.endDate), icon: CalendarCheck },
