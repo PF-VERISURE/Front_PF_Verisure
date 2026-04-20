@@ -11,6 +11,7 @@
 .title {
     font-family: var(--font-primary);
     font-size: 2em;
+    margin-bottom: 10px;
 }
 
 .image {
@@ -21,4 +22,18 @@ section{
     display: flex;
     flex-direction: column;
     justify-content:space-between ;
+}
+
+.section2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section3 {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

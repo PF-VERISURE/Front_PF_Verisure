@@ -1,12 +1,11 @@
 import React from 'react'
 import style from "./VolonteerExplore.module.css"
-import ProjectCard from '../../../organisms/ProjectCard/ProjectCard'
-import CardPresentation from '../../../templates/CardPresentation/CardPresentation'
+import ProjectList from '../../../organisms/ProjectList/ProjectList'
 
 const VolonteerExplore = () => {
   return (
     <main className={style.main}>
-      <CardPresentation title="EXPLORAR PROYECTOS"/>
+      <ProjectList title="EXPLORAR PROYECTOS"/>
     </main>
   )
 }

@@ -6,7 +6,7 @@ const OngProjects = ({title}) => {
   return (
     <main className={style.main}>
       <h1>{title}</h1>
-      <ProjectList/>
+      <ProjectList title="EXPLORAR PROYECTOS"/>
     </main>
   )
 }
