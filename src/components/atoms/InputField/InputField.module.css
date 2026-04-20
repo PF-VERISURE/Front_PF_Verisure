@@ -25,3 +25,13 @@
   border-color: var(--rgb-red);
   background-color: var(--color-background);
 }
+
+.error {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.8rem;
+}

@@ -6,6 +6,12 @@ import styles from "./LoginForm.module.css";
 import { UserContext } from '../../../context/User/UserContext';
 
 function LoginForm() {
+
+const [errors, setErrors] = useState({
+  email: false,
+  password: false,
+});
+
 const { login } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,6 +30,18 @@ const { login } = useContext(UserContext);
 
   const handleSubmit = async(event) => {
     event.preventDefault();
+
+    const newErrors = {
+    email: !formData.email,
+    password: !formData.password,
+  };
+
+  setErrors(newErrors);
+
+  if (newErrors.email || newErrors.password) {
+    return;
+  }
+
     try {
     const response = await login(formData);
     console.log("Datos login:", response);
@@ -33,6 +51,8 @@ const { login } = useContext(UserContext);
     console.error("Login failed:", error);
     }
   };
+
+
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -47,15 +67,16 @@ const { login } = useContext(UserContext);
         name="email"
         value={formData.email}
         onChange={handleChange}
+        error={errors.email}
       />
 
       <InputField
         label="Contraseña"
         type="password"
         name="password"
-      
         value={formData.password}
         onChange={handleChange}
+        error={errors.password}
       />
 
       <div className={styles.buttonContainer}>
