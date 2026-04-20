@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     LayoutGrid,
     ChartColumn,
@@ -15,6 +16,8 @@ import styles from "./AdminSidebar.module.css";
 const AdminSidebar = () => {
     const [ongsOpen, setOngsOpen] = useState(false);
     const [voluntariosOpen, setVoluntariosOpen] = useState(false);
+    const navigate = useNavigate();
+
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
@@ -33,7 +36,11 @@ const AdminSidebar = () => {
                     {ongsOpen && (
                         <div className={styles.submenu}>
                             <SidebarSubItem icon={UserRound} label="Perfiles" />
-                            <SidebarSubItem icon={FolderOpen} label="Proyectos" />
+                            <SidebarSubItem
+                                icon={FolderOpen}
+                                label="Proyectos"
+                                onClick={() => navigate("/admin/proyectos")}
+                            />
                         </div>
                     )}
                 </div>

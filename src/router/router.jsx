@@ -9,7 +9,7 @@ import OngNewProject from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
 import AdminDashboard from '../components/pages/Admin/AdminDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics'
-import AdminProject from '../components/pages/admin/AdminProject'
+import AdminProject from '../components/pages/admin/AdminProject/AdminProject'
 import AdminVolonteerProfile from '../components/pages/admin/AdminVolonteerProfile'
 import Layout from '../layout/layout';
 import AdminOngProfiles from '../components/pages/admin/AdminONGProfiles';

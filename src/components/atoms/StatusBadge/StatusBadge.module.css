@@ -1,0 +1,18 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.pendiente {
+  background-color: #e8f5e9;
+  color: var(--rgb-green);
+  border: 1px solid var(--rgb-green);
+}
