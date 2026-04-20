@@ -6,9 +6,9 @@ import ArchivedSection from "../../../organisms/ArchivedSection/ArchivedSection"
 import styles from "./AdminProject.module.css";
 
 const mockRevision = [
-  { id: 1, gnoName: "Médicos Sin Fronteras (MSF)", title: "El Refugio de los Ideales", requiredVolunteers: 26, status: "Pendiente" },
-  { id: 2, gnoName: "Greenpeace España", title: "Tour de los Océanos 2026", requiredVolunteers: 20, status: "Pendiente" },
-  { id: 3, gnoName: "Fundación ONCE", title: "Reto ONCE Innova Emprendedores 2026:", requiredVolunteers: 35, status: "Pendiente" },
+  { id: 1, gnoName: "Médicos Sin Fronteras (MSF)", title: "El Refugio de los Ideales", requiredVolunteers: 26, status: "Pendiente", sdgIds: [2], locationType: "Presencial", startDate: "2026-05-25", endDate: "2026-06-25", totalVolunteers: 26, totalApplications: 10, totalHours: 60, description: "Proyecto de ayuda humanitaria en zonas de conflicto para proporcionar asistencia médica básica." },
+  { id: 2, gnoName: "Greenpeace España", title: "Tour de los Océanos 2026", requiredVolunteers: 20, status: "Pendiente", sdgIds: [10], locationType: "Híbrido", startDate: "2026-06-01", endDate: "2026-07-01", totalVolunteers: 20, totalApplications: 8, totalHours: 40, description: "Campaña de limpieza y concienciación sobre la contaminación de los océanos." },
+  { id: 3, gnoName: "Fundación ONCE", title: "Reto ONCE Innova Emprendedores 2026", requiredVolunteers: 35, status: "Pendiente", sdgIds: [9], locationType: "Online", startDate: "2026-07-10", endDate: "2026-08-10", totalVolunteers: 35, totalApplications: 15, totalHours: 80, description: "Programa de emprendimiento e innovación social para personas con discapacidad." },
 ];
 
 const mockActivos = [

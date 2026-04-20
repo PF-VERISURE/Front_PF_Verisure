@@ -23,10 +23,7 @@ const RevisionSection = ({ proyectos }) => {
       {proyectos.map((p) => (
         <ProjectRevisionRow
           key={p.id}
-          gnoName={p.gnoName}
-          title={p.title}
-          requiredVolunteers={p.requiredVolunteers}
-          status={p.status}
+          project={p}
         />
       ))}
     </div>
