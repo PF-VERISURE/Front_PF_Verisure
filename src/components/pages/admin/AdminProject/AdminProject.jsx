@@ -6,9 +6,9 @@ import ArchivedSection from "../../../organisms/ArchivedSection/ArchivedSection"
 import styles from "./AdminProject.module.css";
 
 const mockRevision = [
-  { id: 1, gnoName: "Médicos Sin Fronteras (MSF)", title: "El Refugio de los Ideales", requiredVolunteers: 26, status: "Nuevo" },
-  { id: 2, gnoName: "Greenpeace España", title: "Tour de los Océanos 2026", requiredVolunteers: 20, status: "Pendiente info" },
-  { id: 3, gnoName: "Fundación ONCE", title: "Reto ONCE Innova Emprendedores 2026:", requiredVolunteers: 35, status: "Pendiente revisión" },
+  { id: 1, gnoName: "Médicos Sin Fronteras (MSF)", title: "El Refugio de los Ideales", requiredVolunteers: 26, status: "Pendiente" },
+  { id: 2, gnoName: "Greenpeace España", title: "Tour de los Océanos 2026", requiredVolunteers: 20, status: "Pendiente" },
+  { id: 3, gnoName: "Fundación ONCE", title: "Reto ONCE Innova Emprendedores 2026:", requiredVolunteers: 35, status: "Pendiente" },
 ];
 
 const mockActivos = [

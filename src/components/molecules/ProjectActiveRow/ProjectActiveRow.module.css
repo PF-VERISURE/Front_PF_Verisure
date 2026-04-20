@@ -23,7 +23,22 @@
   text-align: left;
 }
 
-.verBtn,
+.verBtn {
+  background-color: var(--rgb-blue);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  justify-self: start;
+  margin-left: -16px;
+}
+
 .cerrarBtn {
   background-color: var(--rgb-red);
   color: #fff;
