@@ -14,47 +14,60 @@ const ProjectService =() =>{
         }
     };
 
-    const getAllProjects = async() =>{
+        const getPendingProjects = async(id) =>{
         try{
-            const response = await api.get(url);
-            return response.data;
-        } catch (error) {
-            console.error ("Error getting projects", error);
-            throw error;
-        }
-    }
-
-    const getProjectById = async(id) =>{
-        try{
-            const response = await api.get(`${url}/${id}`);
+            const response = await api.get(`${url}/pending`);
             return response.data;
         } catch (error) {
             console.error ("Error to obtains project details", error);
             throw error;
         }
-    }
+    };
 
-    const updateProject = async (projectId, userData) => {
-    try {
-        const response = await api.put(`${url}/${projectId}`,userData); 
-        return response.data;
-        } catch (error) {
-        console.error("Error updating project", error);
-        throw error;
-        }
-    }
 
-    const deleteProject = async(articleId) => {
-        try{
-            const response = await api. delete(`${url}/${projectId}`);
-            return response.data;
-        } catch(error){
-            console.error ("Error deleting project", error);
-            throw error;
-        }
-    }
 
-return {createProject,getAllProjects, getProjectById, updateProject, deleteProject }
+
+    // const getAllProjects = async() =>{
+    //     try{
+    //         const response = await api.get(url);
+    //         return response.data;
+    //     } catch (error) {
+    //         console.error ("Error getting projects", error);
+    //         throw error;
+    //     }
+    // }
+
+    // const getProjectById = async(id) =>{
+    //     try{
+    //         const response = await api.get(`${url}/${id}`);
+    //         return response.data;
+    //     } catch (error) {
+    //         console.error ("Error to obtains project details", error);
+    //         throw error;
+    //     }
+    // }
+
+    // const updateProject = async (projectId, userData) => {
+    // try {
+    //     const response = await api.put(`${url}/${projectId}`,userData); 
+    //     return response.data;
+    //     } catch (error) {
+    //     console.error("Error updating project", error);
+    //     throw error;
+    //     }
+    // }
+
+    // const deleteProject = async(projectId) => {
+    //     try{
+    //         const response = await api. delete(`${url}/${projectId}`);
+    //         return response.data;
+    //     } catch(error){
+    //         console.error ("Error deleting project", error);
+    //         throw error;
+    //     }
+    // }
+
+return {createProject, getPendingProjects  }
 
 }
 

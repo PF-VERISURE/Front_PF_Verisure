@@ -42,6 +42,9 @@ console.log(user);
         <NavLink to="/ongs/nuevo_proyecto">ongs/nuevo_proyecto</NavLink>
       </div>
       <div>
+        <NavLink to="/ongs/proyectos">ongs/projects</NavLink>
+      </div>
+      <div>
         <NavLink to="/login">Login</NavLink>
       </div>
     </>

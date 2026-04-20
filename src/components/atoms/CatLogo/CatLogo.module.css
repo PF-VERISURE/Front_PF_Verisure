@@ -12,7 +12,6 @@
     bottom: 110%; /* above the image */
     left: 50%;
     transform: translateX(-50%);
-    
     background-color: black;
     color: white;
     padding: 4px 8px;
