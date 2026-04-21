@@ -29,10 +29,10 @@ import api from "./api";
         }
     };
 
-    const getAllEmployees = async(id) =>{
+    const getAllEmployees = async() =>{
         try{
-            const response = await api.get(`${url}/employees`); 
-
+            const response = await api.get(`${url}/employees`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener datos de los usuarios", error);
             throw error;
@@ -62,7 +62,7 @@ import api from "./api";
         }
     };
 
-    const getAllOngs = async(id) =>{
+    const getAllOngs = async() =>{
         try{
             const response = await api.get(`${url}/gnos`); 
 
