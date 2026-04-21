@@ -46,6 +46,7 @@ const AdminVolontarioPerfiles = () => {
           <tr className={styles.tableHead}>
             <th>Nombre</th>
             <th>Correo</th>
+            <th>Estado</th>
             <th>Acción</th>
           </tr>
         </thead>
@@ -54,6 +55,7 @@ const AdminVolontarioPerfiles = () => {
             <tr key={v.id} className={styles.tableRow}>
               <td>{v.firstName} {v.lastName}</td>
               <td>{v.email}</td>
+              <td className={styles.estado}><span className={styles.dot}></span>Activo</td>
               <td>
                 <button className={styles.editButton}>Editar</button>
               </td>
