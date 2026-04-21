@@ -55,7 +55,7 @@ const AdminOngProfiles = () => {
             <tr key={index} className={styles.tableRow}>
               <td>{ong.organizationName}</td>
               <td>{ong.email}</td>
-              <td>Activo</td>
+              <td className={styles.estado}><span className={styles.dot}></span>Activo</td>
               <td>
                 <button className={styles.editButton}>Editar</button>
               </td>
