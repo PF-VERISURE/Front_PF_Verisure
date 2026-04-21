@@ -32,42 +32,72 @@ const UserProvider = ({ children }) => {
     try {
       console.log("Intentando login...");
 
-      const response = await UserService.login(credentials);
-      console.log("FULL RESPONSE:", response);
+      const userData = await UserService.login(credentials);
 
-      const authHeader = response.headers["authorization"];
-      if (!authHeader) {
-        throw new Error("No se recibió token del servidor");
-      }
-      const token = authHeader.replace("Bearer ", "");
-      const userData = response.data;
-
-      if (!token) {
-        throw new Error("No se recibió token del servidor");
-      }
+      console.log("FULL RESPONSE:", userData);
 
       const loggedUser = {
-      id: userData.profile.id,
-      email: userData.profile.email,
-      firstName: userData.profile.firstName,
-      lastName: userData.profile.lastName,
       role: userData.role,
-    };
+      name:
+        userData.role === "ONG"
+          ? userData.profileData?.organizationName
+          : userData.profileData?.firstName,
+      };
 
-      localStorage.setItem("token", token);
       localStorage.setItem("userData", JSON.stringify(loggedUser));
 
       setUser(loggedUser);
       setIsLogged(true);
 
-      console.log("Login exitoso");
-
       return loggedUser;
+
     } catch (error) {
       console.error("Error en login:", error);
       throw error;
     }
   };
+
+
+  // const login = async (credentials) => {
+  //   try {
+  //     console.log("Intentando login...");
+
+  //     const response = await UserService.login(credentials);
+  //     console.log("FULL RESPONSE:", response);
+
+  //     const authHeader = response.headers["authorization"];
+  //     if (!authHeader) {
+  //       throw new Error("No se recibió token del servidor");
+  //     }
+  //     const token = authHeader.replace("Bearer ", "");
+  //     const userData = response.data;
+
+  //     if (!token) {
+  //       throw new Error("No se recibió token del servidor");
+  //     }
+
+  //     const loggedUser = {
+  //     id: userData.profile.id,
+  //     email: userData.profile.email,
+  //     firstName: userData.profile.firstName,
+  //     lastName: userData.profile.lastName,
+  //     role: userData.role,
+  //   };
+
+  //     localStorage.setItem("token", token);
+  //     localStorage.setItem("userData", JSON.stringify(loggedUser));
+
+  //     setUser(loggedUser);
+  //     setIsLogged(true);
+
+  //     console.log("Login exitoso");
+
+  //     return loggedUser;
+  //   } catch (error) {
+  //     console.error("Error en login:", error);
+  //     throw error;
+  //   }
+  // };
 
   return (
     <UserContext.Provider

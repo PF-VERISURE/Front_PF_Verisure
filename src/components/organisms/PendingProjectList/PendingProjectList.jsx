@@ -8,24 +8,26 @@ const PendingProjectList = ({title}) => {
 
     useEffect(() => {
         const fetchProjects = async () => {
-        try {
-            const data = await ProjectService().getPendingProjects();
-            setProjects(data);
-        } catch (error) {
+            try {
+            const response = await ProjectService().getPendingProjects();
+            setProjects(response.data);
+            } catch (error) {
             console.error(error);
-        }
+            }
         };
 
         fetchProjects();
-    }, []);
+        }, []);
 
     return (
         <main className={style.main}>
             <h1>{title}</h1>
             <section className={style.cards}>
-            {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-            ))}
+            {Array.isArray(projects) &&
+                projects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))
+}
             </section>
         </main>
     );

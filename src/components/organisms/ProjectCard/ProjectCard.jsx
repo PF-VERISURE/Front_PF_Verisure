@@ -50,7 +50,7 @@ return (
 
     <section  className={style.section3}>
       <CatLogo categorie={project.sdgs?.[0]}/>
-      <PrimaryButton action="REGISTRAR" className="registrar" /*onClick={onClick}*//>
+      <PrimaryButton text="REGISTRAR" className="registrar" /*onClick={onClick}*//>
     </section>
   </main>
 )
