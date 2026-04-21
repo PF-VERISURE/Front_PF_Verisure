@@ -1,25 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
+import UserService from "../../../../services/UserService";
 import styles from "./AdminOngProfiles.module.css";
 
-const mockOngs = [
-  { id: 1, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 2, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 3, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 4, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 5, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 6, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 7, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-  { id: 8, nombre: "ONG1", correo: "ejemplo@gmail.com", estado: "Activo" },
-];
-
 const AdminOngProfiles = () => {
+  const [ongs, setOngs] = useState([]);
   const [search, setSearch] = useState("");
 
-  const filtered = mockOngs.filter(
+  useEffect(() => {
+    const fetchOngs = async () => {
+      try {
+        const response = await UserService.getAllOngs();
+        setOngs(response.gnoProfiles);
+      } catch (error) {
+        console.error("Error al cargar ONGs:", error);
+      }
+    };
+    fetchOngs();
+  }, []);
+
+  const filtered = ongs.filter(
     (ong) =>
-      ong.nombre.toLowerCase().includes(search.toLowerCase()) ||
-      ong.correo.toLowerCase().includes(search.toLowerCase())
+      ong.organizationName.toLowerCase().includes(search.toLowerCase()) ||
+      ong.email.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -48,11 +51,11 @@ const AdminOngProfiles = () => {
           </tr>
         </thead>
         <tbody>
-          {filtered.map((ong) => (
-            <tr key={ong.id} className={styles.tableRow}>
-              <td>{ong.nombre}</td>
-              <td>{ong.correo}</td>
-              <td>{ong.estado}</td>
+          {filtered.map((ong, index) => (
+            <tr key={index} className={styles.tableRow}>
+              <td>{ong.organizationName}</td>
+              <td>{ong.email}</td>
+              <td>Activo</td>
               <td>
                 <button className={styles.editButton}>Editar</button>
               </td>

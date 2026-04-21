@@ -62,10 +62,10 @@ import api from "./api";
         }
     };
 
-    const getAllOngs = async(id) =>{
+    const getAllOngs = async() =>{
         try{
-            const response = await api.get(`${url}/gnos`); 
-
+            const response = await api.get(`${url}/gnos`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener datos de las ongs", error);
             throw error;
