@@ -1,5 +1,5 @@
 import { PieChart, pieClasses } from '@mui/x-charts/PieChart';
-import { categories } from "../../../../utils/categories";
+import { categories } from "../../../utils/categories";
 
 
 const CATEGORY_COLORS = {

@@ -22,7 +22,7 @@ const CatLogo = ({ categorie }) => {
   }
 
   return (
-    <div className={style.wrapper}>
+    <section className={style.wrapper}>
       <img src={data.src} alt={data.label} className={style.logo} />
 
       <span
@@ -33,7 +33,7 @@ const CatLogo = ({ categorie }) => {
       >
         {data.label}
       </span>
-    </div>
+    </section>
   );
 };
 

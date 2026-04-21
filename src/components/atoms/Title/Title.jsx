@@ -3,9 +3,9 @@ import style from "./Title.module.css"
 
 const Title = ({title}) => {
   return (
-    <main>
+    <section>
         <h1 className={style.title}>{title}</h1>
-    </main>
+    </section>
   )
 }
 
