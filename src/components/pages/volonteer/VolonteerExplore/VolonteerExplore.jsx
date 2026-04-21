@@ -1,11 +1,11 @@
 import React from 'react'
 import style from "./VolonteerExplore.module.css"
-import ProjectList from '../../../organisms/ProjectList/ProjectList'
+import AllProjectsList from '../../../organisms/AllProjectsList/AllProjectsList'
 
 const VolonteerExplore = () => {
   return (
     <main className={style.main}>
-      <ProjectList title="EXPLORAR PROYECTOS"/>
+      <AllProjectsList  title="EXPLORAR PROYECTOS" />
     </main>
   )
 }

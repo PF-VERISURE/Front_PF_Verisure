@@ -9,6 +9,19 @@ import Produccion_Responsables from "../assets/Cat_Icons/Produccion_Responsables
 import Reduccion_Desigualdades from "../assets/Cat_Icons/Reduccion_Desigualdades.png";
 import Vida_Submarina from "../assets/Cat_Icons/Vida_Submarina.png";
 
+export const CATEGORY_COLORS = {
+  No_Pobreza: 'rgb(229, 36, 59)',
+  Hambre_Cero: 'rgb(221, 166, 58)',
+  Buena_Salud: 'rgb(76, 159, 56)',
+  Igualdad_Genero: 'rgb(255, 58, 33)',
+  Agua_Limpia: 'rgb(38, 189, 226)',
+  Energia_Limpia: 'rgb(252, 195, 11)',
+  Vida_Submarina: 'rgb(10, 151, 217)',
+  Reduccion_Desigualdades: 'rgb(221, 19, 103)',
+  Ciudad_Sostenibles: 'rgb(253, 157, 36)',
+  Produccion_Responsables: 'rgb(191, 139, 46)',
+};
+
 export const categories = {
   "Fin de la pobreza": {
     label: "Fin de la pobreza",

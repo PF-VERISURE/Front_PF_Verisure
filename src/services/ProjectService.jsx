@@ -24,18 +24,15 @@ const ProjectService =() =>{
         }
     };
 
-
-
-
-    // const getAllProjects = async() =>{
-    //     try{
-    //         const response = await api.get(url);
-    //         return response.data;
-    //     } catch (error) {
-    //         console.error ("Error getting projects", error);
-    //         throw error;
-    //     }
-    // }
+    const getAllProjects = async() =>{
+        try{
+            const response = await api.get(url);
+            return response.data;
+        } catch (error) {
+            console.error ("Error getting projects", error);
+            throw error;
+        }
+    }
 
     // const getProjectById = async(id) =>{
     //     try{
@@ -67,7 +64,7 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects  }
+return {createProject, getPendingProjects, getAllProjects  }
 
 }
 

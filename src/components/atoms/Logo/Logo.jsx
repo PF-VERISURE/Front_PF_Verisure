@@ -6,9 +6,9 @@ import style from "./Logo.module.css"
 
 const Logo = () => {
   return (
-    <main>
+    <>
       <NavLink to="/"><img src={img} alt="Logo Verisure" className={style.logo}/></NavLink>
-    </main>
+    </>
   )
 }
 
