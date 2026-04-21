@@ -4,17 +4,33 @@ import api from "./api";
     const url = "/api/v1";
 
     //LOGIN
+    //     const login = async (credentials) => {
+    //     try {
+    //     const response = await axios.post(`http://localhost:8080/api/v1/auth/login`, credentials);
+    //     // const token = response.data.token;
+    //     // localStorage.setItem("token", token);
+    //     return response;
+    //     } catch (error) {
+    //     console.error("Login error:", error.response?.data);
+    //     throw error;
+    //     }
+    // };
 
-        const login = async (credentials) => {
-        try {
-        const response = await axios.post(`http://localhost:8080/api/v1/auth/login`, credentials);
-        // const token = response.data.token;
-        // localStorage.setItem("token", token);
-        return response;
-        } catch (error) {
-        console.error("Login error:", error.response?.data);
-        throw error;
-        }
+    const login = async (credentials) => {
+    const response = await axios.post("http://localhost:8080/api/v1/auth/login", credentials);
+
+    const token =
+        response.headers?.get?.("authorization") ||
+        response.headers?.authorization ||
+        response.headers?.Authorization;
+
+    if (!token) {
+        throw new Error("Token not found");
+    }
+
+    localStorage.setItem("token", token.replace("Bearer ", ""));
+
+    return response.data; // ONLY user info
     };
 
     //EMPLOYEES
