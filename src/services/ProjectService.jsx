@@ -64,7 +64,17 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects, getAllProjects  }
+    const publishProject = async (id) => {
+        try {
+            const response = await api.patch(`${url}/${id}/publish`);
+            return response.data;
+        } catch (error) {
+            console.error("Error al publicar los proyectos", error);
+            throw error;
+        }
+    };
+
+return {createProject, getPendingProjects, getAllProjects, publishProject}
 
 }
 

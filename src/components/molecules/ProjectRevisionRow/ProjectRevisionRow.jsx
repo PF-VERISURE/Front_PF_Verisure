@@ -3,8 +3,13 @@ import StatusBadge from "../../atoms/StatusBadge/StatusBadge";
 import ProjectInfoModal from "../ProjectInfoModal/ProjectInfoModal";
 import styles from "./ProjectRevisionRow.module.css";
 
-const ProjectRevisionRow = ({ project }) => {
+const ProjectRevisionRow = ({ project, onApprove }) => {
   const [showModal, setShowModal] = useState(false);
+
+  const handleApprove = async () => {
+    await onApprove(project.id);
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -18,6 +23,7 @@ const ProjectRevisionRow = ({ project }) => {
         <ProjectInfoModal
           project={project}
           onClose={() => setShowModal(false)}
+          onApprove={handleApprove}
         />
       )}
     </>

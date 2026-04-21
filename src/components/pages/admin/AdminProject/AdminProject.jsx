@@ -6,6 +6,7 @@ import ArchivedSection from "../../../organisms/ArchivedSection/ArchivedSection"
 import ProjectService from "../../../../services/ProjectService";
 import styles from "./AdminProject.module.css";
 
+
 const mockActivos = [
   { id: 4, gnoName: "Médicos Sin Fronteras (MSF)", title: "Esperanza a la fuerza", participants: ["Zoey Broks", "Lola Queen", "Drake Bell"], totalApplications: 10, totalVolunteers: 26, sdgs: ["Salud y bienestar"], locationType: "Presencial", startDate: "2026-03-01", endDate: "2026-04-01", totalHours: 50, description: "Programa de atención médica para comunidades vulnerables en zonas remotas." },
   { id: 5, gnoName: "Greenpeace España", title: "Ciudades en Verde", participants: ["Zoey Broks", "Lola Queen", "Drake Bell"], totalApplications: 10, totalVolunteers: 26, sdgs: ["Ciudades y comunidades sostenibles"], locationType: "Híbrido", startDate: "2026-03-15", endDate: "2026-05-15", totalHours: 30, description: "Iniciativa para crear espacios verdes urbanos y mejorar la calidad del aire en las ciudades." },
@@ -44,7 +45,7 @@ const AdminProject = () => {
       <ActivesSection proyectos={mockActivos} />
       <ArchivedSection proyectos={mockArchivados} />
     </div>
-  );
+  )
 };
 
 export default AdminProject;

@@ -6,7 +6,7 @@ const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleDateString("es-ES");
 };
 
-const ProjectInfoModal = ({ project, onClose }) => {
+const ProjectInfoModal = ({ project, onClose, onApprove }) => {
   if (!project) return null;
 
   const fields = [
@@ -49,7 +49,7 @@ const ProjectInfoModal = ({ project, onClose }) => {
           </tbody>
         </table>
         <div className={styles.actions}>
-          <button className={styles.btnAprobar}>Aprobar</button>
+          <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
           <button className={styles.btnRechazar}>Rechazar</button>
           <button className={styles.btnInfo}>Pedir Información</button>
         </div>
