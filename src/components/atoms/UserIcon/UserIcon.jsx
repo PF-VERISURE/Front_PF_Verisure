@@ -5,9 +5,9 @@ import style from "./UserIcon.module.css"
 
 const UserIcon = () => {
   return (
-    <main>
+    <>
         <NavLink to="/login"><img src={img} alt='Icono de usuario' className={style.img}/></NavLink>
-    </main>
+    </>
   )
 }
 

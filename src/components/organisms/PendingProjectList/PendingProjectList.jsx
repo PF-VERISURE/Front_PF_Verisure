@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProjectService from "../../../services/ProjectService";
-import ProjectCard from "../../organisms/ProjectCard/ProjectCard";
-import style from "./ProjectList.module.css"
+import ProjectCard from "../ProjectCard/ProjectCard";
+import style from "./PendingProjectList.module.css"
 
-const ProjectList = ({title}) => {
+const PendingProjectList = ({title}) => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -31,4 +31,4 @@ const ProjectList = ({title}) => {
     );
 };
 
-export default ProjectList;
+export default PendingProjectList;

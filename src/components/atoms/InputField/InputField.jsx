@@ -5,7 +5,7 @@ function InputField({ label, type = "text", name, placeholder, value, onChange, 
   const inputClass = `${styles.input} ${error ? styles.error : ""}`;
 
   return (
-    <div className={styles.field}>
+    <section className={styles.field}>
       <label htmlFor={name} className={styles.label}>
         {label}
       </label>
@@ -20,7 +20,7 @@ function InputField({ label, type = "text", name, placeholder, value, onChange, 
         className={inputClass}
       />
       {error && <span className={styles.errorText}>Campo obligatorio</span>}
-    </div>
+    </section>
   );
 }
 
