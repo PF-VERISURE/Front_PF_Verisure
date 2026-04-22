@@ -35,8 +35,16 @@ const AdminProject = () => {
   };
 
   useEffect(() => {
+    const fetchRevision = async () => {
+      try {
+        const response = await ProjectService().getPendingProjects();
+        setRevision(response.data);
+      } catch (error) {
+        console.error("Error al cargar proyectos en revisión:", error);
+      }
+    };
     fetchRevision();
-    fetchActivos();
+    
   }, []);
 
   const handleApprove = async (id) => {
