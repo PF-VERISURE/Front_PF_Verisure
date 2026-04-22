@@ -28,7 +28,7 @@ const AdminProject = () => {
   const fetchActivos = async () => {
     try {
       const response = await ProjectService().getPublishedProjects();
-      setActivos(response.data);
+      setActivos(response);
     } catch (error) {
       console.error("Error al cargar proyectos activos:", error);
     }

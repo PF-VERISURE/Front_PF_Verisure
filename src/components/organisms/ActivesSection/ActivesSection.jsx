@@ -1,7 +1,8 @@
 import ProjectActiveRow from "../../molecules/ProjectActiveRow/ProjectActiveRow";
 import styles from "./ActivesSection.module.css";
 
-const ActivesSection = ({ projects  }) => {
+const ActivesSection = ({ proyectos }) => {
+  const projects = proyectos || [];
   if (projects.length === 0) {
     return (
       <div className={styles.section}>
