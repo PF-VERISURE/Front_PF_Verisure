@@ -17,6 +17,7 @@ import Login from '../components/pages/Login/Login';
 import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 import OngProjects from '../components/pages/ong/OngProject/OngProjects';
 import AuthLayout from '../layout/AuthLayout';
+import PublishedProjectsList from '../components/organisms/PublishedProjectsList/PublishedProjectsList';
 
 
 export const router = createBrowserRouter([
@@ -56,7 +57,7 @@ export const router = createBrowserRouter([
         Component: VolonteerDashboard,
         children:[
           { index: true, Component: VolonteerExplore },
-          { path: "proyectos", Component: VolonteerProject },
+          { path: "proyectos", Component: VolonteerExplore },
           { path: "certificados", Component: VolonteerCertificates }
         ]
       },
@@ -66,7 +67,7 @@ export const router = createBrowserRouter([
         Component: OngDashboard,
         children:[
           { index: true, Component: OngNewProject },
-          { path: "proyectos", Component: OngProjects },
+          { path: "proyectos", Component: PublishedProjectsList },
           { path: "nuevo_proyecto", Component: OngNewProject }
         ]
       },

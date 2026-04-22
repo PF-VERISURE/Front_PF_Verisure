@@ -24,11 +24,10 @@ const ProjectService =() =>{
         }
     };
 
-
-    const getAllProjects = async() =>{
+    const getPublishedProjects = async() =>{
         try{
-        const res = await api.get("/projects/all");
-        return res.data.data; // 👈 return clean array
+        const res = await api.get(`${url}/published`);
+        return res.data.data;
             }
             catch (error) {
                 console.error ("Error getting projects", error);
@@ -66,7 +65,7 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects, getAllProjects  }
+return {createProject, getPendingProjects,  getPublishedProjects  }
 
 }
 

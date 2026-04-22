@@ -8,7 +8,7 @@ import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
 
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({project, onClick, isApplied}) => {
 
 // const [currentProject, setCurrentProject] = useState(project);
     const details = [
@@ -48,10 +48,23 @@ return (
       <ProjectDetails details={details}/>
     </section>
 
-    <section  className={style.section3}>
-      <CatLogo categorie={project.sdgs?.[0]}/>
-      <PrimaryButton text="REGISTRAR" className="registrar" /*onClick={onClick}*//>
-    </section>
+    <section className={style.section3}>
+  <CatLogo categorie={project.sdgs?.[0]} />
+
+  {isApplied ? (
+    <PrimaryButton
+      text="YA INSCRITO"
+      className="disabled"
+      onClick={null}
+    />
+  ) : (
+    <PrimaryButton
+      text="REGISTRAR"
+      className="registrar"
+      onClick={() => onClick(project.id)}
+    />
+  )}
+</section>
   </main>
 )
 };
