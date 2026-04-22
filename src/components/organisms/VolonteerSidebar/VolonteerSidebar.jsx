@@ -18,11 +18,11 @@ const VolonteerSidebar = () => {
                     />
                 </div>
 
-                <div className={location.pathname === "/voluntario" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario/mis_proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={BookOpen}
                         label="Mis Programas"
-                        onClick={() => navigate("/voluntario")}
+                        onClick={() => navigate("/voluntario/mis_proyectos")}
                     />
                 </div>
 

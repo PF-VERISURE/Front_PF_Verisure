@@ -53,8 +53,8 @@ return (
 
   {isApplied ? (
     <PrimaryButton
-      text="YA INSCRITO"
-      className="disabled"
+      text="INSCRITO"
+      className="inscrito"
       onClick={null}
     />
   ) : (

@@ -3,13 +3,15 @@ import ProjectService from "../../../services/ProjectService";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import style from "./PublishedProjectsList.module.css";
 import ApplicationService from "../../../services/ApplicationService";
+import Title from "../../atoms/Title/Title";
+import { useApplications } from "../../../hooks/useApplications"
 
 const PublishedProjectsList = ({ title }) => {
     const [projects, setProjects] = useState([]);
-    const [appliedProjects, setAppliedProjects] = useState([]);
+    const { appliedProjectIds } = useApplications();
 
     useEffect(() => {
-        const fetchProjects = async () => {
+        const fetchData = async () => {
             try {
                 const projects = await ProjectService().getPublishedProjects();
                 setProjects(projects);
@@ -18,35 +20,30 @@ const PublishedProjectsList = ({ title }) => {
             }
         };
 
-        fetchProjects();
+        fetchData();
     }, []);
 
     const handleApply = async (projectId) => {
         try {
             await ApplicationService.applyToProject(projectId);
-
-            setAppliedProjects((prev) =>
-            prev.includes(projectId) ? prev : [...prev, projectId]
-                );
-
         } catch (error) {
-            if (error.response?.status === 409) {
-            setAppliedProjects((prev) => [...prev, projectId]);
-            } else {
             console.error(error);
-            }
         }
-        };
+    };
 
     return (
         <main className={style.main}>
-            <h1>{title}</h1>
+            <Title title={title} />
 
             <section className={style.cards}>
-                {Array.isArray(projects) &&
-                    projects.map((project) => (
-                        <ProjectCard key={project.id} project={project} onClick={handleApply} isApplied={appliedProjects.includes(project.id)}/>
-                    ))}
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={project.id}
+                        project={project}
+                        onClick={handleApply}
+                        isApplied={appliedProjectIds.includes(project.id)}
+                    />
+                ))}
             </section>
         </main>
     );

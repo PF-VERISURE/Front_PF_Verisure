@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Rutas from '../components/pages/Rutas'
 import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore/VolonteerExplore'
 import VolonteerDashboard from '../components/pages/volonteer/VolonteerDashboard'
-import VolonteerProject from '../components/pages/volonteer/VolonteerProject'
+import VolonteerProject from '../components/pages/volonteer/VolonteerProject/VolonteerProject'
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
@@ -56,8 +56,8 @@ export const router = createBrowserRouter([
         path:"voluntario",
         Component: VolonteerDashboard,
         children:[
-          { index: true, Component: VolonteerExplore },
-          { path: "proyectos", Component: VolonteerExplore },
+          { index: true, path: "proyectos", Component: VolonteerExplore },
+          { path: "mis_proyectos", Component: VolonteerProject },
           { path: "certificados", Component: VolonteerCertificates }
         ]
       },
