@@ -1,11 +1,9 @@
-import styles from "./AdminPage.module.css";
+import React from 'react'
 
 const AdminPage = () => {
   return (
-    <section className={styles.container}>
-     
-    </section>
-  );
-};
+    <div>AdminPage</div>
+  )
+}
 
-export default AdminPage;
+export default AdminPage

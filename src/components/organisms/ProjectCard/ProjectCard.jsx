@@ -6,11 +6,15 @@ import { formatDateRange } from '../../../utils/dateFormatting'
 import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
+import { PROJECT_STATUS_UI } from "../../../utils/ProjectStatus";
 
 
-const ProjectCard = ({project, onClick, isApplied}) => {
+const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) => {
 
-// const [currentProject, setCurrentProject] = useState(project);
+  const isOwnerView = mode === "owner";
+  const isPublicView = mode === "public";
+  const ui = PROJECT_STATUS_UI[project.status];
+
     const details = [
   {
     label: "Fechas",
@@ -49,23 +53,33 @@ return (
     </section>
 
     <section className={style.section3}>
-  <CatLogo categorie={project.sdgs?.[0]} />
+      <CatLogo categorie={project.sdgs?.[0]} />
 
-  {isApplied ? (
-    <PrimaryButton
-      text="INSCRITO"
-      className="inscrito"
-      onClick={null}
-    />
-  ) : (
-    <PrimaryButton
-      text="REGISTRAR"
-      className="registrar"
-      onClick={() => onClick(project.id)}
-    />
-  )}
-</section>
-  </main>
+
+
+      {isOwnerView && (
+        <span className={style[ui.className]}>
+        {ui.label}
+      </span>
+      )}
+
+      {isPublicView && project.status === "PUBLISHED" && (
+        <PrimaryButton
+          text="REGISTRAR"
+          className="registrar"
+          onClick={() => onClick(project.id)}
+        />
+      )}
+
+      {isPublicView && project.status !== "PUBLISHED" && (
+        <PrimaryButton
+          text="NO DISPONIBLE"
+          className="disabled"
+          onClick={null}
+        />
+      )}
+    </section>
+    </main>
 )
 };
 

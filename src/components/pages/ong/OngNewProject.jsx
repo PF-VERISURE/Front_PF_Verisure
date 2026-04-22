@@ -6,6 +6,9 @@ import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../atoms/SecondaryButton/SecondaryButton";
 import styles from "./OngNewProject.module.css";
 import ProjectService from "../../../services/ProjectService";
+import { useModal } from "../../../hooks/useModal";
+import { InfoModal } from "../../templates/Modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 const CATEGORIA_OPTIONS = [
   { value: 1, label: "Agua limpia y saneamiento" },
@@ -59,6 +62,9 @@ const OngNewProject = () => {
 
   const projectService = ProjectService(); 
 
+  const infoModal = useModal();
+  const navigate = useNavigate();
+
    const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -82,9 +88,9 @@ const OngNewProject = () => {
       if (image) formData.append("file", image);
 
       const data = await projectService.createProject(formData);
-      console.log("Project created:", data);
       setForm({ ...initialState });
       setImage(null);
+      infoModal.open(); 
 
   } catch (error) {
     console.error("Error al crear el proyecto", error);
@@ -215,6 +221,22 @@ const OngNewProject = () => {
         <PrimaryButton text="Guardar" type="submit" />
         <SecondaryButton text="Cancelar" />
       </div>
+
+      {infoModal.isOpen && (
+        <InfoModal
+          text={
+            <div>
+              <div>Proyecto creado exitosamente!</div>
+              <div>Ya está disponible para voluntarios.</div>
+            </div>
+          }
+          onClose={() => {
+          infoModal.close();
+          navigate("/ongs/proyectos");
+        }}
+        />
+      )}
+
     </form>
   );
 };

@@ -42,3 +42,28 @@ section{
     justify-content: space-between;
     align-items: flex-end;
 }
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.published {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.completed {
+    color: blue;
+    font-weight: bold;
+}
+
+.canceled {
+    color: gray;
+    font-weight: bold;
+}
