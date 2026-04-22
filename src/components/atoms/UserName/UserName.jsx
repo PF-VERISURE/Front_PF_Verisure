@@ -15,7 +15,7 @@ const getDisplayName = (user) => {
   }
 
   if (user.role === "EMPLOYEE") {
-    return user.firstName ?? "Employee";
+    return user.name ?? "Employee";
   }
 
   return "User";

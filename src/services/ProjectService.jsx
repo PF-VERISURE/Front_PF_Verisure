@@ -36,6 +36,17 @@ const ProjectService =() =>{
         }
     
 
+        const getOngProjects = async() =>{
+        try{
+        const res = await api.get(`${url}/my-projects`);
+        return res.data.data;
+            }
+            catch (error) {
+                console.error ("Error getting projects", error);
+                throw error;
+            }
+        }
+
     // const getProjectById = async(id) =>{
     //     try{
     //         const response = await api.get(`${url}/${id}`);
@@ -66,7 +77,6 @@ const ProjectService =() =>{
     //     }
     // }
 
-
     const updateProjectStatus = async (id, status) => {
         try {
             const response = await api.patch(`${url}/${id}/status`, { status });
@@ -78,7 +88,7 @@ const ProjectService =() =>{
         
     };
 
-return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus}
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects}
 
  }
 
