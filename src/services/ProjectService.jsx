@@ -34,7 +34,7 @@ const ProjectService =() =>{
                 throw error;
             }
         }
-    }
+    
 
     // const getProjectById = async(id) =>{
     //     try{
@@ -66,15 +66,6 @@ const ProjectService =() =>{
     //     }
     // }
 
-    const getPublishedProjects = async () => {
-        try {
-            const response = await api.get(`${url}/published`);
-            return response.data;
-        } catch (error) {
-            console.error("Error al obtener proyectos publicados", error);
-            throw error;
-        }
-    };
 
     const updateProjectStatus = async (id, status) => {
         try {
@@ -84,10 +75,11 @@ const ProjectService =() =>{
             console.error("Error al actualizar estado del proyecto", error);
             throw error;
         }
+        
     };
 
-return {createProject, getPendingProjects, getAllProjects, getPublishedProjects, updateProjectStatus}
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus}
 
-
+ }
 
 export default ProjectService;
