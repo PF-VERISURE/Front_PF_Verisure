@@ -2,7 +2,8 @@ import ProjectActiveRow from "../../molecules/ProjectActiveRow/ProjectActiveRow"
 import styles from "./ActivesSection.module.css";
 
 const ActivesSection = ({ proyectos }) => {
-  if (proyectos.length === 0) {
+  const projects = proyectos || [];
+  if (projects.length === 0) {
     return (
       <div className={styles.section}>
         <div className={styles.sectionTitle}>ACTIVOS</div>
@@ -21,14 +22,10 @@ const ActivesSection = ({ proyectos }) => {
         <span>Número de vacantes</span>
         <span>Acción</span>
       </div>
-      {proyectos.map((p) => (
+      {projects.map((p) => (
         <ProjectActiveRow
           key={p.id}
-          gnoName={p.gnoName}
-          title={p.title}
-          participants={p.participants}
-          totalApplications={p.totalApplications}
-          totalVolunteers={p.totalVolunteers}
+          project={p}
         />
       ))}
     </div>

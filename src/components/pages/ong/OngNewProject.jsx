@@ -28,6 +28,7 @@ const MODALIDAD_OPTIONS = [
 ];
 
 const OngNewProject = () => {
+  const [image, setImage] = useState(null);
   const [form, setForm] = useState({
     title:"",
     sdgIds:"",
@@ -37,7 +38,9 @@ const OngNewProject = () => {
     requiredVolunteers:"",
     totalHours:"",
     description:"",
-    impactUnit: "hours", 
+    impactUnit: "hours",
+    address:"",
+    city:"",
   });
 
   const initialState = {
@@ -50,6 +53,8 @@ const OngNewProject = () => {
   totalHours:"",
   description:"",
   impactUnit: "hours",
+  address:"",
+  city:"",
 };
 
   const projectService = ProjectService(); 
@@ -67,21 +72,24 @@ const OngNewProject = () => {
       endDate: form.endDate + "T00:00:00Z",
       locationType: form.locationType,
       impactUnit: "hours",
+      address: form.address,
+      city: form.city,
       sdgIds: form.sdgIds ? [Number(form.sdgIds)] : []
     };
 
-  console.log("SENDING:", payload);
+    const formData = new FormData();
+      formData.append("project", new Blob([JSON.stringify(payload)], { type: "application/json" }));
+      if (image) formData.append("file", image);
 
-  const data = await projectService.createProject(payload);
-
-  console.log("Project created:", data);
-
-  setForm({ ...initialState });
+      const data = await projectService.createProject(formData);
+      console.log("Project created:", data);
+      setForm({ ...initialState });
+      setImage(null);
 
   } catch (error) {
-    console.error("Error creating project", error);
+    console.error("Error al crear el proyecto", error);
   }
-    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -123,6 +131,26 @@ const OngNewProject = () => {
           />
         </FormRow>
 
+        <FormRow label="Dirección">
+          <input
+            name="address"
+            type="text"
+            value={form.address}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </FormRow>
+
+        <FormRow label="Ciudad">
+          <input
+            name="city"
+            type="text"
+            value={form.city}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </FormRow>
+
         <FormRow label="Fecha de Inicio">
           <input
             name="startDate"
@@ -159,6 +187,16 @@ const OngNewProject = () => {
             type="text"
             value={form.totalHours}
             onChange={handleChange}
+            className={styles.input}
+          />
+        </FormRow>
+
+        <FormRow label="Imagen">
+          <input
+            name="image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
             className={styles.input}
           />
         </FormRow>

@@ -1,24 +1,32 @@
 import { useState } from "react";
 import ParticipantsModal from "../ParticipantsModal/ParticipantsModal";
+import ProjectInfoModal from "../ProjectInfoModal/ProjectInfoModal";
 import styles from "./ProjectArchivedRow.module.css";
 
-const ProjectArchivedRow = ({ gnoName, title, participants, totalApplications, totalVolunteers }) => {
-  const [showModal, setShowModal] = useState(false);
+const ProjectArchivedRow = ({ project }) => {
+  const [showParticipants, setShowParticipants] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   return (
     <>
-      <div className={styles.row}>
-        <span>{gnoName || "Sin nombre de ONG"}</span>
-        <span>{title || "Sin título de proyecto"}</span>
-        <button className={styles.verBtn} onClick={() => setShowModal(true)}>
+      <div className={styles.row} onClick={() => setShowInfo(true)}>
+        <span>{project.gnoName || "Sin nombre de ONG"}</span>
+        <span>{project.title || "Sin título de proyecto"}</span>
+        <button className={styles.verBtn} onClick={(e) => { e.stopPropagation(); setShowParticipants(true); }}>
           Ver participantes
         </button>
-        <span>{totalApplications}/{totalVolunteers}</span>
+        <span>{project.totalApplications}/{project.totalVolunteers}</span>
       </div>
-      {showModal && (
+      {showParticipants && (
         <ParticipantsModal
-          participants={participants}
-          onClose={() => setShowModal(false)}
+          participants={project.participants}
+          onClose={() => setShowParticipants(false)}
+        />
+      )}
+      {showInfo && (
+        <ProjectInfoModal
+          project={project}
+          onClose={() => setShowInfo(false)}
         />
       )}
     </>

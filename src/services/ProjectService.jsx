@@ -34,6 +34,7 @@ const ProjectService =() =>{
                 throw error;
             }
         }
+    
 
     // const getProjectById = async(id) =>{
     //     try{
@@ -65,8 +66,20 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects,  getPublishedProjects  }
 
-}
+    const updateProjectStatus = async (id, status) => {
+        try {
+            const response = await api.patch(`${url}/${id}/status`, { status });
+            return response.data;
+        } catch (error) {
+            console.error("Error al actualizar estado del proyecto", error);
+            throw error;
+        }
+        
+    };
+
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus}
+
+ }
 
 export default ProjectService;
