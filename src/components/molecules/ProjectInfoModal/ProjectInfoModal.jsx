@@ -16,7 +16,7 @@ const ProjectInfoModal = ({ project, onClose, onApprove }) => {
     { label: "Modalidad", value: project.locationType || "Sin modalidad", icon: MapPin },
     { label: "Fecha de Inicio", value: formatDate(project.startDate), icon: Calendar },
     { label: "Fecha de finalización", value: formatDate(project.endDate), icon: CalendarCheck },
-    { label: "Número de voluntarios", value: project.totalVolunteers ?? "Sin dato de voluntarios", icon: Users },
+    { label: "Número de voluntarios", value: project.requiredVolunteers ?? "Sin dato de voluntarios", icon: Users },
     { label: "Número de aplicaciones", value: project.totalApplications ?? "Sin dato de aplicaciones", icon: ClipboardList },
     { label: "Horas", value: project.totalHours ? `${project.totalHours} horas` : "Sin horas registradas", icon: Clock },
   ];

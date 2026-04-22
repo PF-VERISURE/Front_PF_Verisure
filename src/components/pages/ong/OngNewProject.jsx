@@ -87,10 +87,9 @@ const OngNewProject = () => {
       setImage(null);
 
   } catch (error) {
-    console.error("Error creating project", error);
+    console.error("Error al crear el proyecto", error);
   }
-    }
-  }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -218,6 +217,6 @@ const OngNewProject = () => {
       </div>
     </form>
   );
-
+};
 
 export default OngNewProject;
