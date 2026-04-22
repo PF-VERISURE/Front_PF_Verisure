@@ -13,7 +13,7 @@ const VolonteerSidebar = () => {
                 <div className={location.pathname === "/voluntario/proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={Compass}
-                        label="Explorar Programas"
+                        label="Explorar Proyectos"
                         onClick={() => navigate("/voluntario/proyectos")}
                     />
                 </div>
@@ -21,7 +21,7 @@ const VolonteerSidebar = () => {
                 <div className={location.pathname === "/voluntario/mis_proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={BookOpen}
-                        label="Mis Programas"
+                        label="Mis Voluntariados"
                         onClick={() => navigate("/voluntario/mis_proyectos")}
                     />
                 </div>
