@@ -66,17 +66,27 @@ const ProjectService =() =>{
     //     }
     // }
 
-    const publishProject = async (id) => {
+    const getPublishedProjects = async () => {
         try {
-            const response = await api.patch(`${url}/${id}/publish`);
+            const response = await api.get(`${url}/published`);
             return response.data;
         } catch (error) {
-            console.error("Error al publicar los proyectos", error);
+            console.error("Error al obtener proyectos publicados", error);
             throw error;
         }
     };
 
-return {createProject, getPendingProjects, getAllProjects, publishProject}
+    const updateProjectStatus = async (id, status) => {
+        try {
+            const response = await api.patch(`${url}/${id}/status`, { status });
+            return response.data;
+        } catch (error) {
+            console.error("Error al actualizar estado del proyecto", error);
+            throw error;
+        }
+    };
+
+return {createProject, getPendingProjects, getAllProjects, getPublishedProjects, updateProjectStatus}
 
 }
 

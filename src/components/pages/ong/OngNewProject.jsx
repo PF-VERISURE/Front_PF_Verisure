@@ -58,30 +58,29 @@ const OngNewProject = () => {
     e.preventDefault();
 
     try {
-    const payload = {
-      title: form.title,
-      description: form.description,
-      totalHours: Number(form.totalHours),
-      requiredVolunteers: Number(form.requiredVolunteers),
-      startDate: form.startDate + "T00:00:00Z",
-      endDate: form.endDate + "T00:00:00Z",
-      locationType: form.locationType,
-      impactUnit: "hours",
-      sdgIds: form.sdgIds ? [Number(form.sdgIds)] : []
-    };
+      const projectData = {
+        title: form.title,
+        description: form.description,
+        totalHours: Number(form.totalHours),
+        requiredVolunteers: Number(form.requiredVolunteers),
+        startDate: form.startDate + "T00:00:00Z",
+        endDate: form.endDate + "T00:00:00Z",
+        locationType: form.locationType,
+        impactUnit: "hours",
+        sdgIds: form.sdgIds ? [Number(form.sdgIds)] : []
+      };
 
-  console.log("SENDING:", payload);
+      const formData = new FormData();
+      formData.append("project", new Blob([JSON.stringify(projectData)], { type: "application/json" }));
 
-  const data = await projectService.createProject(payload);
+      const data = await projectService.createProject(formData);
+      console.log("Project created:", data);
+      setForm({ ...initialState });
 
-  console.log("Project created:", data);
-
-  setForm({ ...initialState });
-
-  } catch (error) {
-    console.error("Error creating project", error);
-  }
+    } catch (error) {
+      console.error("Error creating project", error);
     }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
