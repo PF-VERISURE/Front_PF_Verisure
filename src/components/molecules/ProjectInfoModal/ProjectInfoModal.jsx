@@ -48,11 +48,13 @@ const ProjectInfoModal = ({ project, onClose, onApprove }) => {
             </tr>
           </tbody>
         </table>
-        <div className={styles.actions}>
-          <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
-          <button className={styles.btnRechazar}>Rechazar</button>
-          <button className={styles.btnInfo}>Pedir Información</button>
-        </div>
+        {onApprove && (
+          <div className={styles.actions}>
+            <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
+            <button className={styles.btnRechazar}>Rechazar</button>
+            <button className={styles.btnInfo}>Pedir Información</button>
+          </div>
+        )}
       </div>
     </div>
   );
