@@ -1,14 +1,14 @@
 import React from 'react'
 import style from "./OngProjects.module.css"
-import PendingProjectList from '../../../organisms/PendingProjectList/PendingProjectList'
-import PublishedProjectsList from '../../../organisms/PublishedProjectsList/PublishedProjectsList'
+import OngMyProjects from '../../../organisms/OngMyProjects/OngMyProjects'
+
+
 
 const OngProjects = ({title}) => {
   return (
     <main className={style.main}>
       <h1>{title}</h1>
-      <PendingProjectList title="EXPLORAR PROYECTOS"/>
-      {/* <PublishedProjectsList/> */}
+      <OngMyProjects title="Mis Proyectos"/>
     </main>
   )
 }

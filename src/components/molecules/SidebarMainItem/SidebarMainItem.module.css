@@ -18,10 +18,12 @@
   gap: 14px;
   color: var(--rgb-red);
   font-size: 14px;
+  margin: 5px;
 }
 
 .chevron {
   display: flex;
   align-items: center;
   color: #7a7a7a;
+  margin: 5px;
 }
