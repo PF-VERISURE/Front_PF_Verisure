@@ -27,14 +27,13 @@ const ProjectService =() =>{
 
     const getAllProjects = async() =>{
         try{
-        const res = await api.get("/projects/all");
-        return res.data.data; // 👈 return clean array
-            }
-            catch (error) {
-                console.error ("Error getting projects", error);
-                throw error;
-            }
+            const response = await api.get(`${url}/all`);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting projects", error);
+            throw error;
         }
+    }
 
     // const getProjectById = async(id) =>{
     //     try{
@@ -66,7 +65,27 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects, getAllProjects  }
+    const getPublishedProjects = async () => {
+        try {
+            const response = await api.get(`${url}/published`);
+            return response.data;
+        } catch (error) {
+            console.error("Error al obtener proyectos publicados", error);
+            throw error;
+        }
+    };
+
+    const updateProjectStatus = async (id, status) => {
+        try {
+            const response = await api.patch(`${url}/${id}/status`, { status });
+            return response.data;
+        } catch (error) {
+            console.error("Error al actualizar estado del proyecto", error);
+            throw error;
+        }
+    };
+
+return {createProject, getPendingProjects, getAllProjects, getPublishedProjects, updateProjectStatus}
 
 }
 

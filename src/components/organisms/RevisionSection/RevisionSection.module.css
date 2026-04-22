@@ -1,5 +1,5 @@
 .section {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -7,8 +7,8 @@
 }
 
 .sectionTitle {
-  background-color: #fff;
-  color: var(--rgb-blue);
+  background-color: #F5A623;
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
   text-align: center;

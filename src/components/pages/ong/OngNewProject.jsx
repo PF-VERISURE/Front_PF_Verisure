@@ -90,6 +90,7 @@ const OngNewProject = () => {
     console.error("Error creating project", error);
   }
     }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -217,6 +218,6 @@ const OngNewProject = () => {
       </div>
     </form>
   );
-};
+
 
 export default OngNewProject;
