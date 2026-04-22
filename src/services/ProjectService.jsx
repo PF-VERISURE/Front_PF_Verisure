@@ -24,14 +24,15 @@ const ProjectService =() =>{
         }
     };
 
-
-    const getAllProjects = async() =>{
+    const getPublishedProjects = async() =>{
         try{
-            const response = await api.get(`${url}/all`);
-            return response.data;
-        } catch (error) {
-            console.error("Error getting projects", error);
-            throw error;
+        const res = await api.get(`${url}/published`);
+        return res.data.data;
+            }
+            catch (error) {
+                console.error ("Error getting projects", error);
+                throw error;
+            }
         }
     }
 
@@ -87,6 +88,6 @@ const ProjectService =() =>{
 
 return {createProject, getPendingProjects, getAllProjects, getPublishedProjects, updateProjectStatus}
 
-}
+
 
 export default ProjectService;

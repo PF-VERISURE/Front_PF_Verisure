@@ -30,7 +30,7 @@ import api from "./api";
 
     localStorage.setItem("token", token.replace("Bearer ", ""));
 
-    return response.data; // ONLY user info
+    return response.data;
     };
 
     //EMPLOYEES

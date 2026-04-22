@@ -1,11 +1,11 @@
-.card{
+.card {
     display: flex;
     gap: 20px;
-    /* background-color: var(--color-background-secondary); */
     background-color: rgb(245, 245, 220);
     padding: 25px;
     border-radius: var(--border-radius-default);
     box-shadow: 3px 5px 0px #8a8383;
+    align-items: stretch; 
 }
 
 .title {
@@ -15,7 +15,11 @@
 }
 
 .image {
-    width: 9rem;;
+    width: 9rem;
+    height: 11rem;
+    object-fit: cover;
+    border-radius: 8px;
+    align-self: center; 
 }
 
 section{
@@ -35,5 +39,6 @@ section{
     margin-left: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
 }
