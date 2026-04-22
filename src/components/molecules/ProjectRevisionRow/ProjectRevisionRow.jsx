@@ -7,8 +7,12 @@ const ProjectRevisionRow = ({ project, onApprove }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleApprove = async () => {
-    await onApprove(project.id);
-    setShowModal(false);
+    try {
+      await onApprove(project.id);
+      setShowModal(false);
+    } catch (error) {
+      console.error("Error al aprobar el proyecto:", error);
+    }
   };
 
   return (
