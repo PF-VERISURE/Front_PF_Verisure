@@ -1,4 +1,5 @@
 .row {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1.5fr 2fr 1.2fr;
   align-items: center;

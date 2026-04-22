@@ -3,61 +3,58 @@ import { useNavigate } from "react-router-dom";
 import {
     LayoutGrid,
     ChartColumn,
-    Building2,
-    Users,
-    UserRound,
     FolderOpen,
-    BookOpenText,
+    Users,
+    Building2,
+    UserRound,
 } from "lucide-react";
 import SidebarMainItem from "../../molecules/SidebarMainItem/SidebarMainItem";
 import SidebarSubItem from "../../molecules/SidebarSubItem/SidebarSubItem";
 import styles from "./AdminSidebar.module.css";
 
 const AdminSidebar = () => {
-    const [ongsOpen, setOngsOpen] = useState(false);
-    const [voluntariosOpen, setVoluntariosOpen] = useState(false);
+    const [perfilesOpen, setPerfilesOpen] = useState(false);
     const navigate = useNavigate();
 
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <SidebarMainItem icon={LayoutGrid} label="Panel" />
-                <SidebarMainItem icon={ChartColumn} label="Métricas" />
-
-                <div className={styles.group}>
-                    <SidebarMainItem
-                        icon={Building2}
-                        label="ONGs"
-                        hasDropdown
-                        isOpen={ongsOpen}
-                        onClick={() => setOngsOpen(!ongsOpen)}
-                    />
-
-                    {ongsOpen && (
-                        <div className={styles.submenu}>
-                            <SidebarSubItem icon={UserRound} label="Perfiles" />
-                            <SidebarSubItem
-                                icon={FolderOpen}
-                                label="Proyectos"
-                                onClick={() => navigate("/admin/proyectos")}
-                            />
-                        </div>
-                    )}
-                </div>
+                <SidebarMainItem
+                    icon={LayoutGrid}
+                    label="Panel"
+                    onClick={() => navigate("/admin")}
+                />
+                <SidebarMainItem
+                    icon={ChartColumn}
+                    label="Métricas"
+                    onClick={() => navigate("/admin/metricas")}
+                />
+                <SidebarMainItem
+                    icon={FolderOpen}
+                    label="Proyectos"
+                    onClick={() => navigate("/admin/proyectos")}
+                />
 
                 <div className={styles.group}>
                     <SidebarMainItem
                         icon={Users}
-                        label="Voluntarios"
+                        label="Perfiles de usuarios"
                         hasDropdown
-                        isOpen={voluntariosOpen}
-                        onClick={() => setVoluntariosOpen(!voluntariosOpen)}
+                        isOpen={perfilesOpen}
+                        onClick={() => setPerfilesOpen(!perfilesOpen)}
                     />
-
-                    {voluntariosOpen && (
+                    {perfilesOpen && (
                         <div className={styles.submenu}>
-                            <SidebarSubItem icon={UserRound} label="Perfiles" />
-                            <SidebarSubItem icon={BookOpenText} label="Programas" />
+                            <SidebarSubItem
+                                icon={Building2}
+                                label="ONGs"
+                                onClick={() => navigate("/admin/ongs/perfiles")}
+                            />
+                            <SidebarSubItem
+                                icon={UserRound}
+                                label="Voluntarios"
+                                onClick={() => navigate("/admin/voluntario/perfiles")}
+                            />
                         </div>
                     )}
                 </div>
