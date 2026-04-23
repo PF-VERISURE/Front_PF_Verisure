@@ -40,3 +40,8 @@
   margin-top: var(--spacing-l);
   justify-content: center;
 }
+
+.actions button,
+.actions a {
+  width: 180px;
+}
