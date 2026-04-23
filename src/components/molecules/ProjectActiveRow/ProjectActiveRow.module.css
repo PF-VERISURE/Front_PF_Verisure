@@ -1,6 +1,6 @@
 .row {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1.8fr 1fr 1.2fr;
+  grid-template-columns: 1.2fr 1.8fr 160px 1fr 140px;
   align-items: center;
   padding: 7px 12px;
   border-bottom: 1px solid #eee;
@@ -20,7 +20,7 @@
 }
 
 .row span:nth-child(4) {
-  text-align: left;
+  text-align: center;
 }
 
 .verBtn {
@@ -28,15 +28,14 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   font-family: var(--font-primary);
   transition: opacity 0.2s ease;
   white-space: nowrap;
-  justify-self: start;
-  margin-left: -16px;
+  width: 100%;
 }
 
 .cerrarBtn {
@@ -44,15 +43,14 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   font-family: var(--font-primary);
   transition: opacity 0.2s ease;
   white-space: nowrap;
-  justify-self: start;
-  margin-left: -16px;
+  width: 100%;
 }
 
 .verBtn:hover,
