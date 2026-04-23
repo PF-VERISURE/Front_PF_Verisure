@@ -55,8 +55,6 @@ return (
     <section className={style.section3}>
       <CatLogo categorie={project.sdgs?.[0]} />
 
-
-
       {isOwnerView && (
         <span className={style[ui.className]}>
         {ui.label}
