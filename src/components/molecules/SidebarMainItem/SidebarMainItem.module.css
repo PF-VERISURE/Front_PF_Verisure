@@ -9,7 +9,15 @@
   padding: 0 var(--spacing-m) 0 24px;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  border-radius: 5px;
+  border-radius: 0;
+}
+
+.active {
+  background-color: #1F2D80;
+}
+
+.active .left {
+  color: #ffffff;
 }
 
 .left {
