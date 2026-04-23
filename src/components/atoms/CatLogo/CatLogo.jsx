@@ -17,7 +17,6 @@ const CatLogo = ({ categorie }) => {
   const data = categories[categorie];
 
   if (!data) {
-    console.warn("Unknown category:", categorie);
     return null;
   }
 
