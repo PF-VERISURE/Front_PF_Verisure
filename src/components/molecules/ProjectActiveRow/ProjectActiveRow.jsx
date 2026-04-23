@@ -60,6 +60,7 @@ const ProjectActiveRow = ({ project }) => {
         <ProjectInfoModal
           project={project}
           onClose={() => setShowInfo(false)}
+          applicationCount={applicationCount}
         />
       )}
     </>

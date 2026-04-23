@@ -6,7 +6,7 @@ const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleDateString("es-ES");
 };
 
-const ProjectInfoModal = ({ project, onClose, onApprove }) => {
+const ProjectInfoModal = ({ project, onClose, onApprove, applicationCount }) => {
   if (!project) return null;
 
   const fields = [
@@ -17,7 +17,7 @@ const ProjectInfoModal = ({ project, onClose, onApprove }) => {
     { label: "Fecha de Inicio", value: formatDate(project.startDate), icon: Calendar },
     { label: "Fecha de finalización", value: formatDate(project.endDate), icon: CalendarCheck },
     { label: "Número de voluntarios", value: project.requiredVolunteers ?? "Sin dato de voluntarios", icon: Users },
-    { label: "Número de aplicaciones", value: project.totalApplications ?? "Sin dato de aplicaciones", icon: ClipboardList },
+    { label: "Número de aplicaciones", value: applicationCount ?? project.totalApplications ?? "Sin dato de aplicaciones", icon: ClipboardList },
     { label: "Horas", value: project.totalHours ? `${project.totalHours} horas` : "Sin horas registradas", icon: Clock },
   ];
 
