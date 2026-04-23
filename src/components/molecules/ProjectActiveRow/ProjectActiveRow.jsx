@@ -48,7 +48,6 @@ const ProjectActiveRow = ({ project }) => {
           Ver participantes
         </button>
         <span>{applicationCount}/{project.requiredVolunteers}</span>
-        <button className={styles.cerrarBtn} onClick={(e) => e.stopPropagation()}>Cerrar el programa</button>
       </div>
       {showParticipants && (
         <ParticipantsModal

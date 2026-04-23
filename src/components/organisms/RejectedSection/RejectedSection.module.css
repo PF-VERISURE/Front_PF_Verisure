@@ -1,0 +1,35 @@
+.section {
+  margin-bottom: 32px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.sectionTitle {
+  background-color: #C62839;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 7px;
+  border-bottom: 1px solid #e0e0e0;
+  letter-spacing: 0.08em;
+}
+
+.empty {
+  padding: 12px;
+  font-size: 0.78rem;
+  color: var(--rgb-black);
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--rgb-black);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  gap: 8px;
+}

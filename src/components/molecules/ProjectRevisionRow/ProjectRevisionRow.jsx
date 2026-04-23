@@ -3,7 +3,7 @@ import StatusBadge from "../../atoms/StatusBadge/StatusBadge";
 import ProjectInfoModal from "../ProjectInfoModal/ProjectInfoModal";
 import styles from "./ProjectRevisionRow.module.css";
 
-const ProjectRevisionRow = ({ project, onApprove }) => {
+const ProjectRevisionRow = ({ project, onApprove, onReject }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleApprove = async () => {
@@ -12,6 +12,15 @@ const ProjectRevisionRow = ({ project, onApprove }) => {
       setShowModal(false);
     } catch (error) {
       console.error("Error al aprobar el proyecto:", error);
+    }
+  };
+
+  const handleReject = async () => {
+    try {
+      await onReject(project.id);
+      setShowModal(false);
+    } catch (error) {
+      console.error("Error al rechazar el proyecto:", error);
     }
   };
 
@@ -28,6 +37,7 @@ const ProjectRevisionRow = ({ project, onApprove }) => {
           project={project}
           onClose={() => setShowModal(false)}
           onApprove={handleApprove}
+          onReject={handleReject}
         />
       )}
     </>

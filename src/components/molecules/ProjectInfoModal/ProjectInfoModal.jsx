@@ -6,7 +6,7 @@ const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleDateString("es-ES");
 };
 
-const ProjectInfoModal = ({ project, onClose, onApprove, applicationCount }) => {
+const ProjectInfoModal = ({ project, onClose, onApprove, onReject, applicationCount }) => {
   if (!project) return null;
 
   const fields = [
@@ -51,7 +51,7 @@ const ProjectInfoModal = ({ project, onClose, onApprove, applicationCount }) => 
         {onApprove && (
           <div className={styles.actions}>
             <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
-            <button className={styles.btnRechazar}>Rechazar</button>
+            <button className={styles.btnRechazar} onClick={onReject}>Rechazar</button>
             <button className={styles.btnInfo}>Pedir Información</button>
           </div>
         )}

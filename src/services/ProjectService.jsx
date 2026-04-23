@@ -88,7 +88,17 @@ const ProjectService =() =>{
         
     };
 
-return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects}
+    const getAllProjects = async () => {
+        try {
+            const res = await api.get(`${url}/all`);
+            return res.data.data;
+        } catch (error) {
+            console.error("Error getting all projects", error);
+            throw error;
+        }
+    };
+
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects, getAllProjects}
 
  }
 

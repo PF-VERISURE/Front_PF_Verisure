@@ -1,7 +1,7 @@
 import ProjectRevisionRow from "../../molecules/ProjectRevisionRow/ProjectRevisionRow";
 import styles from "./RevisionSection.module.css";
 
-const RevisionSection = ({ proyectos, onApprove }) => {
+const RevisionSection = ({ proyectos, onApprove, onReject }) => {
   if (proyectos.length === 0) {
     return (
       <div className={styles.section}>
@@ -25,6 +25,7 @@ const RevisionSection = ({ proyectos, onApprove }) => {
           key={p.id}
           project={p}
           onApprove={onApprove}
+          onReject={onReject}
         />
       ))}
     </div>
