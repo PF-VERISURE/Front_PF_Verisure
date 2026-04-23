@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import UserService from "../../../../services/UserService";
+import OngProfileModal from "../../../molecules/OngProfileModal/OngProfileModal";
 import styles from "./AdminOngProfiles.module.css";
 
 const AdminOngProfiles = () => {
   const [ongs, setOngs] = useState([]);
   const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const fetchOngs = async () => {
@@ -46,7 +48,6 @@ const AdminOngProfiles = () => {
           <tr className={styles.tableHead}>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Estado</th>
             <th>Acción</th>
           </tr>
         </thead>
@@ -55,14 +56,19 @@ const AdminOngProfiles = () => {
             <tr key={index} className={styles.tableRow}>
               <td>{ong.organizationName}</td>
               <td>{ong.email}</td>
-              <td className={styles.estado}><span className={styles.dot}></span>Activo</td>
               <td>
-                <button className={styles.editButton}>Editar</button>
+                <button className={styles.editButton} onClick={() => setSelected(ong)}>
+                  Editar
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {selected && (
+        <OngProfileModal ong={selected} onClose={() => setSelected(null)} />
+      )}
     </div>
   );
 };
