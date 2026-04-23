@@ -35,6 +35,7 @@ export const useApplications = () => {
         applications,
         appliedProjectIds,
         fetchApplications,
-        cancelApplication
+        cancelApplication,
+        refetch: fetchApplications
     };
 };

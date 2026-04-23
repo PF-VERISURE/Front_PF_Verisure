@@ -30,6 +30,7 @@ const OngMyProjects = ({ title }) => {
                     <ProjectCard
                         key={project.id}
                         project={project}
+                        mode="owner"
                     />
                 ))}
             </section>

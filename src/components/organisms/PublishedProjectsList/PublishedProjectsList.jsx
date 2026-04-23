@@ -5,10 +5,16 @@ import style from "./PublishedProjectsList.module.css";
 import ApplicationService from "../../../services/ApplicationService";
 import Title from "../../atoms/Title/Title";
 import { useApplications } from "../../../hooks/useApplications"
+import { useModal } from "../../../hooks/useModal";
+import { InfoModal } from "../../templates/Modal/Modal";
+import { useNavigate } from "react-router-dom";
+
 
 const PublishedProjectsList = ({ title }) => {
     const [projects, setProjects] = useState([]);
-    const { appliedProjectIds } = useApplications();
+    const { appliedProjectIds, refetch  } = useApplications();
+    const infoModal = useModal();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,10 +32,13 @@ const PublishedProjectsList = ({ title }) => {
     const handleApply = async (projectId) => {
         try {
             await ApplicationService.applyToProject(projectId);
+            await refetch();
+            infoModal.open();
+
         } catch (error) {
             console.error(error);
         }
-    };
+        };
 
     return (
         <main className={style.main}>
@@ -42,9 +51,24 @@ const PublishedProjectsList = ({ title }) => {
                         project={project}
                         onClick={handleApply}
                         isApplied={appliedProjectIds.includes(project.id)}
+                        mode="public"
                     />
                 ))}
             </section>
+            {infoModal.isOpen && (
+            <InfoModal
+            text={
+            <div>
+                <div className={style.line}>Registracion exitosa!</div>
+                <div className={style.line}>Gracias por tu participacion!</div>
+            </div>
+            }
+            onClose={() => {
+            infoModal.close();
+            navigate("/voluntario/mis_proyectos");
+        }}
+            />
+            )}
         </main>
     );
 };
