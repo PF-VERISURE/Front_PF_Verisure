@@ -10,19 +10,19 @@ const VolonteerSidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <div className={location.pathname === "/voluntario" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario/proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={Compass}
-                        label="Explorar Programas"
-                        onClick={() => navigate("/voluntario")}
+                        label="Explorar Proyectos"
+                        onClick={() => navigate("/voluntario/proyectos")}
                     />
                 </div>
 
-                <div className={location.pathname === "/voluntario/proyectos" ? styles.activeItem : ""}>
+                <div className={location.pathname === "/voluntario/mis_proyectos" ? styles.activeItem : ""}>
                     <SidebarMainItem
                         icon={BookOpen}
-                        label="Mis Programas"
-                        onClick={() => navigate("/voluntario/proyectos")}
+                        label="Mis Voluntariados"
+                        onClick={() => navigate("/voluntario/mis_proyectos")}
                     />
                 </div>
 

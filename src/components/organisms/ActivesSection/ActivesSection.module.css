@@ -7,7 +7,7 @@
 }
 
 .sectionTitle {
-  background-color: var(--rgb-green);
+  background-color: #1A9E8F;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -19,21 +19,24 @@
 
 .tableHeader {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1.8fr 1fr 1.2fr;
+  grid-template-columns: 1.2fr 1.8fr 160px 1fr 140px;
   background-color: var(--rgb-black);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 600;
   padding: 7px 12px;
   gap: 8px;
+  align-items: center;
+}
+
+.tableHeader span:nth-child(3) {
+  text-align: center;
 }
 
 .tableHeader span:nth-child(4) {
-  padding-left: 0;
-  margin-left: -24px;
-  text-align: left;
+  text-align: center;
 }
 
 .tableHeader span:nth-child(5) {
-  padding-left: 24px;
+  text-align: center;
 }

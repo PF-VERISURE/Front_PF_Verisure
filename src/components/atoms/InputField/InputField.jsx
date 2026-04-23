@@ -19,7 +19,7 @@ function InputField({ label, type = "text", name, placeholder, value, onChange, 
         onChange={onChange}
         className={inputClass}
       />
-      {error && <span className={styles.errorText}>Campo obligatorio</span>}
+      {error && <span className={styles.errorText}>{error}</span>}
     </section>
   );
 }
