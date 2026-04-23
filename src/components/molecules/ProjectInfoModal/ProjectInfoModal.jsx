@@ -1,5 +1,8 @@
 import { Building2, FolderOpen, Tag, MapPin, Calendar, CalendarCheck, Users, ClipboardList, Clock, FileText } from "lucide-react";
 import styles from "./ProjectInfoModal.module.css";
+import { useState } from "react";
+import { useModal } from "../../../hooks/useModal";
+import { ConfirmModal, InfoModal } from "../../templates/Modal/Modal";
 
 const formatDate = (dateStr) => {
   if (!dateStr) return "Sin fecha";
@@ -20,6 +23,23 @@ const ProjectInfoModal = ({ project, onClose, onApprove, onReject, applicationCo
     { label: "Número de aplicaciones", value: applicationCount ?? project.totalApplications ?? "Sin dato de aplicaciones", icon: ClipboardList },
     { label: "Horas", value: project.totalHours ? `${project.totalHours} horas` : "Sin horas registradas", icon: Clock },
   ];
+
+  const confirmModal = useModal();
+
+  const handleOpenConfirm = () => {
+  confirmModal.open();
+};
+
+  const handleConfirmApprove = async () => {
+    try {
+      await onApprove(project.id);
+
+      confirmModal.close();
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -54,6 +74,13 @@ const ProjectInfoModal = ({ project, onClose, onApprove, onReject, applicationCo
             <button className={styles.btnRechazar} onClick={onReject}>Rechazar</button>
             <button className={styles.btnInfo}>Pedir Información</button>
           </div>
+        )}
+        {confirmModal.isOpen && (
+          <ConfirmModal
+            text="¿Confirmas que quieres aprobar este proyecto?"
+            onConfirm={handleConfirmApprove}
+            onCancel={confirmModal.close}
+          />
         )}
       </div>
     </div>

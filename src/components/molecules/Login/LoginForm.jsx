@@ -4,12 +4,17 @@ import InputField from "../../atoms/InputField/InputField";
 import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import styles from "./LoginForm.module.css";
 import { UserContext } from '../../../context/User/UserContext';
+import { useModal } from "../../../hooks/useModal";
+import { InfoModal } from "../../templates/Modal/Modal";
 
 function LoginForm() {
 
+  const errorModal = useModal();
+  const [errorMessage, setErrorMessage] = useState("");
+
 const [errors, setErrors] = useState({
-  email: false,
-  password: false,
+  email: "",
+  password: "",
 });
 
 const { login } = useContext(UserContext);
@@ -26,33 +31,57 @@ const { login } = useContext(UserContext);
       ...formData,
       [name]: value,
     });
+
+    setErrors(prev => ({
+      ...prev,
+      [name]: ""
+    }));
   };
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // 🟡 1. CLIENT VALIDATION
     const newErrors = {
-    email: !formData.email,
-    password: !formData.password,
-  };
+      email: !formData.email ? "El correo es obligatorio" : "",
+      password: !formData.password ? "La contraseña es obligatoria" : "",
+    };
 
-  setErrors(newErrors);
+    setErrors(newErrors);
 
-  if (newErrors.email || newErrors.password) {
-    return;
-  }
+    if (newErrors.email || newErrors.password) {
+      return;
+    }
 
+    // 🔵 2. API CALL
     try {
-    const response = await login(formData);
-    console.log("Datos login:", response);
-
-    navigate("/");
+      const response = await login(formData);
+      navigate("/");
     } catch (error) {
-    console.error("Login failed:", error);
+
+      const response = error.response?.data;
+
+      // 🟢 3. FIELD ERRORS (backend validation)
+      if (response?.fieldErrors) {
+        setErrors({
+          email: response.fieldErrors.email || "",
+          password: response.fieldErrors.password || "",
+        });
+        return;
+      }
+
+      // 🔴 4. GLOBAL ERROR (auth, business)
+      if (response?.error) {
+        setErrorMessage(response.error);
+        errorModal.open();
+        return;
+      }
+
+      // ⚠️ 5. FALLBACK
+      setErrorMessage("No se pudo conectar con el servidor.");
+      errorModal.open();
     }
   };
-
-
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -82,6 +111,12 @@ const { login } = useContext(UserContext);
       <div className={styles.buttonContainer}>
         <PrimaryButton type="submit" text="Log in" />
       </div>
+      {errorModal.isOpen && (
+      <InfoModal
+        text={errorMessage}
+        onClose={errorModal.close}
+      />
+    )}
     </form>
   );
 }

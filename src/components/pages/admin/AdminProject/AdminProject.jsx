@@ -6,6 +6,8 @@ import ArchivedSection from "../../../organisms/ArchivedSection/ArchivedSection"
 import RejectedSection from "../../../organisms/RejectedSection/RejectedSection";
 import ProjectService from "../../../../services/ProjectService";
 import styles from "./AdminProject.module.css";
+import { useModal } from "../../../../hooks/useModal";
+import { ConfirmModal, InfoModal } from "../../../templates/Modal/Modal";
 
 const AdminProject = () => {
   const [search, setSearch] = useState("");
@@ -13,6 +15,10 @@ const AdminProject = () => {
   const [activos, setActivos] = useState([]);
   const [archivados, setArchivados] = useState([]);
   const [rechazados, setRechazados] = useState([]);
+
+  const successModal = useModal();
+
+  
 
   const fetchRevision = async () => {
     try {
@@ -53,6 +59,9 @@ const AdminProject = () => {
       await ProjectService().updateProjectStatus(id, "PUBLISHED");
       await fetchRevision();
       await fetchActivos();
+
+    successModal.open();
+
     } catch (error) {
       console.error("Error al aprobar proyecto:", error);
     }

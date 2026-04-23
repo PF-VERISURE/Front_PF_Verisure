@@ -3,12 +3,17 @@ import ApplicationService from "../../../services/ApplicationService";
 import ParticipantsModal from "../ParticipantsModal/ParticipantsModal";
 import ProjectInfoModal from "../ProjectInfoModal/ProjectInfoModal";
 import styles from "./ProjectActiveRow.module.css";
+import { useModal } from "../../../hooks/useModal";
+import { InfoModal } from "../../templates/Modal/Modal";
 
 const ProjectActiveRow = ({ project }) => {
   const [showParticipants, setShowParticipants] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [participants, setParticipants] = useState([]);
   const [applicationCount, setApplicationCount] = useState(0);
+
+  const errorModal = useModal();
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -33,8 +38,12 @@ const ProjectActiveRow = ({ project }) => {
       const names = filtered.map((app) => `${app.firstName} ${app.lastName}`);
       setParticipants(names);
     } catch (error) {
-      console.error("Error fetching applications:", error);
-      setParticipants([]);
+      setErrorMessage(
+        error?.response?.data?.message ||
+        "Error del servidor a recoger data."
+      );
+
+      errorModal.open();
     }
     setShowParticipants(true);
   };
@@ -62,6 +71,12 @@ const ProjectActiveRow = ({ project }) => {
           applicationCount={applicationCount}
         />
       )}
+      {errorModal.isOpen && (
+      <InfoModal
+        text={errorMessage}
+        onClose={errorModal.close}
+      />
+    )}
     </>
   );
 };
