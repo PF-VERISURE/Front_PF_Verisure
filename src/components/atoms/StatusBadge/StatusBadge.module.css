@@ -11,20 +11,8 @@
   text-align: center;
 }
 
-.nuevo {
+.pendiente {
   background-color: #e8f5e9;
   color: var(--rgb-green);
   border: 1px solid var(--rgb-green);
-}
-
-.pendienteInfo {
-  background-color: #fff8e1;
-  color: #f57c00;
-  border: 1px solid #f57c00;
-}
-
-.pendienteRevision {
-  background-color: #e3f2fd;
-  color: var(--rgb-blue);
-  border: 1px solid var(--rgb-blue);
 }

@@ -2,61 +2,83 @@ import React from 'react'
 import ProjectDetails from "../../molecules/ProjectDetails/ProjectDetails"
 import DescriptionField from '../../atoms/DescriptionField/DescriptionField'
 import style from "./ProjectCard.module.css"
-import Tree_planting_Photo from "../../../assets/Tree_planting_Photo.avif";
+import { formatDateRange } from '../../../utils/dateFormatting'
 import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
+import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
+import { PROJECT_STATUS_UI } from "../../../utils/ProjectStatus";
 
-const ProjectCard = ({project}) => {
-  if (!project) return null;
+
+const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) => {
+
+  const isOwnerView = mode === "owner";
+  const isPublicView = mode === "public";
+  const ui = PROJECT_STATUS_UI[project.status];
 
     const details = [
-    { label: "Date", value: project.date || "Sin fecha" },
-    { label: "Location", value: project.locationType || "Sin modalidad" },
-    { label: "Volunteers", value: project.requiredVolunteers || "Sin número de voluntarios" },
-    { label: "Hours", value: project.totalHours || "Sin horas registradas" },
-    ];
+  {
+    label: "Fechas",
+    value: formatDateRange(project.startDate, project.endDate),
+    icon: Calendar,
+  },
+  {
+    label: "Modalidad",
+    value: project.locationType,
+    icon: MapPin,
+  },
+  {
+    label: "Capacidad",
+    value: project.requiredVolunteers,
+    icon: Users,
+  },
+  {
+    label: "Horas",
+    value: project.totalHours,
+    icon: ClipboardClock,
+  },
+];
 
 return (
   <main className={style.card}>
     <img 
-      src={project.imageUrl}
+      src={project.imageUrl} 
       alt="Photo de illustracion del proyecto" 
       className={style.image}
     />
 
-    <section>
+    <section  className={style.section2}>
       <h1 className={style.title}>{project.title}</h1>
       <DescriptionField text={project.description} />
       <ProjectDetails details={details}/>
     </section>
 
-    <section  className={style.section3}>
-      <CatLogo categorie={project.categorie}/>
-      <PrimaryButton action="REGISTRAR" className="registrar" /*onClick={onClick}*//>
+    <section className={style.section3}>
+      <CatLogo categorie={project.sdgs?.[0]} />
+
+      {isOwnerView && (
+        <span className={style[ui.className]}>
+        {ui.label}
+      </span>
+      )}
+
+      {isPublicView && project.status === "PUBLISHED" && (
+        <PrimaryButton
+          text="REGISTRAR"
+          className="registrar"
+          onClick={() => onClick(project.id)}
+        />
+      )}
+
+      {isPublicView && project.status !== "PUBLISHED" && (
+        <PrimaryButton
+          text="NO DISPONIBLE"
+          className="disabled"
+          onClick={null}
+        />
+      )}
     </section>
-  </main>
+    </main>
 )
-
-  // return (
-  //   <main className={style.card}>
-  //       <img 
-  //       src={Tree_planting_Photo} 
-  //       alt="Photo de plantación de árboles" 
-  //       className={style.image}
-  //       />
-
-  //       <section>
-  //       <h1 className={style.title}>PLANTAR ÁRBOLES</h1>
-  //       <DescriptionField text={"Únete a nuestro evento anual de plantación de árboles organizado por GreenRoots Initiative el sábado 18 de mayo en Riverside Park. Voluntarios están invitados a participar en la plantación de más de 200 árboles nativos, como parte de nuestra misión de restaurar los espacios verdes locales y fomentar la biodiversidad. Nuestro equipo proporcionará todas las herramientas, así como orientación y pequeños talleres sobre prácticas de plantación sostenible, por lo que no se necesita experiencia previa. Disfruta de un ambiente comunitario acogedor con refrigerios y musica."} />
-  //       <ProjectDetails />
-  //       </section>
-
-  //       <section  className={style.section3}>
-  //           <CatLogo categorie="Ciudad_Sostenibles"/>
-  //           <PrimaryButton text="REGISTRAR" className="registrar" /*onClick={onClick}*//>
-  //       </section>
-  //   </main>
-  // );
 };
 
 export default ProjectCard

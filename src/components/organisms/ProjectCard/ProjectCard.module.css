@@ -1,24 +1,69 @@
-.card{
+.card {
     display: flex;
     gap: 20px;
-    /* background-color: var(--color-background-secondary); */
     background-color: rgb(245, 245, 220);
     padding: 25px;
     border-radius: var(--border-radius-default);
     box-shadow: 3px 5px 0px #8a8383;
+    align-items: stretch; 
 }
 
 .title {
     font-family: var(--font-primary);
     font-size: 2em;
+    margin-bottom: 10px;
 }
 
 .image {
-    width: 9rem;;
+    width: 15rem;
+    height: 17rem;
+    object-fit: cover;
+    border-radius: 8px;
+    align-self: center; 
 }
 
 section{
     display: flex;
     flex-direction: column;
     justify-content:space-between ;
+}
+
+.section2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section3 {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.published {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.completed {
+    color: blue;
+    font-weight: bold;
+}
+
+.canceled {
+    color: gray;
+    font-weight: bold;
 }

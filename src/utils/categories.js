@@ -9,45 +9,77 @@ import Produccion_Responsables from "../assets/Cat_Icons/Produccion_Responsables
 import Reduccion_Desigualdades from "../assets/Cat_Icons/Reduccion_Desigualdades.png";
 import Vida_Submarina from "../assets/Cat_Icons/Vida_Submarina.png";
 
+export const CATEGORY_COLORS = {
+  No_Pobreza: 'rgb(229, 36, 59)',
+  Hambre_Cero: 'rgb(221, 166, 58)',
+  Buena_Salud: 'rgb(76, 159, 56)',
+  Igualdad_Genero: 'rgb(255, 58, 33)',
+  Agua_Limpia: 'rgb(38, 189, 226)',
+  Energia_Limpia: 'rgb(252, 195, 11)',
+  Vida_Submarina: 'rgb(10, 151, 217)',
+  Reduccion_Desigualdades: 'rgb(221, 19, 103)',
+  Ciudad_Sostenibles: 'rgb(253, 157, 36)',
+  Produccion_Responsables: 'rgb(191, 139, 46)',
+};
+
 export const categories = {
-    Agua_Limpia: {
-        src: Agua_Limpia,
-        label: "Agua Limpia"
-    },
-    Buena_Salud: {
-        src: Buena_Salud,
-        label: "Buena Salud"
-    },
-    Ciudad_Sostenibles: {
-        src: Ciudad_Sostenibles,
-        label: "Ciudad Sostenibles"
-    },
-    Energia_Limpia: {
-        src: Energia_Limpia,
-        label: "Energía Limpia"
-    },
-    Hambre_Cero: {
-        src: Hambre_Cero,
-        label: "Hambre Cero"
-    },
-    Igualdad_Genero: {
-        src: Igualdad_Genero,
-        label: "Igualdad de Género"
-    },
-    No_Pobreza: {
-        src: No_Pobreza,
-        label: "No Pobreza"
-    },
-    Produccion_Responsables: {
-        src: Produccion_Responsables,
-        label: "Producción Responsable"
-    },
-    Reduccion_Desigualdades: {
-        src: Reduccion_Desigualdades,
-        label: "Reducción de Desigualdades"
-    },
-    Vida_Submarina: {
-        src: Vida_Submarina,
-        label: "Vida Submarina"
-    }
+  "Fin de la pobreza": {
+    label: "Fin de la pobreza",
+    src: No_Pobreza,
+    cssVar: "No_Pobreza",
+  },
+
+  "Hambre cero": {
+    label: "Hambre Cero",
+    src: Hambre_Cero,
+    cssVar: "Hambre_Cero",
+  },
+
+  "Salud y bienestar": {
+    label: "Salud y bienestar",
+    src: Buena_Salud,
+    cssVar: "Buena_Salud",
+  },
+
+  "Agua limpia y saneamiento": {
+    label: "Agua limpia",
+    src: Agua_Limpia,
+    cssVar: "Agua_Limpia",
+  },
+
+  "Energía asequible y no contaminante": {
+    label: "Energía limpia",
+    src: Energia_Limpia,
+    cssVar: "Energia_Limpia",
+  },
+
+  "Igualdad de género": {
+    label: "Igualdad de género",
+    src: Igualdad_Genero,
+    cssVar: "Igualdad_Genero",
+  },
+
+  "Reducción de las desigualdades": {
+    label: "Reducción desigualdades",
+    src: Reduccion_Desigualdades,
+    cssVar: "Reduccion_Desigualdades",
+  },
+
+  "Ciudades y comunidades sostenibles": {
+    label: "Ciudades sostenibles",
+    src: Ciudad_Sostenibles,
+    cssVar: "Ciudad_Sostenibles",
+  },
+
+  "Producción y consumo responsables": {
+    label: "Producción responsable",
+    src: Produccion_Responsables,
+    cssVar: "Produccion_Responsables",
+  },
+
+  "Vida submarina": {
+    label: "Vida submarina",
+    src: Vida_Submarina,
+    cssVar: "Vida_Submarina",
+  },
 };

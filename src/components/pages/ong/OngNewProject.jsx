@@ -6,6 +6,9 @@ import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../atoms/SecondaryButton/SecondaryButton";
 import styles from "./OngNewProject.module.css";
 import ProjectService from "../../../services/ProjectService";
+import { useModal } from "../../../hooks/useModal";
+import { InfoModal } from "../../templates/Modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 const CATEGORIA_OPTIONS = [
   { value: 1, label: "Agua limpia y saneamiento" },
@@ -28,6 +31,7 @@ const MODALIDAD_OPTIONS = [
 ];
 
 const OngNewProject = () => {
+  const [image, setImage] = useState(null);
   const [form, setForm] = useState({
     title:"",
     sdgIds:"",
@@ -37,7 +41,9 @@ const OngNewProject = () => {
     requiredVolunteers:"",
     totalHours:"",
     description:"",
-    impactUnit: "hours", 
+    impactUnit: "hours",
+    address:"",
+    city:"",
   });
 
   const initialState = {
@@ -50,9 +56,14 @@ const OngNewProject = () => {
   totalHours:"",
   description:"",
   impactUnit: "hours",
+  address:"",
+  city:"",
 };
 
   const projectService = ProjectService(); 
+
+  const infoModal = useModal();
+  const navigate = useNavigate();
 
    const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,21 +84,24 @@ const OngNewProject = () => {
       endDate: form.endDate + "T00:00:00Z",
       locationType: form.locationType,
       impactUnit: "hours",
+      address: form.address,
+      city: form.city,
       sdgIds: form.sdgIds ? [Number(form.sdgIds)] : []
     };
 
-  console.log("SENDING:", payload);
+    const formData = new FormData();
+      formData.append("project", new Blob([JSON.stringify(payload)], { type: "application/json" }));
+      if (image) formData.append("file", image);
 
-  const data = await projectService.createProject(payload);
-
-  console.log("Project created:", data);
-
-  setForm({ ...initialState });
+      const data = await projectService.createProject(formData);
+      setForm({ ...initialState });
+      setImage(null);
+      infoModal.open(); 
 
   } catch (error) {
-    console.error("Error creating project", error);
+    console.error("Error al crear el proyecto", error);
   }
-    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -126,6 +140,26 @@ const OngNewProject = () => {
             onChange={handleChange}
             options={MODALIDAD_OPTIONS}
             placeholder="Seleccionar"
+          />
+        </FormRow>
+
+        <FormRow label="Dirección">
+          <input
+            name="address"
+            type="text"
+            value={form.address}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </FormRow>
+
+        <FormRow label="Ciudad">
+          <input
+            name="city"
+            type="text"
+            value={form.city}
+            onChange={handleChange}
+            className={styles.input}
           />
         </FormRow>
 
@@ -169,6 +203,16 @@ const OngNewProject = () => {
           />
         </FormRow>
 
+        <FormRow label="Imagen">
+          <input
+            name="image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
+            className={styles.input}
+          />
+        </FormRow>
+
         <FormRow label="Descripción">
           <TextareaField
             name="description"
@@ -183,6 +227,22 @@ const OngNewProject = () => {
         <PrimaryButton text="Guardar" type="submit" />
         <SecondaryButton text="Cancelar" />
       </div>
+
+      {infoModal.isOpen && (
+        <InfoModal
+          text={
+            <div>
+              <div>Proyecto creado exitosamente!</div>
+              <div>Ya está disponible para voluntarios.</div>
+            </div>
+          }
+          onClose={() => {
+          infoModal.close();
+          navigate("/ongs/proyectos");
+        }}
+        />
+      )}
+
     </form>
   );
 };

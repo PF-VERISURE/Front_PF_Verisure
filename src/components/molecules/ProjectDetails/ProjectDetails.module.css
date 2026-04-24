@@ -1,12 +1,12 @@
-.projectDetails{
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+.projectDetails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: start;
 }
 
-.section {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    font-size:1.3rem;;
+@media (max-width: 1000px) {
+    .projectDetails {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

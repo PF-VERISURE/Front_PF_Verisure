@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.line {
+    margin-bottom: 12px;
+}
+
+.line:last-child {
+    margin-bottom: 0;
+}

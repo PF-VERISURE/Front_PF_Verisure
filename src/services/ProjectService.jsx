@@ -24,18 +24,28 @@ const ProjectService =() =>{
         }
     };
 
+    const getPublishedProjects = async() =>{
+        try{
+        const res = await api.get(`${url}/published`);
+        return res.data.data;
+            }
+            catch (error) {
+                console.error ("Error getting projects", error);
+                throw error;
+            }
+        }
+    
 
-
-
-    // const getAllProjects = async() =>{
-    //     try{
-    //         const response = await api.get(url);
-    //         return response.data;
-    //     } catch (error) {
-    //         console.error ("Error getting projects", error);
-    //         throw error;
-    //     }
-    // }
+        const getOngProjects = async() =>{
+        try{
+        const res = await api.get(`${url}/my-projects`);
+        return res.data.data;
+            }
+            catch (error) {
+                console.error ("Error getting projects", error);
+                throw error;
+            }
+        }
 
     // const getProjectById = async(id) =>{
     //     try{
@@ -67,8 +77,19 @@ const ProjectService =() =>{
     //     }
     // }
 
-return {createProject, getPendingProjects  }
+    const updateProjectStatus = async (id, status) => {
+        try {
+            const response = await api.patch(`${url}/${id}/status`, { status });
+            return response.data;
+        } catch (error) {
+            console.error("Error al actualizar estado del proyecto", error);
+            throw error;
+        }
+        
+    };
 
-}
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects}
+
+ }
 
 export default ProjectService;

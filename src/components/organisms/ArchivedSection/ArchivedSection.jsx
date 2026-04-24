@@ -23,11 +23,7 @@ const ArchivedSection = ({ proyectos }) => {
       {proyectos.map((p) => (
         <ProjectArchivedRow
           key={p.id}
-          gnoName={p.gnoName}
-          title={p.title}
-          participants={p.participants}
-          totalApplications={p.totalApplications}
-          totalVolunteers={p.totalVolunteers}
+          project={p}
         />
       ))}
     </div>

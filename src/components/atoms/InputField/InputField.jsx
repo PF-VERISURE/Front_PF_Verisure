@@ -1,15 +1,11 @@
 import styles from "./InputField.module.css";
 
-function InputField({
-  label,
-  type = "text",
-  name,
-  placeholder,
-  value,
-  onChange,
-}) {
+function InputField({ label, type = "text", name, placeholder, value, onChange, error}) {
+
+  const inputClass = `${styles.input} ${error ? styles.error : ""}`;
+
   return (
-    <div className={styles.field}>
+    <section className={styles.field}>
       <label htmlFor={name} className={styles.label}>
         {label}
       </label>
@@ -21,9 +17,10 @@ function InputField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={styles.input}
+        className={inputClass}
       />
-    </div>
+      {error && <span className={styles.errorText}>{error}</span>}
+    </section>
   );
 }
 

@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 8px;
+  min-width: 560px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding-bottom: 16px;
+}
+
+.header {
+  background-color: #fff;
+  padding: 14px 20px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--rgb-black);
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.labelCell {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  width: 220px;
+  white-space: nowrap;
+  border-bottom: 1px solid #333;
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  opacity: 0.85;
+}
+
+.valueCell {
+  background-color: #fff;
+  color: var(--rgb-black);
+  font-size: 0.75rem;
+  padding: 8px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.descCell {
+  background-color: #fff;
+  color: var(--rgb-black);
+  font-size: 0.75rem;
+  padding: 8px 14px;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  padding: 14px 20px;
+  justify-content: center;
+  border-top: 1px solid #eee;
+}
+
+.btnAprobar,
+.btnRechazar,
+.btnInfo {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  font-family: var(--font-primary);
+  transition: opacity 0.2s ease;
+}
+
+.btnAprobar {
+  background-color: var(--rgb-red);
+}
+
+.btnRechazar {
+  background-color: var(--rgb-red);
+}
+
+.btnInfo {
+  background-color: var(--rgb-red);
+}
+
+.btnAprobar:hover,
+.btnRechazar:hover,
+.btnInfo:hover {
+  opacity: 0.85;
+}

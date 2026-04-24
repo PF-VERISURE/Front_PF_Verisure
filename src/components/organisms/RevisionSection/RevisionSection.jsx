@@ -1,8 +1,8 @@
 import ProjectRevisionRow from "../../molecules/ProjectRevisionRow/ProjectRevisionRow";
 import styles from "./RevisionSection.module.css";
 
-const RevisionSection = ({ proyectos }) => {
-  if (!proyectos || proyectos.length === 0) {
+const RevisionSection = ({ proyectos, onApprove }) => {
+  if (proyectos.length === 0) {
     return (
       <div className={styles.section}>
         <div className={styles.sectionTitle}>EN REVISIÓN</div>
@@ -23,10 +23,8 @@ const RevisionSection = ({ proyectos }) => {
       {proyectos.map((p) => (
         <ProjectRevisionRow
           key={p.id}
-          gnoName={p.gnoName}
-          title={p.title}
-          requiredVolunteers={p.requiredVolunteers}
-          status={p.status}
+          project={p}
+          onApprove={onApprove}
         />
       ))}
     </div>
