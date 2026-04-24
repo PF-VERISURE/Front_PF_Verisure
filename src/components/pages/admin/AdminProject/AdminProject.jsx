@@ -7,6 +7,7 @@ import ProjectService from "../../../../services/ProjectService";
 import styles from "./AdminProject.module.css";
 import { useModal } from "../../../../hooks/useModal";
 import { ConfirmModal, InfoModal } from "../../../templates/Modal/Modal";
+import Title from "../../../atoms/Title/Title";
 
 const mockArchivados = [
   { id: 7, gnoName: "Médicos Sin Fronteras (MSF)", title: "Inclusión", participants: ["Zoey Broks", "Lola Queen", "Drake Bell"], totalApplications: 10, totalVolunteers: 26, sdgs: ["Igualdad de género"], locationType: "Presencial", startDate: "2025-01-01", endDate: "2025-06-01", totalHours: 60, description: "Proyecto de inclusión social para comunidades marginadas." },
@@ -60,7 +61,7 @@ const AdminProject = () => {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Administración de proyectos</h1>
+      <Title className={styles.title}  title="Administracion de proyectos"></Title>
       <SearchFilterBar
         search={search}
         onSearchChange={(e) => setSearch(e.target.value)}

@@ -4,6 +4,7 @@ import style from "./ApplicationCard.module.css";
 import { formatDateRange } from "../../../utils/dateFormatting";
 import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
 import { Calendar, MapPin, Clock } from "lucide-react";
+import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
 
 const ApplicationCard = ({ application, onCancel }) => {
 
@@ -15,7 +16,7 @@ const ApplicationCard = ({ application, onCancel }) => {
         },
         {
         label: "Modalidad",
-        value: application.locationType,
+        value:  LOCATION_TYPE_LABELS[application.locationType],
         icon: MapPin,
         },
         {

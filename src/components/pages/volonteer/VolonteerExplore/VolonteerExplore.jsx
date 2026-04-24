@@ -5,7 +5,7 @@ import PublishedProjectsList from '../../../organisms/PublishedProjectsList/Publ
 const VolonteerExplore = () => {
   return (
     <main className={style.main}>
-      <PublishedProjectsList  title="EXPLORAR PROYECTOS" />
+      <PublishedProjectsList  title="Explorar Proyectos" />
     </main>
   )
 }

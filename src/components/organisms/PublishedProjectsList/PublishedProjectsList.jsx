@@ -14,7 +14,8 @@ const PublishedProjectsList = ({ title }) => {
     const [projects, setProjects] = useState([]);
     const { appliedProjectIds, refetch  } = useApplications();
     const infoModal = useModal();
-    const navigate = useNavigate();
+    const navigate = useNavigate();;
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -47,14 +48,16 @@ const PublishedProjectsList = ({ title }) => {
             <section className={style.cards}>
                 {projects.map((project) => (
                     <ProjectCard
-                        key={project.id}
-                        project={project}
-                        onClick={handleApply}
-                        isApplied={appliedProjectIds.includes(project.id)}
-                        mode="public"
-                    />
+                    key={project.id}
+                    project={project}
+                    onClick={handleApply}
+                    isApplied={appliedProjectIds.includes(project.id)}
+                    isFull={project.totalApplications>= project.requiredVolunteers}
+                    mode="public"
+                />
                 ))}
             </section>
+            
             {infoModal.isOpen && (
             <InfoModal
             text={

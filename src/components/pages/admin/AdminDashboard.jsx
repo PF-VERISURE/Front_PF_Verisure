@@ -9,7 +9,6 @@ const AdminDashboard = () => {
       <AdminSidebar />
       <main className={styles.content}>
         <Outlet />
-        <Footer/>
       </main>
       
       

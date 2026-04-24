@@ -7,7 +7,6 @@ import VolonteerProject from '../components/pages/volonteer/VolonteerProject/Vol
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
-import AdminDashboard from '../components/pages/Admin/AdminDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics/AdminMetrics'
 import AdminProject from '../components/pages/admin/AdminProject/AdminProject'
 import AdminVolonteerProfile from '../components/pages/admin/AdminVolunteerProfile/AdminVolonteerProfile'
@@ -18,6 +17,7 @@ import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 import OngProjects from '../components/pages/ong/OngProject/OngProjects';
 import AuthLayout from '../layout/AuthLayout';
 import PublishedProjectsList from '../components/organisms/PublishedProjectsList/PublishedProjectsList';
+import AdminDashboard from '../components/pages/admin/AdminDashboard';
 
 
 export const router = createBrowserRouter([

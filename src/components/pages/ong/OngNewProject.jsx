@@ -9,6 +9,7 @@ import ProjectService from "../../../services/ProjectService";
 import { useModal } from "../../../hooks/useModal";
 import { InfoModal } from "../../templates/Modal/Modal";
 import { useNavigate } from "react-router-dom";
+import Title from "../../atoms/Title/Title";
 
 const CATEGORIA_OPTIONS = [
   { value: 1, label: "Agua limpia y saneamiento" },
@@ -104,7 +105,7 @@ const OngNewProject = () => {
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
-      <h2 className={styles.title}>Ficha de Registro proyecto</h2>
+      <Title className={styles.title} title="Registro de proyecto"/>
 
       <div className={styles.formTable}>
         <FormRow label="Nombre del proyecto">

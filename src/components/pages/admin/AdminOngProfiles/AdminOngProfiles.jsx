@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import UserService from "../../../../services/UserService";
 import styles from "./AdminOngProfiles.module.css";
+import Title from "../../../atoms/Title/Title";
 
 const AdminOngProfiles = () => {
   const [ongs, setOngs] = useState([]);
@@ -28,7 +29,7 @@ const AdminOngProfiles = () => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <h1 className={styles.title}>ONGS PERFILES</h1>
+        <Title className={styles.title} title="Perfiles Ongs"/>
         <div className={styles.searchBox}>
           <Search size={16} className={styles.searchIcon} />
           <input

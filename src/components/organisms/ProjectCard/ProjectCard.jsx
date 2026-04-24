@@ -7,13 +7,16 @@ import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
 import { PROJECT_STATUS_UI } from "../../../utils/ProjectStatus";
-
+import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
 
 const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) => {
 
   const isOwnerView = mode === "owner";
   const isPublicView = mode === "public";
   const ui = PROJECT_STATUS_UI[project.status];
+  const isPublished = project.status === "PUBLISHED";
+  const isFull = project.totalApplications >= project.requiredVolunteers;
+  
 
     const details = [
   {
@@ -23,7 +26,7 @@ const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) =
   },
   {
     label: "Modalidad",
-    value: project.locationType,
+    value: LOCATION_TYPE_LABELS[project.locationType],
     icon: MapPin,
   },
   {
@@ -37,6 +40,13 @@ const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) =
     icon: ClipboardClock,
   },
 ];
+
+console.log("PROJECT CHECK:", {
+  title: project.title,
+  totalApplications: project.totalApplications,
+  requiredVolunteers: project.requiredVolunteers,
+  isFull: project.totalApplications >= project.requiredVolunteers
+});
 
 return (
   <main className={style.card}>
@@ -61,21 +71,41 @@ return (
       </span>
       )}
 
-      {isPublicView && project.status === "PUBLISHED" && (
-        <PrimaryButton
-          text="REGISTRAR"
-          className="registrar"
-          onClick={() => onClick(project.id)}
-        />
-      )}
+      {isPublicView && (
+      <>
+        {isApplied && (
+          <PrimaryButton
+            text="INSCRITO"
+            className="inscrito"
+            onClick={null}
+          />
+        )}
 
-      {isPublicView && project.status !== "PUBLISHED" && (
-        <PrimaryButton
-          text="NO DISPONIBLE"
-          className="disabled"
-          onClick={null}
-        />
-      )}
+        {!isApplied && isPublished && !isFull && (
+          <PrimaryButton
+            text="REGISTRAR"
+            className="registrar"
+            onClick={() => onClick(project.id)}
+          />
+        )}
+
+        {!isApplied && isPublished && isFull && (
+          <PrimaryButton
+            text="LISTA DE ESPERA"
+            className="waiting"
+            onClick={() => onClick(project.id)}
+          />
+        )}
+
+        {!isApplied && !isPublished && (
+          <PrimaryButton
+            text="NO DISPONIBLE"
+            className="disabled"
+            onClick={null}
+          />
+        )}
+      </>
+    )}
     </section>
     </main>
 )
