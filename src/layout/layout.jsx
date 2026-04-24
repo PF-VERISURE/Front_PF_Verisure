@@ -8,11 +8,9 @@ import UserProvider from '../context/User/UserProvider';
 const Layout = () => {
   return (
     <>
-      <UserProvider>
           <Header/>
           <Outlet/>
           <Footer/>
-      </UserProvider>
     </>
   )
 }

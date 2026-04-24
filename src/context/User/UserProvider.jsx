@@ -5,7 +5,6 @@ import UserService from "../../services/UserService";
 
 const UserProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
-
   const [user, setUser] = useState(null);
 
 
@@ -19,13 +18,6 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem("userData");
     const savedToken = localStorage.getItem("token");
-
-    if (!savedToken || !savedUser) {
-      logout();
-    } else {
-      setUser(JSON.parse(savedUser));
-      setIsLogged(true);
-    }
   }, []);
 
   const login = async (credentials) => {

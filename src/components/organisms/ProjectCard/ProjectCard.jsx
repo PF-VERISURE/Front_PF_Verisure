@@ -6,7 +6,7 @@ import { formatDateRange } from '../../../utils/dateFormatting'
 import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
-import { PROJECT_STATUS_UI } from "../../../utils/ProjectStatus";
+import { PROJECT_STATUS_UI } from "../../../utils/projectStatus";
 import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
 
 const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) => {

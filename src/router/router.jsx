@@ -18,6 +18,7 @@ import OngProjects from '../components/pages/ong/OngProject/OngProjects';
 import AuthLayout from '../layout/AuthLayout';
 import PublishedProjectsList from '../components/organisms/PublishedProjectsList/PublishedProjectsList';
 import AdminDashboard from '../components/pages/admin/AdminDashboard';
+import routeManager from "../utils/routeManager";
 
 
 export const router = createBrowserRouter([
@@ -36,37 +37,35 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       {
-        index: true,
-        Component: Rutas,
+      index: true,
+      Component: routeManager
       },
-
       {
-        path: "admin",
-        Component: AdminDashboard,
-        children: [
-          { index: true, Component: AdminPage },
-          { path: "metricas", Component: AdminMetrics },
-          { path: "proyectos", Component: AdminProject },
-          { path: "ongs/perfiles", Component: AdminOngProfiles },
-          { path: "voluntario/perfiles", Component: AdminVolonteerProfile }
-        ]
+      path: "admin",
+      Component: AdminDashboard,
+      children: [
+        { index: true, Component: AdminProject }, 
+        { path: "proyectos", Component: AdminProject },
+        { path: "metricas", Component: AdminMetrics },
+        { path: "ongs/perfiles", Component: AdminOngProfiles },
+        { path: "voluntario/perfiles", Component: AdminVolonteerProfile }
+      ]
       },
-
       {
-        path:"voluntario",
-        Component: VolonteerDashboard,
-        children:[
-          { index: true, path: "proyectos", Component: VolonteerExplore },
-          { path: "mis_proyectos", Component: VolonteerProject },
-          { path: "certificados", Component: VolonteerCertificates }
-        ]
-      },
-
+          path:"voluntario",
+          Component: VolonteerDashboard,
+          children:[
+            { index: true, Component: VolonteerExplore }, 
+            { path: "proyectos", Component: VolonteerExplore },
+            { path: "mis_proyectos", Component: VolonteerProject },
+            { path: "certificados", Component: VolonteerCertificates }
+          ]
+        },
       {
         path: "ongs",
         Component: OngDashboard,
         children:[
-          { index: true, Component: OngNewProject },
+          { index: true, Component: OngProjects },
           { path: "proyectos", Component: OngProjects },
           { path: "nuevo_proyecto", Component: OngNewProject }
         ]
