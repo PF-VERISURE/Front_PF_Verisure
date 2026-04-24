@@ -36,7 +36,7 @@ const UserProvider = ({ children }) => {
 
       console.log("FULL RESPONSE:", userData);
 
-      if (!userData || !userData.profile) {
+      if (!userData || !userData.profileData) {
         throw new Error("Respuesta del servidor inválida");
       }
 

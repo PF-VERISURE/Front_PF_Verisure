@@ -4,7 +4,7 @@ function ModalAlert({ text, actions = [],  onClose  }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <p className={styles.text}>{text}</p>
+        <div className={styles.text}>{text}</div>
 
         <div className={styles.actions}>
           {actions.map((action, i) => (

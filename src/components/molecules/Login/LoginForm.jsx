@@ -23,7 +23,6 @@ const { login } = useContext(UserContext);
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,18 +40,9 @@ const { login } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!formData.email.trim() || !formData.password) {
-      setError("Por favor completa todos los campos");
-      return;
-    }
 
-    try {
-    const response = await login(formData);
-    console.log("Datos login:", response);
-
-    // 🟡 1. CLIENT VALIDATION
     const newErrors = {
-      email: !formData.email ? "El correo es obligatorio" : "",
+      email: !formData.email.trim() ? "El correo es obligatorio" : "",
       password: !formData.password ? "La contraseña es obligatoria" : "",
     };
 
@@ -62,15 +52,12 @@ const { login } = useContext(UserContext);
       return;
     }
 
-    // 🔵 2. API CALL
     try {
-      const response = await login(formData);
+      await login(formData);
       navigate("/");
     } catch (error) {
-
       const response = error.response?.data;
 
-      
       if (response?.fieldErrors) {
         setErrors({
           email: response.fieldErrors.email || "",
@@ -79,14 +66,12 @@ const { login } = useContext(UserContext);
         return;
       }
 
-      // 🔴 4. GLOBAL ERROR (auth, business)
       if (response?.error) {
         setErrorMessage(response.error);
         errorModal.open();
         return;
       }
 
-      // ⚠️ 5. FALLBACK
       setErrorMessage("No se pudo conectar con el servidor.");
       errorModal.open();
     }
