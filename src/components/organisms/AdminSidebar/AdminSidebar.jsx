@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
     LayoutGrid,
     ChartColumn,
@@ -15,6 +15,14 @@ import styles from "./AdminSidebar.module.css";
 const AdminSidebar = () => {
     const [perfilesOpen, setPerfilesOpen] = useState(false);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
+
+    const isPerfilesActive =
+        pathname.startsWith("/admin/ongs") || pathname.startsWith("/admin/voluntario");
+
+    useEffect(() => {
+        if (isPerfilesActive) setPerfilesOpen(true);
+    }, [isPerfilesActive]);
 
     return (
         <aside className={styles.sidebar}>
@@ -22,16 +30,19 @@ const AdminSidebar = () => {
                 <SidebarMainItem
                     icon={LayoutGrid}
                     label="Panel"
+                    isActive={pathname === "/admin"}
                     onClick={() => navigate("/admin")}
                 />
                 <SidebarMainItem
                     icon={ChartColumn}
                     label="Métricas"
+                    isActive={pathname === "/admin/metricas"}
                     onClick={() => navigate("/admin/metricas")}
                 />
                 <SidebarMainItem
                     icon={FolderOpen}
                     label="Proyectos"
+                    isActive={pathname === "/admin/proyectos"}
                     onClick={() => navigate("/admin/proyectos")}
                 />
 
@@ -41,6 +52,7 @@ const AdminSidebar = () => {
                         label="Perfiles de usuarios"
                         hasDropdown
                         isOpen={perfilesOpen}
+                        isActive={isPerfilesActive}
                         onClick={() => setPerfilesOpen(!perfilesOpen)}
                     />
                     {perfilesOpen && (
@@ -48,11 +60,13 @@ const AdminSidebar = () => {
                             <SidebarSubItem
                                 icon={Building2}
                                 label="ONGs"
+                                isActive={pathname === "/admin/ongs/perfiles"}
                                 onClick={() => navigate("/admin/ongs/perfiles")}
                             />
                             <SidebarSubItem
                                 icon={UserRound}
                                 label="Voluntarios"
+                                isActive={pathname === "/admin/voluntario/perfiles"}
                                 onClick={() => navigate("/admin/voluntario/perfiles")}
                             />
                         </div>

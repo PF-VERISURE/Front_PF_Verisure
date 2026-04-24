@@ -12,7 +12,16 @@
   border-bottom: 1px solid #bdbdbd;
 }
 
+.active {
+  background-color: #1F2D80;
+}
+
 .label {
   color: #555;
   font-size: 13px;
+}
+
+.labelActive {
+  color: #ffffff;
+  font-weight: 600;
 }

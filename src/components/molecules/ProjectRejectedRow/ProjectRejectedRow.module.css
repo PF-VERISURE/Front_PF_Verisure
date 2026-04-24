@@ -1,0 +1,25 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  font-size: 0.78rem;
+  color: var(--rgb-black);
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.row span {
+  color: var(--rgb-black);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: #fafafa;
+}

@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import UserService from "../../../../services/UserService";
+import VolunteerProfileModal from "../../../molecules/VolunteerProfileModal/VolunteerProfileModal";
 import styles from "./AdminVolunteerProfile.module.css";
 import Title from "../../../atoms/Title/Title";
 
 const AdminVolontarioPerfiles = () => {
   const [volunteers, setVolunteers] = useState([]);
   const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const fetchVolunteers = async () => {
@@ -47,7 +49,6 @@ const AdminVolontarioPerfiles = () => {
           <tr className={styles.tableHead}>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Estado</th>
             <th>Acción</th>
           </tr>
         </thead>
@@ -56,14 +57,19 @@ const AdminVolontarioPerfiles = () => {
             <tr key={v.id} className={styles.tableRow}>
               <td>{v.firstName} {v.lastName}</td>
               <td>{v.email}</td>
-              <td className={styles.estado}><span className={styles.dot}></span>Activo</td>
               <td>
-                <button className={styles.editButton}>Editar</button>
+                <button className={styles.editButton} onClick={() => setSelected(v)}>
+                  Editar
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {selected && (
+        <VolunteerProfileModal volunteer={selected} onClose={() => setSelected(null)} />
+      )}
     </div>
   );
 };
