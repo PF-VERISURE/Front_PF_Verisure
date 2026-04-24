@@ -13,8 +13,3 @@
   padding-top: 32px;
 }
 
-.activeItem > button {
-  background-color: var(--color-background-primary);
-  border-left: 4px solid var(--rgb-red);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
