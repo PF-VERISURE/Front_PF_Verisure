@@ -47,36 +47,6 @@ const ProjectService =() =>{
             }
         }
 
-    // const getProjectById = async(id) =>{
-    //     try{
-    //         const response = await api.get(`${url}/${id}`);
-    //         return response.data;
-    //     } catch (error) {
-    //         console.error ("Error to obtains project details", error);
-    //         throw error;
-    //     }
-    // }
-
-    // const updateProject = async (projectId, userData) => {
-    // try {
-    //     const response = await api.put(`${url}/${projectId}`,userData); 
-    //     return response.data;
-    //     } catch (error) {
-    //     console.error("Error updating project", error);
-    //     throw error;
-    //     }
-    // }
-
-    // const deleteProject = async(projectId) => {
-    //     try{
-    //         const response = await api. delete(`${url}/${projectId}`);
-    //         return response.data;
-    //     } catch(error){
-    //         console.error ("Error deleting project", error);
-    //         throw error;
-    //     }
-    // }
-
     const updateProjectStatus = async (id, status) => {
         try {
             const response = await api.patch(`${url}/${id}/status`, { status });
@@ -93,7 +63,7 @@ const ProjectService =() =>{
             const res = await api.get(`${url}/all`);
             return res.data.data;
         } catch (error) {
-            console.error("Error getting all projects", error);
+            console.error("Error getti//ng all projects", error);
             throw error;
         }
     };
