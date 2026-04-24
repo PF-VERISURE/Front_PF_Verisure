@@ -20,7 +20,6 @@ const ActivesSection = ({ proyectos }) => {
         <span>Título del proyecto</span>
         <span>Participantes</span>
         <span>Número de vacantes</span>
-        <span>Acción</span>
       </div>
       {projects.map((p) => (
         <ProjectActiveRow
