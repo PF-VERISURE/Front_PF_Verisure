@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import UserService from "../../../../services/UserService";
 import VolunteerProfileModal from "../../../molecules/VolunteerProfileModal/VolunteerProfileModal";
 import styles from "./AdminVolunteerProfile.module.css";
+import Title from "../../../atoms/Title/Title";
 
 const AdminVolontarioPerfiles = () => {
   const [volunteers, setVolunteers] = useState([]);
@@ -30,7 +31,7 @@ const AdminVolontarioPerfiles = () => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <h1 className={styles.title}>VOLUNTARIOS PERFILES</h1>
+        <Title className={styles.title} title="Perfiles Voluntarios"/>
         <div className={styles.searchBox}>
           <Search size={16} className={styles.searchIcon} />
           <input

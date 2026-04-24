@@ -4,10 +4,10 @@ import UserProvider from '../context/User/UserProvider';
 
 const AuthLayout = () => {
   return (
-    <UserProvider>
+    <>
       <Header />
       <Outlet />
-    </UserProvider>
+    </>
   );
 };
 

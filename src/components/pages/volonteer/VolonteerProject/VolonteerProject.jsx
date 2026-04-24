@@ -5,7 +5,7 @@ import MyApplications from '../../../organisms/MyApplications/MyApplications'
 const VolonteerProject = () => {
   return (
     <main className={style.main}>
-      <MyApplications title="MIS VOLUNTARIADOS" />
+      <MyApplications title="Mis Voluntariados" />
     </main>
   )
 }

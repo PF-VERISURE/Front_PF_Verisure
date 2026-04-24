@@ -8,6 +8,7 @@ import ProjectService from "../../../../services/ProjectService";
 import styles from "./AdminProject.module.css";
 import { useModal } from "../../../../hooks/useModal";
 import { ConfirmModal, InfoModal } from "../../../templates/Modal/Modal";
+import Title from "../../../atoms/Title/Title";
 
 const AdminProject = () => {
   const [search, setSearch] = useState("");
@@ -79,7 +80,7 @@ const AdminProject = () => {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Administración de proyectos</h1>
+      <Title className={styles.title}  title="Administracion de proyectos"></Title>
       <SearchFilterBar
         search={search}
         onSearchChange={(e) => setSearch(e.target.value)}

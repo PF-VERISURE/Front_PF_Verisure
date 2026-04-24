@@ -8,7 +8,7 @@ const OngProjects = ({title}) => {
   return (
     <main className={style.main}>
       <h1>{title}</h1>
-      <OngMyProjects title="Mis Proyectos"/>
+      <OngMyProjects title="Nuestros Proyectos"/>
     </main>
   )
 }

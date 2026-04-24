@@ -5,11 +5,19 @@
     padding: 25px;
     border-radius: var(--border-radius-default);
     box-shadow: 3px 5px 0px #8a8383;
+    align-items: stretch; 
 }
+
 
 .image {
     width: 9rem;
     height: 11rem;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
 }

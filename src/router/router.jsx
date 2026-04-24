@@ -7,7 +7,6 @@ import VolonteerProject from '../components/pages/volonteer/VolonteerProject/Vol
 import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
-import AdminDashboard from '../components/pages/Admin/AdminDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics/AdminMetrics'
 import AdminProject from '../components/pages/admin/AdminProject/AdminProject'
 import AdminVolonteerProfile from '../components/pages/admin/AdminVolunteerProfile/AdminVolonteerProfile'
@@ -18,6 +17,8 @@ import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 import OngProjects from '../components/pages/ong/OngProject/OngProjects';
 import AuthLayout from '../layout/AuthLayout';
 import PublishedProjectsList from '../components/organisms/PublishedProjectsList/PublishedProjectsList';
+import AdminDashboard from '../components/pages/admin/AdminDashboard';
+import routeManager from "../utils/routeManager";
 
 
 export const router = createBrowserRouter([
@@ -36,37 +37,35 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       {
-        index: true,
-        Component: Rutas,
+      index: true,
+      Component: routeManager
       },
-
       {
-        path: "admin",
-        Component: AdminDashboard,
-        children: [
-          { index: true, Component: AdminPage },
-          { path: "metricas", Component: AdminMetrics },
-          { path: "proyectos", Component: AdminProject },
-          { path: "ongs/perfiles", Component: AdminOngProfiles },
-          { path: "voluntario/perfiles", Component: AdminVolonteerProfile }
-        ]
+      path: "admin",
+      Component: AdminDashboard,
+      children: [
+        { index: true, Component: AdminProject }, 
+        { path: "proyectos", Component: AdminProject },
+        { path: "metricas", Component: AdminMetrics },
+        { path: "ongs/perfiles", Component: AdminOngProfiles },
+        { path: "voluntario/perfiles", Component: AdminVolonteerProfile }
+      ]
       },
-
       {
-        path:"voluntario",
-        Component: VolonteerDashboard,
-        children:[
-          { index: true, path: "proyectos", Component: VolonteerExplore },
-          { path: "mis_proyectos", Component: VolonteerProject },
-          { path: "certificados", Component: VolonteerCertificates }
-        ]
-      },
-
+          path:"voluntario",
+          Component: VolonteerDashboard,
+          children:[
+            { index: true, Component: VolonteerExplore }, 
+            { path: "proyectos", Component: VolonteerExplore },
+            { path: "mis_proyectos", Component: VolonteerProject },
+            { path: "certificados", Component: VolonteerCertificates }
+          ]
+        },
       {
         path: "ongs",
         Component: OngDashboard,
         children:[
-          { index: true, Component: OngNewProject },
+          { index: true, Component: OngProjects },
           { path: "proyectos", Component: OngProjects },
           { path: "nuevo_proyecto", Component: OngNewProject }
         ]
