@@ -8,10 +8,14 @@ const SidebarMainItem = ({
   label,
   hasDropdown = false,
   isOpen = false,
+  isActive = false,
   onClick,
 }) => {
   return (
-    <button className={styles.mainItem} onClick={onClick}>
+    <button
+      className={`${styles.mainItem} ${isActive ? styles.active : ""}`}
+      onClick={onClick}
+    >
       <div className={styles.left}>
         <SidebarIcon icon={icon} />
         <SidebarText>{label}</SidebarText>

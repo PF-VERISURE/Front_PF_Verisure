@@ -37,8 +37,8 @@ import api from "./api";
 
     const getEmployeeById = async(id) =>{
         try{
-            const response = await api.get(`${url}/employees/${id}`); 
-
+            const response = await api.get(`${url}/employees/${id}`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener datos del usuario", error);
             throw error;
@@ -57,8 +57,8 @@ import api from "./api";
 
         const getMyEmployeeProfile = async(id) =>{
         try{
-            const response = await api.get(`${url}/employees/profile`); 
-
+            const response = await api.get(`${url}/employees/profile`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener datos de su perfil", error);
             throw error;
@@ -90,8 +90,8 @@ import api from "./api";
 
     const getMyOngProfile = async(id) =>{
         try{
-            const response = await api.get(`${url}/gnos/profile`); 
-
+            const response = await api.get(`${url}/gnos/profile`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener datos de su perfil", error);
             throw error;
@@ -121,8 +121,8 @@ import api from "./api";
     //SDGs
     const getAllSdgs = async(id) =>{
         try{
-            const response = await api.get(`${url}/sdgs`); 
-
+            const response = await api.get(`${url}/sdgs`);
+            return response.data;
         } catch (error) {
             console.error ("Error para obtener categorias", error);
             throw error;

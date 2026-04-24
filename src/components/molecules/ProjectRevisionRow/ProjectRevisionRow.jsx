@@ -5,7 +5,7 @@ import styles from "./ProjectRevisionRow.module.css";
 import { useModal } from "../../../hooks/useModal";
 import { InfoModal } from "../../templates/Modal/Modal";
 
-const ProjectRevisionRow = ({ project, onApprove }) => {
+const ProjectRevisionRow = ({ project, onApprove, onReject }) => {
   const [showModal, setShowModal] = useState(false);
 
   const errorModal = useModal();
@@ -32,6 +32,15 @@ const ProjectRevisionRow = ({ project, onApprove }) => {
     }
   };
 
+  const handleReject = async () => {
+    try {
+      await onReject(project.id);
+      setShowModal(false);
+    } catch (error) {
+      console.error("Error al rechazar el proyecto:", error);
+    }
+  };
+
   return (
     <>
       <div className={styles.row} onClick={() => setShowModal(true)}>
@@ -46,6 +55,7 @@ const ProjectRevisionRow = ({ project, onApprove }) => {
           project={project}
           onClose={() => setShowModal(false)}
           onApprove={handleApprove}
+          onReject={handleReject}
         />
       )}
 

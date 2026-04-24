@@ -36,6 +36,10 @@ const UserProvider = ({ children }) => {
 
       console.log("FULL RESPONSE:", userData);
 
+      if (!userData || !userData.profileData) {
+        throw new Error("Respuesta del servidor inválida");
+      }
+
       const loggedUser = {
       role: userData.role,
       name:
