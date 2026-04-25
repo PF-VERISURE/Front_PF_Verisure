@@ -17,7 +17,9 @@
 }
 
 .section3 {
+    margin-left: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; 
+    justify-content: space-between;
+    align-items: flex-end;
 }
