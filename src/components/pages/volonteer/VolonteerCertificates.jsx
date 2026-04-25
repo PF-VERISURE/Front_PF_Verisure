@@ -1,11 +1,12 @@
 import React from 'react'
+import Certificate from '../../../components/organisms/Certificate/Certificate'
 
-const VolontarioCertificados = () => {
+const VolonteerCertificates = () => {
   return (
     <>
-        <div>VolontarioCertificados</div>
+    <Certificate/>
     </>
   )
 }
 
-export default VolontarioCertificados
+export default VolonteerCertificates;

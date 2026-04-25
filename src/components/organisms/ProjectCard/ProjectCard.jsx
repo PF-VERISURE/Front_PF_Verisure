@@ -9,14 +9,13 @@ import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
 import { PROJECT_STATUS_UI } from "../../../utils/projectStatus";
 import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
 
-const ProjectCard = ({project, onClick, isApplied, mode = "owner" | "public"}) => {
+const ProjectCard = ({project,application,  onClick, isApplied, mode = "owner" | "public"}) => {
 
   const isOwnerView = mode === "owner";
   const isPublicView = mode === "public";
   const ui = PROJECT_STATUS_UI[project.status];
   const isPublished = project.status === "PUBLISHED";
-  const isFull = project.totalApplications >= project.requiredVolunteers;
-  
+  const isFull = project.totalApplications >= project.requiredVolunteers; 
 
     const details = [
   {
