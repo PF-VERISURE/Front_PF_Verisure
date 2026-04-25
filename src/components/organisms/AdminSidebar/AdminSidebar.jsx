@@ -18,7 +18,9 @@ const AdminSidebar = () => {
     const { pathname } = useLocation();
 
     const isPerfilesActive =
-        pathname.startsWith("/admin/ongs") || pathname.startsWith("/admin/voluntario");
+        perfilesOpen ||
+        pathname.startsWith("/admin/ongs") ||
+        pathname.startsWith("/admin/voluntario");
 
     useEffect(() => {
         if (isPerfilesActive) setPerfilesOpen(true);
@@ -29,7 +31,7 @@ const AdminSidebar = () => {
             <div className={styles.content}>
                 <SidebarMainItem
                     icon={LayoutGrid}
-                    label="Panel"
+                    label="Dashboard"
                     isActive={pathname === "/admin"}
                     onClick={() => navigate("/admin")}
                 />
@@ -49,7 +51,7 @@ const AdminSidebar = () => {
                 <div className={styles.group}>
                     <SidebarMainItem
                         icon={Users}
-                        label="Perfiles de usuarios"
+                        label="Usuarios"
                         hasDropdown
                         isOpen={perfilesOpen}
                         isActive={isPerfilesActive}

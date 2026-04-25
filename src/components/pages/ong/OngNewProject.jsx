@@ -234,7 +234,7 @@ const OngNewProject = () => {
           text={
             <div>
               <div>Proyecto creado exitosamente!</div>
-              <div>Ya está disponible para voluntarios.</div>
+  
             </div>
           }
           onClose={() => {
