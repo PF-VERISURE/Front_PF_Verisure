@@ -3,8 +3,9 @@ import ProjectDetails from "../../molecules/ProjectDetails/ProjectDetails";
 import style from "./ApplicationCard.module.css";
 import { formatDateRange } from "../../../utils/dateFormatting";
 import PrimaryButton from "../../atoms/PrimaryButton/PrimaryButton";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { Calendar, MapPin, Clock, ClipboardClock } from "lucide-react";
 import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
+import CatLogo from "../../atoms/CatLogo/CatLogo";
 
 const ApplicationCard = ({ application, onCancel }) => {
 
@@ -23,6 +24,11 @@ const ApplicationCard = ({ application, onCancel }) => {
         label: "Inscripción",
         value: new Date(application.appliedAt).toLocaleDateString(),
         icon: Clock,
+        },
+        {
+        label: "Horas",
+        value: application.totalHours,
+        icon: ClipboardClock,
         },
     ];
 
@@ -85,6 +91,8 @@ const ApplicationCard = ({ application, onCancel }) => {
         </section>
 
         <section className={style.section3}>
+            <CatLogo categorie={application.sdgs?.[0]} />
+
             {isCancellable ? (
             <PrimaryButton
                 text="CANCELAR"
