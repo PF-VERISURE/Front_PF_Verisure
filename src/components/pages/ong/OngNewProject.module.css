@@ -31,7 +31,7 @@
 }
 
 .input:focus {
-  border-color: var(--rgb-red);
+  border-color: var(--rgb-black);
 }
 
 .actions {
