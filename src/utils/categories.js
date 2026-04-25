@@ -82,4 +82,23 @@ export const categories = {
     src: Vida_Submarina,
     cssVar: "Vida_Submarina",
   },
+
+  // Aliases — nombres abreviados que manda el backend
+  "Reducción desigualdades": {
+    label: "Reducción desigualdades",
+    src: Reduccion_Desigualdades,
+    cssVar: "Reduccion_Desigualdades",
+  },
+
+  "Consumo responsable": {
+    label: "Consumo responsable",
+    src: Produccion_Responsables,
+    cssVar: "Produccion_Responsables",
+  },
+
+  "Industria e innovación": {
+    label: "Industria e innovación",
+    src: Ciudad_Sostenibles,
+    cssVar: "Ciudad_Sostenibles",
+  },
 };

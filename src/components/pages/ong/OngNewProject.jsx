@@ -22,7 +22,7 @@ const CATEGORIA_OPTIONS = [
   { value: 7, label: "Fin de la pobreza" },
   { value: 8, label: "Producción y consumo responsables"},
   { value: 9, label: "Reducción de las desigualdades"},
-  { value: 10, label: "vida submarina"},
+  { value: 10, label: "Vida submarina"},
 
 ]
 
