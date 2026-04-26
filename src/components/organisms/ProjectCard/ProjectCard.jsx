@@ -1,23 +1,24 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import ProjectDetails from "../../molecules/ProjectDetails/ProjectDetails"
-import DescriptionField from '../../atoms/DescriptionField/DescriptionField'
-import style from "./ProjectCard.module.css"
-import { formatDateRange } from '../../../utils/dateFormatting'
+import ProjectDetails from "../../molecules/ProjectDetails/ProjectDetails";
+import DescriptionField from '../../atoms/DescriptionField/DescriptionField';
+import style from "./ProjectCard.module.css";
+import { formatDateRange } from '../../../utils/dateFormatting';
 import CatLogo from '../../atoms/CatLogo/CatLogo';
 import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
+import LikeButton from '../../atoms/LikeButton/LikeButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
 import { PROJECT_STATUS_UI } from "../../../utils/projectStatus";
-import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
-import LikeButton from '../../atoms/LikeButton/LikeButton'
+import { LOCATION_TYPE_LABELS } from '../../../utils/translation';
 import ProjectService from "../../../services/ProjectService";
 
-const ProjectCard = ({project, application, onClick, isApplied, mode = "owner" | "public"}) => {
-
+const ProjectCard = ({ project, application, onClick, isApplied, mode = "owner" }) => {
   const isOwnerView = mode === "owner";
   const isPublicView = mode === "public";
   const ui = PROJECT_STATUS_UI[project.status];
   const isPublished = project.status === "PUBLISHED";
-  const isFull = project.totalApplications >= project.requiredVolunteers; 
+  const isFull = project.totalApplications >= project.requiredVolunteers;
+
   const [isLiked, setIsLiked] = useState(project.isFavorite || false);
   const [loading, setLoading] = useState(false);
 
@@ -27,6 +28,20 @@ const ProjectCard = ({project, application, onClick, isApplied, mode = "owner" |
     { label: "Capacidad", value: project.requiredVolunteers, icon: Users },
     { label: "Horas", value: project.totalHours, icon: ClipboardClock },
   ];
+
+  const handleToggleLike = async () => {
+    if (loading) return;
+    setIsLiked((prev) => !prev);
+    setLoading(true);
+    try {
+      await ProjectService().toggleFavorite(project.id);
+    } catch (error) {
+      setIsLiked((prev) => !prev);
+      console.error("Failed to toggle favorite", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <motion.div
@@ -40,49 +55,6 @@ const ProjectCard = ({project, application, onClick, isApplied, mode = "owner" |
           alt="Ilustración del proyecto"
           className={style.image}
         />
-const handleToggleLike = async () => {
-    if (loading) return;
-
-    setIsLiked((prev) => !prev);
-    setLoading(true);
-
-    try {
-      await ProjectService().toggleFavorite(project.id);
-    } catch (error) {
-      setIsLiked((prev) => !prev);
-      console.error("Failed to toggle favorite", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-return (
-  <main className={style.card}>
-    <img 
-      src={project.imageUrl} 
-      alt="Photo de illustracion del proyecto" 
-      className={style.image}
-    />
-
-    <section  className={style.section2}>
-      <h1 className={style.title}>{project.title}</h1>
-      <DescriptionField text={project.description} />
-      <ProjectDetails details={details}/>
-    </section>
-
-    <section className={style.section3}>
-      <CatLogo categorie={project.sdgs?.[0]} />
-
-      <LikeButton
-        isLiked={isLiked}
-        onToggle={handleToggleLike}
-        disabled={loading}
-      />
-
-      {isOwnerView && (
-        <span className={style[ui.className]}>
-        {ui.label}
-      </span>
       )}
 
       <div className={style.body}>
@@ -99,6 +71,17 @@ return (
         <div className={style.sideTop}>
           <CatLogo categorie={project.sdgs?.[0]} />
         </div>
+
+        {isPublicView && (
+          <div className={style.likeWrap}>
+            <LikeButton
+              isLiked={isLiked}
+              onToggle={handleToggleLike}
+              disabled={loading}
+            />
+          </div>
+        )}
+
         <div className={style.sideBottom}>
           {isOwnerView && ui && (
             <span className={style[ui.className]}>{ui.label}</span>

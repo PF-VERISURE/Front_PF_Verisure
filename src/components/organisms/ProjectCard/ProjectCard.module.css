@@ -71,6 +71,21 @@
     padding: 8px 18px 20px;
 }
 
+.likeWrap {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 8px;
+}
+
+.likeWrap span {
+  display: none;
+}
+
+.likeWrap img {
+  width: 36px !important;
+  height: 36px !important;
+}
+
 /* Status badges */
 .pending {
     background: linear-gradient(135deg, #fff7ed, #ffedd5);
