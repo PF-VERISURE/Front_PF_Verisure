@@ -1,17 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import style from "./StatusFilterButton.module.css";
 
-const StatusFilterButton = ({ label, count, color, isActive, onClick }) => {
+const StatusFilterButton = ({ label, count, statusClass, isActive, onClick }) => {
   return (
     <button
-      className={`${style.btn} ${isActive ? style.active : ""}`}
+      className={`${style.btn} ${style[statusClass]} ${isActive ? style.active : ""}`}
       onClick={onClick}
     >
       <AnimatePresence>
         {isActive && (
           <motion.div
             className={style.fill}
-            style={{ background: color }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             exit={{ scaleX: 0 }}
@@ -20,9 +19,7 @@ const StatusFilterButton = ({ label, count, color, isActive, onClick }) => {
         )}
       </AnimatePresence>
 
-      <span className={style.count} style={{ color: isActive ? "#fff" : color }}>
-        {count}
-      </span>
+      <span className={style.count}>{count}</span>
       <span className={style.label}>{label}</span>
     </button>
   );

@@ -86,7 +86,6 @@
   height: 36px !important;
 }
 
-/* Status badges */
 .pending {
     background: linear-gradient(135deg, #fff7ed, #ffedd5);
     color: #c2410c;

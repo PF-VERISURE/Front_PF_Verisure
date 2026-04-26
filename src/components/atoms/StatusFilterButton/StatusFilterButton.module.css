@@ -52,3 +52,29 @@
 .active .label {
     color: rgba(255, 255, 255, 0.85);
 }
+
+
+.all        { --filter-color: #0f172a; }
+.pending    { --filter-color: #ea580c; }
+.published  { --filter-color: #16a34a; }
+.completed  { --filter-color: #2563eb; }
+.rejected   { --filter-color: #dc2626; }
+.canceled   { --filter-color: #64748b; }
+.approved   { --filter-color: #16a34a; }
+.waitlisted { --filter-color: #7c3aed; }
+.closed     { --filter-color: #1e293b; }
+
+
+.fill {
+    background: var(--filter-color);
+}
+
+
+.btn .count {
+    color: var(--filter-color);
+}
+
+
+.active .count {
+    color: #ffffff;
+}

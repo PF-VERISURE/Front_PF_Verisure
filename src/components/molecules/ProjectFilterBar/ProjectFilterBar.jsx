@@ -2,12 +2,12 @@ import StatusFilterButton from "../../atoms/StatusFilterButton/StatusFilterButto
 import style from "./ProjectFilterBar.module.css";
 
 const FILTERS = [
-  { label: "Todos",       value: "ALL",       color: "#0f172a" },
-  { label: "En revisión", value: "PENDING",   color: "#ea580c" },
-  { label: "Publicados",  value: "PUBLISHED", color: "#16a34a" },
-  { label: "Completados", value: "COMPLETED", color: "#2563eb" },
-  { label: "Rechazados",  value: "REJECTED",  color: "#dc2626" },
-  { label: "Cancelados",  value: "CANCELED",  color: "#64748b" },
+  { label: "Todos",       value: "ALL",       statusClass: "all" },
+  { label: "En revisión", value: "PENDING",   statusClass: "pending" },
+  { label: "Publicados",  value: "PUBLISHED", statusClass: "published" },
+  { label: "Completados", value: "COMPLETED", statusClass: "completed" },
+  { label: "Rechazados",  value: "REJECTED",  statusClass: "rejected" },
+  { label: "Cancelados",  value: "CANCELED",  statusClass: "canceled" },
 ];
 
 const ProjectFilterBar = ({ projects, activeFilter, onFilterChange }) => {
@@ -18,12 +18,12 @@ const ProjectFilterBar = ({ projects, activeFilter, onFilterChange }) => {
 
   return (
     <div className={style.bar}>
-      {FILTERS.map(({ label, value, color }) => (
+      {FILTERS.map(({ label, value, statusClass }) => (
         <StatusFilterButton
           key={value}
           label={label}
           count={countOf(value)}
-          color={color}
+          statusClass={statusClass}
           isActive={activeFilter === value}
           onClick={() => onFilterChange(value)}
         />
