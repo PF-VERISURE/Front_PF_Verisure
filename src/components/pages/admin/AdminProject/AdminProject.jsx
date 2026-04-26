@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Title from "../../../atoms/Title/Title";
 import SearchFilterBar from "../../../molecules/SearchFilterBar/SearchFilterBar";
 import RevisionSection from "../../../organisms/RevisionSection/RevisionSection";
 import ActivesSection from "../../../organisms/ActivesSection/ActivesSection";
@@ -8,10 +9,10 @@ import ProjectService from "../../../../services/ProjectService";
 import styles from "./AdminProject.module.css";
 import { useModal } from "../../../../hooks/useModal";
 import { ConfirmModal, InfoModal } from "../../../templates/Modal/Modal";
-import Title from "../../../atoms/Title/Title";
 
 const AdminProject = () => {
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("all");
   const [revision, setRevision] = useState([]);
   const [activos, setActivos] = useState([]);
   const [archivados, setArchivados] = useState([]);
@@ -78,17 +79,34 @@ const AdminProject = () => {
     }
   };
 
+  const normalize = (str) =>
+    str?.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") ?? "";
+
+  const query = normalize(search).trim();
+
+  const applySearch = (list) =>
+    query
+      ? list.filter((p) =>
+          normalize(p.title).includes(query) ||
+          normalize(p.gnoName).includes(query)
+        )
+      : list;
+
+  const show = (section) => filter === "all" || filter === section;
+
   return (
     <div className={styles.page}>
-      <Title className={styles.title}  title="Administracion de proyectos"></Title>
+      <Title title="Administración de proyectos" />
       <SearchFilterBar
         search={search}
         onSearchChange={(e) => setSearch(e.target.value)}
+        filter={filter}
+        onFilterChange={setFilter}
       />
-      <RevisionSection proyectos={revision} onApprove={handleApprove} onReject={handleReject} />
-      <ActivesSection proyectos={activos} />
-      <ArchivedSection proyectos={archivados} />
-      <RejectedSection proyectos={rechazados} />
+      {show("revision")   && <RevisionSection  proyectos={applySearch(revision)}   onApprove={handleApprove} onReject={handleReject} />}
+      {show("activos")    && <ActivesSection   proyectos={applySearch(activos)} />}
+      {show("archivados") && <ArchivedSection  proyectos={applySearch(archivados)} />}
+      {show("rechazados") && <RejectedSection  proyectos={applySearch(rechazados)} />}
     </div>
   );
 };

@@ -10,21 +10,18 @@ const OngSidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <div className={location.pathname === "/ongs/nuevo_proyecto" ? styles.activeItem : ""}>
-                    <SidebarMainItem
-                        icon={FilePlus}
-                        label="Registrar Proyectos"
-                        onClick={() => navigate("/ongs/nuevo_proyecto")}
-                    />
-                </div>
-
-                <div className={location.pathname === "/ongs/proyectos" ? styles.activeItem : ""}>
-                    <SidebarMainItem
-                        icon={FolderOpen}
-                        label="Proyectos"
-                        onClick={() => navigate("/ongs/proyectos")}
-                    />
-                </div>
+                <SidebarMainItem
+                    icon={FilePlus}
+                    label="Registrar Proyectos"
+                    isActive={location.pathname === "/ongs/nuevo_proyecto"}
+                    onClick={() => navigate("/ongs/nuevo_proyecto")}
+                />
+                <SidebarMainItem
+                    icon={FolderOpen}
+                    label="Proyectos"
+                    isActive={location.pathname === "/ongs/proyectos"}
+                    onClick={() => navigate("/ongs/proyectos")}
+                />
             </div>
         </aside>
     );

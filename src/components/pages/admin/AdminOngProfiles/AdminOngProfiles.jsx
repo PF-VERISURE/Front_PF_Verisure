@@ -49,7 +49,7 @@ const AdminOngProfiles = () => {
           <tr className={styles.tableHead}>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Acción</th>
+            <th>Información</th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +59,7 @@ const AdminOngProfiles = () => {
               <td>{ong.email}</td>
               <td>
                 <button className={styles.editButton} onClick={() => setSelected(ong)}>
-                  Editar
+                  Ver perfil
                 </button>
               </td>
             </tr>

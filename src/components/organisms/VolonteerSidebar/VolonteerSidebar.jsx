@@ -10,29 +10,24 @@ const VolonteerSidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <div className={location.pathname === "/voluntario/proyectos" ? styles.activeItem : ""}>
-                    <SidebarMainItem
-                        icon={Compass}
-                        label="Explorar Proyectos"
-                        onClick={() => navigate("/voluntario/proyectos")}
-                    />
-                </div>
-
-                <div className={location.pathname === "/voluntario/mis_proyectos" ? styles.activeItem : ""}>
-                    <SidebarMainItem
-                        icon={BookOpen}
-                        label="Mis Voluntariados"
-                        onClick={() => navigate("/voluntario/mis_proyectos")}
-                    />
-                </div>
-
-                <div className={location.pathname === "/voluntario/certificados" ? styles.activeItem : ""}>
-                    <SidebarMainItem
-                        icon={Award}
-                        label="Mis Certificados"
-                        onClick={() => navigate("/voluntario/certificados")}
-                    />
-                </div>
+                <SidebarMainItem
+                    icon={Compass}
+                    label="Explorar Proyectos"
+                    isActive={location.pathname === "/voluntario/proyectos"}
+                    onClick={() => navigate("/voluntario/proyectos")}
+                />
+                <SidebarMainItem
+                    icon={BookOpen}
+                    label="Mis Voluntariados"
+                    isActive={location.pathname === "/voluntario/mis_proyectos"}
+                    onClick={() => navigate("/voluntario/mis_proyectos")}
+                />
+                <SidebarMainItem
+                    icon={Award}
+                    label="Mis Certificados"
+                    isActive={location.pathname === "/voluntario/certificados"}
+                    onClick={() => navigate("/voluntario/certificados")}
+                />
             </div>
         </aside>
     );
