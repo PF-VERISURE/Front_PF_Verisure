@@ -1,5 +1,6 @@
 import React from 'react'
 import style from "./CatLogo.module.css"
+
 import { categories } from "../../../utils/categories";
 
 const normalize = (str) =>
