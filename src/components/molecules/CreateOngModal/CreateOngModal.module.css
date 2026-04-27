@@ -134,6 +134,16 @@
   background: #eee;
 }
 
+.apiError {
+  display: block;
+  color: #e30613;
+  font-size: 0.85rem;
+  background: #fff5f5;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
 .actions {
   display: flex;
   justify-content: flex-end;

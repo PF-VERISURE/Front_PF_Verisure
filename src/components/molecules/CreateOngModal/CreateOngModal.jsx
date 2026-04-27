@@ -15,6 +15,7 @@ const initialState = {
   organizationName: "",
   cif: "",
   email: "",
+  password: "",
   contactName: "",
   contactPhone: "",
   contactEmail: "",
@@ -47,6 +48,10 @@ const validateField = (name, value) => {
       if (!value.trim()) return "El correo de contacto es obligatorio.";
       if (!EMAIL_REGEX.test(value)) return "Correo no válido.";
       return "";
+    case "password":
+      if (!value) return "La contraseña es obligatoria.";
+      if (value.length < 6) return "Mínimo 6 caracteres.";
+      return "";
     default:
       return "";
   }
@@ -55,6 +60,7 @@ const validateField = (name, value) => {
 const CreateOngModal = ({ onClose, onCreated }) => {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
   const successModal = useModal();
 
   const handleChange = (e) => {
@@ -71,7 +77,7 @@ const CreateOngModal = ({ onClose, onCreated }) => {
   };
 
   const validate = () => {
-    const required = ["organizationName", "cif", "email", "contactName", "contactPhone", "contactEmail"];
+    const required = ["organizationName", "cif", "email", "password", "contactName", "contactPhone", "contactEmail"];
     const e = {};
     required.forEach((name) => {
       const msg = validateField(name, form[name]);
@@ -88,11 +94,19 @@ const CreateOngModal = ({ onClose, onCreated }) => {
       return;
     }
     setErrors({});
+    setApiError("");
     try {
       await UserService.createOngProfile(form);
       successModal.open();
     } catch (error) {
       console.error("Error al crear la ONG:", error);
+      console.error("Respuesta del backend:", error.response?.data);
+      const msg =
+        error.response?.data?.message ||
+        error.response?.data?.error ||
+        JSON.stringify(error.response?.data) ||
+        `Error ${error.response?.status || ""}: no se pudo crear la ONG.`;
+      setApiError(msg);
     }
   };
 
@@ -143,6 +157,15 @@ const CreateOngModal = ({ onClose, onCreated }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.email}
+              />
+              <InputField
+                label="Contraseña"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={errors.password}
+                showToggle
               />
             </div>
           </div>
@@ -199,6 +222,8 @@ const CreateOngModal = ({ onClose, onCreated }) => {
           </div>
 
           <div className={styles.divider} />
+
+          {apiError && <span className={styles.apiError}>{apiError}</span>}
 
           <div className={styles.actions}>
             <SecondaryButton text="Cancelar" onClick={onClose} />
