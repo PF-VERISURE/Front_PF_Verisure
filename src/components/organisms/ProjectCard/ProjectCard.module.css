@@ -23,6 +23,13 @@
     justify-content: space-between;
     padding: 22px 24px;
     min-width: 0;
+    position: relative;
+}
+
+.likeCorner {
+    position: absolute;
+    top: 10px;
+    right: 12px;
 }
 
 .title {
@@ -71,20 +78,6 @@
     padding: 8px 18px 20px;
 }
 
-.likeWrap {
-  display: flex;
-  justify-content: center;
-  padding: 4px 0 8px;
-}
-
-.likeWrap span {
-  display: none;
-}
-
-.likeWrap img {
-  width: 36px !important;
-  height: 36px !important;
-}
 
 .pending {
     background: linear-gradient(135deg, #fff7ed, #ffedd5);

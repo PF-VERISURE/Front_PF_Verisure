@@ -10,12 +10,7 @@ function LikeButton({ isLiked, onToggle, disabled }) {
         onClick={onToggle}
         disabled={disabled}
         >
-            {isLiked ? 
-        <span className={style.like}>unlike</span>
-        :
-        <span className={style.like}>like</span>
-    }
-        <img
+            <img
             src={isLiked ? fullHeart : emptyHeart}
             alt={isLiked ? "liked" : "not liked"}
         />

@@ -26,7 +26,7 @@ const MyApplications = ({ title }) => {
   };
 
   const visibleApplications = applications
-    .filter((app) => app.status !== "CANCELED")
+    .filter((app) => app.status !== "CANCELED" && app.status !== "REJECTED")
     .filter((app) => filter === "ALL" || app.status === filter);
 
   return (
@@ -34,7 +34,7 @@ const MyApplications = ({ title }) => {
       <Title title={title} />
 
       <ApplicationFilterBar
-        applications={applications.filter((app) => app.status !== "CANCELED")}
+        applications={applications.filter((app) => app.status !== "CANCELED" && app.status !== "REJECTED")}
         activeFilter={filter}
         onFilterChange={setFilter}
       />

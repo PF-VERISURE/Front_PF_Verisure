@@ -11,16 +11,16 @@ const OngSidebar = () => {
         <aside className={styles.sidebar}>
             <div className={styles.content}>
                 <SidebarMainItem
-                    icon={FilePlus}
-                    label="Registrar Proyectos"
-                    isActive={location.pathname === "/ongs/nuevo_proyecto"}
-                    onClick={() => navigate("/ongs/nuevo_proyecto")}
-                />
-                <SidebarMainItem
                     icon={FolderOpen}
                     label="Proyectos"
                     isActive={location.pathname === "/ongs/proyectos"}
                     onClick={() => navigate("/ongs/proyectos")}
+                />
+                <SidebarMainItem
+                    icon={FilePlus}
+                    label="Registrar Proyectos"
+                    isActive={location.pathname === "/ongs/nuevo_proyecto"}
+                    onClick={() => navigate("/ongs/nuevo_proyecto")}
                 />
             </div>
         </aside>
