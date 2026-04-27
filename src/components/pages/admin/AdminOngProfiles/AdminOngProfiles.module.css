@@ -18,6 +18,31 @@
   color: var(--rgb-black, #111);
 }
 
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.createBtn:hover {
+  background-color: #c62828;
+}
+
 .searchBox {
   display: flex;
   align-items: center;
