@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProjectDetails from "../../molecules/ProjectDetails/ProjectDetails"
 import DescriptionField from '../../atoms/DescriptionField/DescriptionField'
 import style from "./ProjectCard.module.css"
@@ -8,6 +8,8 @@ import PrimaryButton from '../../atoms/PrimaryButton/PrimaryButton';
 import { Calendar, MapPin, Users, ClipboardClock } from "lucide-react";
 import { PROJECT_STATUS_UI } from "../../../utils/projectStatus";
 import { LOCATION_TYPE_LABELS } from '../../../utils/translation'
+import LikeButton from '../../atoms/LikeButton/LikeButton'
+import ProjectService from "../../../services/ProjectService";
 
 const ProjectCard = ({project,application,  onClick, isApplied, mode = "owner" | "public"}) => {
 
@@ -16,6 +18,8 @@ const ProjectCard = ({project,application,  onClick, isApplied, mode = "owner" |
   const ui = PROJECT_STATUS_UI[project.status];
   const isPublished = project.status === "PUBLISHED";
   const isFull = project.totalApplications >= project.requiredVolunteers; 
+  const [isLiked, setIsLiked] = useState(project.isFavorite || false);
+  const [loading, setLoading] = useState(false);
 
     const details = [
   {
@@ -40,12 +44,21 @@ const ProjectCard = ({project,application,  onClick, isApplied, mode = "owner" |
   },
 ];
 
-console.log("PROJECT CHECK:", {
-  title: project.title,
-  totalApplications: project.totalApplications,
-  requiredVolunteers: project.requiredVolunteers,
-  isFull: project.totalApplications >= project.requiredVolunteers
-});
+const handleToggleLike = async () => {
+    if (loading) return;
+
+    setIsLiked((prev) => !prev);
+    setLoading(true);
+
+    try {
+      await ProjectService().toggleFavorite(project.id);
+    } catch (error) {
+      setIsLiked((prev) => !prev);
+      console.error("Failed to toggle favorite", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 return (
   <main className={style.card}>
@@ -63,6 +76,12 @@ return (
 
     <section className={style.section3}>
       <CatLogo categorie={project.sdgs?.[0]} />
+
+      <LikeButton
+        isLiked={isLiked}
+        onToggle={handleToggleLike}
+        disabled={loading}
+      />
 
       {isOwnerView && (
         <span className={style[ui.className]}>

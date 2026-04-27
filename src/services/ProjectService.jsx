@@ -47,7 +47,6 @@ const ProjectService =() =>{
             }
         }
 
-
     const updateProjectStatus = async (id, status) => {
         try {
             const response = await api.patch(`${url}/${id}/status`, { status });
@@ -69,7 +68,17 @@ const ProjectService =() =>{
         }
     };
 
-return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects, getAllProjects}
+    const toggleFavorite = async (projectId) => {
+    try {
+        const response = await api.post(`${url}/${projectId}/favorite`);
+        return response.data;
+    } catch (error) {
+        console.error("Error toggling favorite", error);
+        throw error;
+    }
+    };
+
+return {createProject, getPendingProjects, getPublishedProjects, updateProjectStatus, getOngProjects, getAllProjects, toggleFavorite}
 
  }
 

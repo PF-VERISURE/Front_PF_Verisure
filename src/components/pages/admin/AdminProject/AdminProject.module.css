@@ -5,10 +5,3 @@
   box-sizing: border-box;
   flex: 1;
 }
-
-.title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--rgb-black);
-  margin-bottom: 14px;
-}

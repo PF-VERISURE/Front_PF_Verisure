@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ImagePlus, FileText, Tag, MapPin, Building2, CalendarDays, CalendarCheck, Users, Clock, AlignLeft } from "lucide-react";
 import FormRow from "../../molecules/FormRow/FormRow";
 import SelectField from "../../atoms/SelectField/SelectField";
 import TextareaField from "../../atoms/TextareaField/TextareaField";
@@ -33,6 +34,8 @@ const MODALIDAD_OPTIONS = [
 
 const OngNewProject = () => {
   const [image, setImage] = useState(null);
+  const [dateError, setDateError] = useState("");
+  const [endDateError, setEndDateError] = useState("");
   const [form, setForm] = useState({
     title:"",
     sdgIds:"",
@@ -75,6 +78,17 @@ const OngNewProject = () => {
       return;
     }
 
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (new Date(form.startDate) < today) {
+      setDateError("La fecha no puede estar en el pasado.");
+      return;
+    }
+    if (new Date(form.endDate) < today) {
+      setEndDateError("La fecha no puede estar en el pasado.");
+      return;
+    }
+
     try {
     const payload = {
       title: form.title,
@@ -107,6 +121,20 @@ const OngNewProject = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "startDate") {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const selected = new Date(value);
+      setDateError(selected < today ? "La fecha no puede estar en el pasado." : "");
+    }
+
+    if (name === "endDate") {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const selected = new Date(value);
+      setEndDateError(selected < today ? "La fecha no puede estar en el pasado." : "");
+    }
   };
 
   return (
@@ -114,7 +142,7 @@ const OngNewProject = () => {
       <Title className={styles.title} title="Registro de proyecto"/>
 
       <div className={styles.formTable}>
-        <FormRow label="Nombre del proyecto">
+        <FormRow label="Nombre del proyecto" icon={FileText}>
           <input
             name="title"
             type="text"
@@ -124,7 +152,7 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Categoría">
+        <FormRow label="Categoría" icon={Tag}>
           <SelectField
             name="sdgIds"
             value={form.sdgIds}
@@ -134,7 +162,7 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Modalidad">
+        <FormRow label="Modalidad" icon={MapPin}>
           <SelectField
             name="locationType"
             value={form.locationType}
@@ -144,7 +172,7 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Dirección">
+        <FormRow label="Dirección" icon={MapPin}>
           <input
             name="address"
             type="text"
@@ -154,7 +182,7 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Ciudad">
+        <FormRow label="Ciudad" icon={Building2}>
           <input
             name="city"
             type="text"
@@ -164,27 +192,29 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Fecha de Inicio">
+        <FormRow label="Fecha de Inicio" icon={CalendarDays}>
           <input
             name="startDate"
             type="date"
             value={form.startDate}
             onChange={handleChange}
-            className={styles.input}
+            className={`${styles.input} ${dateError ? styles.inputError : ""}`}
           />
+          {dateError && <span className={styles.errorText}>{dateError}</span>}
         </FormRow>
 
-        <FormRow label="Fecha de finalización">
+        <FormRow label="Fecha de finalización" icon={CalendarCheck}>
           <input
             name="endDate"
             type="date"
             value={form.endDate}
             onChange={handleChange}
-            className={styles.input}
+            className={`${styles.input} ${endDateError ? styles.inputError : ""}`}
           />
+          {endDateError && <span className={styles.errorText}>{endDateError}</span>}
         </FormRow>
 
-        <FormRow label="Participantes">
+        <FormRow label="Participantes" icon={Users}>
           <input
             name="requiredVolunteers"
             type="text"
@@ -194,7 +224,7 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Horas">
+        <FormRow label="Horas" icon={Clock}>
           <input
             name="totalHours"
             type="text"
@@ -204,17 +234,22 @@ const OngNewProject = () => {
           />
         </FormRow>
 
-        <FormRow label="Imagen">
-          <input
-            name="image"
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-            className={styles.input}
-          />
+        <FormRow label="Imagen" icon={ImagePlus}>
+          <label className={styles.fileLabel}>
+            <span className={styles.fileBtn}><ImagePlus size={15} />Seleccionar imagen</span>
+            <span className={styles.fileName}>{image ? image.name : "Ningún archivo seleccionado"}</span>
+            <input
+              name="image"
+              type="file"
+              accept="image/png, image/jpeg, image/webp"
+              onChange={(e) => setImage(e.target.files[0])}
+              className={styles.fileInput}
+            />
+          </label>
+          <span className={styles.fileHint}>PNG, JPG o WEBP · Máx. 5 MB</span>
         </FormRow>
 
-        <FormRow label="Descripción">
+        <FormRow label="Descripción" icon={AlignLeft}>
           <TextareaField
             name="description"
             value={form.description}
@@ -234,7 +269,7 @@ const OngNewProject = () => {
           text={
             <div>
               <div>Proyecto creado exitosamente!</div>
-              <div>Ya está disponible para voluntarios.</div>
+  
             </div>
           }
           onClose={() => {
