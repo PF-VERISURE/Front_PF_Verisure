@@ -15,3 +15,8 @@
 .textarea:focus {
   border-color: var(--rgb-black);
 }
+
+.error {
+  border-color: #e30613;
+  background-color: #fff5f5;
+}
