@@ -341,7 +341,9 @@ const OngNewProject = () => {
         <InfoModal
           text={
             <div>
-              <div>Proyecto creado exitosamente!</div>
+              <div>Creación exitosa! </div>
+              <div>Pronto revisaremos el proyecto</div>
+  
             </div>
           }
           onClose={() => {

@@ -7,14 +7,19 @@
 }
 
 .logout {
-        border: none;
-        font-weight: bold;
-        font-size: 0.9rem;
-        color: var(--rgb-blue);
-        margin: 5px;
-        position: relative;
-        right: 40px;
+    border: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--rgb-blue);
+    margin: 5px;
+    position: relative;
+    right: 40px;
     }
+
+.logout:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .userblock{
     display: flex;
