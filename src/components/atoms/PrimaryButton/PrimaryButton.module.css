@@ -9,7 +9,7 @@
   cursor: pointer;
   transition: 0.2s ease;
   box-shadow: 2px 2px 0px #000;
-  color:white
+  color: white;
 }
 
 .base:hover {
@@ -19,9 +19,15 @@
 }
 
 .registrar {
-  background-color: var(--rgb-green); 
-  
-} 
+  height: 34px;
+  font-size: 0.75rem;
+  background-color: var(--rgb-green);
+}
+
+.cancel {
+  height: 34px;
+  font-size: 0.75rem;
+}
 
 .inscrito {
   width: 100%;
@@ -30,7 +36,7 @@
   background-color: var(--rgb-red);
   font-size: 1rem;
   font-weight: 700;
-  color:white;
+  color: white;
 }
 
 .disabled {
