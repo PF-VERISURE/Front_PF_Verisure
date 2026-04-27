@@ -1,6 +1,6 @@
 import styles from "./TextareaField.module.css";
 
-function TextareaField({ name, placeholder, value, onChange, rows = 4 }) {
+function TextareaField({ name, placeholder, value, onChange, onBlur, rows = 4, isError }) {
   return (
     <textarea
       id={name}
@@ -8,8 +8,9 @@ function TextareaField({ name, placeholder, value, onChange, rows = 4 }) {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
       rows={rows}
-      className={styles.textarea}
+      className={`${styles.textarea} ${isError ? styles.error : ""}`}
     />
   );
 }
