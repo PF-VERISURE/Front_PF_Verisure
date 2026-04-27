@@ -58,6 +58,15 @@ const ProjectCard = ({ project, application, onClick, isApplied, mode = "owner" 
       )}
 
       <div className={style.body}>
+        {isPublicView && (
+          <div className={style.likeCorner}>
+            <LikeButton
+              isLiked={isLiked}
+              onToggle={handleToggleLike}
+              disabled={loading}
+            />
+          </div>
+        )}
         <div>
           <h2 className={style.title}>{project.title}</h2>
         </div>
@@ -71,16 +80,6 @@ const ProjectCard = ({ project, application, onClick, isApplied, mode = "owner" 
         <div className={style.sideTop}>
           <CatLogo categorie={project.sdgs?.[0]} />
         </div>
-
-        {isPublicView && (
-          <div className={style.likeWrap}>
-            <LikeButton
-              isLiked={isLiked}
-              onToggle={handleToggleLike}
-              disabled={loading}
-            />
-          </div>
-        )}
 
         <div className={style.sideBottom}>
           {isOwnerView && ui && (

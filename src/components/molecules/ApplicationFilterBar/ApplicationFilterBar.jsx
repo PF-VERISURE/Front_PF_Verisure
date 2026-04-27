@@ -6,7 +6,6 @@ const FILTERS = [
   { label: "Pendiente",       value: "PENDING",    statusClass: "pending" },
   { label: "Aprobado",        value: "APPROVED",   statusClass: "approved" },
   { label: "Lista de espera", value: "WAITLISTED", statusClass: "waitlisted" },
-  { label: "Rechazado",       value: "REJECTED",   statusClass: "rejected" },
   { label: "Cerrado",         value: "CLOSED",     statusClass: "closed" },
 ];
 
