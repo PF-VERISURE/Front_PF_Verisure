@@ -1,0 +1,102 @@
+.kpiItem {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #edf2f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px; /* Altura mínima uniforme */
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.kpiItem:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  background-color: #f5f4f4;
+  border-radius: 20px; /* Bordes muy redondeados como en la imagen */
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 280px;
+  border: 1px solid #f0f0f0;
+}
+
+/* Contenedor superior para el título e ícono */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  color: var(--rgb-red);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  max-width: 70%;
+}
+
+/* Contenedor circular del ícono */
+.iconWrapper {
+  background-color: #FFE5EA; /* Fondo rosado suave */
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  color: #e63946; /* Rojo Verisure */
+  font-size: 1.2rem;
+}
+
+.value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+/* Fila inferior de tendencia y acumulado */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Tag de tendencia (+22% YoY) 
+ .trendTag {
+  background-color: #e6f7ed; 
+  color: #2d9d58; 
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+} */
+
+.acumuladoText {
+  color: #3e3b3b;
+  font-size: 0.85rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .value {
+    font-size: 1.8rem;
+  }
+}

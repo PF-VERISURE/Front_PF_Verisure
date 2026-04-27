@@ -1,11 +1,26 @@
 .overlay {
+  position: fixed;
+  /* top: 0;
+  left: 0; */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999; /* <-- Esto asegura que tape a TODOS los gráficos de la web */
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+
+
+/* .overlay {
+
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .modal {
     display: flex;
