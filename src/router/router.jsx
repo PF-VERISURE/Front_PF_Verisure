@@ -1,10 +1,9 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
-import Rutas from '../components/pages/Rutas'
 import VolonteerExplore from '../components/pages/volonteer/VolonteerExplore/VolonteerExplore'
 import VolonteerDashboard from '../components/pages/volonteer/VolonteerDashboard'
 import VolonteerProject from '../components/pages/volonteer/VolonteerProject/VolonteerProject'
-import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificates'
+import VolonteerCertificates from '../components/pages/volonteer/VolonteerCertificate/VolonteerCertificates'
 import OngNewProject from '../components/pages/ong/OngNewProject'
 import OngDashboard from '../components/pages/ong/OngDashboard'
 import AdminMetrics from '../components/pages/admin/AdminMetrics/AdminMetrics'
@@ -13,12 +12,11 @@ import AdminVolonteerProfile from '../components/pages/admin/AdminVolunteerProfi
 import Layout from '../layout/layout';
 import AdminOngProfiles from '../components/pages/admin/AdminOngProfiles/AdminOngProfiles';
 import Login from '../components/pages/Login/Login';
-import AdminPage from "../components/pages/admin/AdminPage/AdminPage";
 import OngProjects from '../components/pages/ong/OngProject/OngProjects';
 import AuthLayout from '../layout/AuthLayout';
-import PublishedProjectsList from '../components/organisms/PublishedProjectsList/PublishedProjectsList';
 import AdminDashboard from '../components/pages/admin/AdminDashboard';
 import routeManager from "../utils/routeManager";
+import CertificatePage from '../components/pages/volonteer/CertificatePage/CertificatePage';
 
 
 export const router = createBrowserRouter([
@@ -58,7 +56,8 @@ export const router = createBrowserRouter([
             { index: true, Component: VolonteerExplore }, 
             { path: "proyectos", Component: VolonteerExplore },
             { path: "mis_proyectos", Component: VolonteerProject },
-            { path: "certificados", Component: VolonteerCertificates }
+            { path: "certificados", Component: VolonteerCertificates },
+            { path: "certificados/:id", Component: CertificatePage }
           ]
         },
       {
