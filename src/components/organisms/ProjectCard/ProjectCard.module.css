@@ -1,69 +1,157 @@
 .card {
     display: flex;
-    gap: 20px;
-    background-color: rgb(245, 245, 220);
-    padding: 25px;
-    border-radius: var(--border-radius-default);
-    box-shadow: 3px 5px 0px #8a8383;
-    align-items: stretch; 
+    gap: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    cursor: default;
+}
+
+.image {
+    width: 200px;
+    min-height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 24px;
+    min-width: 0;
 }
 
 .title {
     font-family: var(--font-primary);
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 3px 0;
 }
 
-.image {
-    width: 15rem;
-    height: 17rem;
-    object-fit: cover;
-    border-radius: 8px;
-    align-self: center; 
+.ongName {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.01em;
 }
 
-section{
+.bottom {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.side {
     display: flex;
     flex-direction: column;
-    justify-content:space-between ;
+    flex-shrink: 0;
+    width: 160px;
+    border-left: 1px solid #ddd9f8;
+    background: linear-gradient(180deg, #f0f0fe 0%, #ebe9fd 100%);
 }
 
-.section2 {
+.sideTop {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 70px 18px 8px;
 }
 
-.section3 {
-    margin-left: auto;
+.sideBottom {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: center;
+    padding: 8px 18px 20px;
+}
+
+.likeWrap {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 8px;
+}
+
+.likeWrap span {
+  display: none;
+}
+
+.likeWrap img {
+  width: 36px !important;
+  height: 36px !important;
 }
 
 .pending {
-    color: orange;
-    font-weight: bold;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    color: #c2410c;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #fdba74;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(194,65,12,0.15);
 }
 
 .published {
-    color: green;
-    font-weight: bold;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    color: #15803d;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #86efac;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(21,128,61,0.15);
 }
 
 .rejected {
-    color: red;
-    font-weight: bold;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    color: #b91c1c;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #fca5a5;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(185,28,28,0.15);
 }
 
 .completed {
-    color: blue;
-    font-weight: bold;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1d4ed8;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #93c5fd;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(29,78,216,0.15);
 }
 
 .canceled {
-    color: gray;
-    font-weight: bold;
+    background: linear-gradient(135deg, #f9fafb, #f1f5f9);
+    color: #475569;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #cbd5e1;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(71,85,105,0.12);
 }

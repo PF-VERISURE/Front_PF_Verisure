@@ -1,26 +1,30 @@
 .detail {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: #4338ca;
+  cursor: default;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail:hover {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.18);
+}
+
+.iconRow {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 1.2rem;;
 }
 
-.tooltip {
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: black;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.detail:hover .tooltip {
-  opacity: 1;
+.value {
+  font-size: 0.81rem;
+  font-weight: 600;
+  white-space: nowrap;
 }

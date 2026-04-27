@@ -72,7 +72,6 @@ const ProjectInfoModal = ({ project, onClose, onApprove, onReject, applicationCo
           <div className={styles.actions}>
             <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
             <button className={styles.btnRechazar} onClick={onReject}>Rechazar</button>
-            <button className={styles.btnInfo}>Pedir Información</button>
           </div>
         )}
         {confirmModal.isOpen && (

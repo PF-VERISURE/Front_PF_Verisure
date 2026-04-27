@@ -22,7 +22,7 @@ const CATEGORIA_OPTIONS = [
   { value: 7, label: "Fin de la pobreza" },
   { value: 8, label: "Producción y consumo responsables"},
   { value: 9, label: "Reducción de las desigualdades"},
-  { value: 10, label: "vida submarina"},
+  { value: 10, label: "Vida submarina"},
 
 ]
 
@@ -36,6 +36,8 @@ const OngNewProject = () => {
   const [image, setImage] = useState(null);
   const [dateError, setDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
+  const [volunteersError, setVolunteersError] = useState("");
+  const [hoursError, setHoursError] = useState("");
   const [form, setForm] = useState({
     title:"",
     sdgIds:"",
@@ -116,6 +118,16 @@ const OngNewProject = () => {
   } catch (error) {
     console.error("Error al crear el proyecto", error);
   }
+  };
+
+  const handleNumberKeyDown = (e, setError) => {
+    const allowed = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Enter"];
+    if (!allowed.includes(e.key) && !/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      setError("Este campo solo acepta números.");
+    } else {
+      setError("");
+    }
   };
 
   const handleChange = (e) => {
@@ -217,21 +229,27 @@ const OngNewProject = () => {
         <FormRow label="Participantes" icon={Users}>
           <input
             name="requiredVolunteers"
-            type="text"
+            type="number"
+            min="1"
             value={form.requiredVolunteers}
             onChange={handleChange}
-            className={styles.input}
+            onKeyDown={(e) => handleNumberKeyDown(e, setVolunteersError)}
+            className={`${styles.input} ${volunteersError ? styles.inputError : ""}`}
           />
+          {volunteersError && <span className={styles.errorText}>{volunteersError}</span>}
         </FormRow>
 
         <FormRow label="Horas" icon={Clock}>
           <input
             name="totalHours"
-            type="text"
+            type="number"
+            min="1"
             value={form.totalHours}
             onChange={handleChange}
-            className={styles.input}
+            onKeyDown={(e) => handleNumberKeyDown(e, setHoursError)}
+            className={`${styles.input} ${hoursError ? styles.inputError : ""}`}
           />
+          {hoursError && <span className={styles.errorText}>{hoursError}</span>}
         </FormRow>
 
         <FormRow label="Imagen" icon={ImagePlus}>
