@@ -4,7 +4,6 @@ import { formatDateRange } from "../../../utils/dateFormatting";
 import { LOCATION_TYPE_LABELS } from "../../../utils/translation";
 
 const Certificate = ({ application }) => {
-  // if (!application) return null;
 
   if (!application) {
   return <p>No certificado disponible de momento</p>;
@@ -50,11 +49,7 @@ const Certificate = ({ application }) => {
       </div>
 
       <footer className={style.footer}>
-        {isValid ? (
           <strong>Estado: Participación validada ✔</strong>
-        ) : (
-          <strong>Estado no válido para certificación</strong>
-        )}
       </footer>
     </section>
   );

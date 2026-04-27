@@ -9,3 +9,13 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+.login {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
