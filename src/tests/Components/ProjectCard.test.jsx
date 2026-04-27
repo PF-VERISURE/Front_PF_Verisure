@@ -45,7 +45,8 @@ test("renders project title, description and image", () => {
 
   expect(screen.getByText("Clean Beach")).toBeInTheDocument();
   expect(screen.getByText("Help clean the beach")).toBeInTheDocument();
-  expect(screen.getByRole("img")).toHaveAttribute("src", "image.jpg");
+  const image = screen.getByRole("img", { name: "Ilustración del proyecto" });
+  expect(image).toHaveAttribute("src", "image.jpg");
 });
 
 test("shows REGISTER button when project is open and not full", () => {
