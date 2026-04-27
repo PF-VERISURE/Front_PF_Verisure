@@ -1,10 +1,10 @@
 import React from 'react'
-import Certificate from '../../../components/organisms/Certificate/Certificate'
+import CertificateList from '../../../organisms/CertificateList/CertificateList';
 
 const VolonteerCertificates = () => {
   return (
     <>
-    <Certificate/>
+    <CertificateList/>
     </>
   )
 }
