@@ -46,8 +46,8 @@ const YearlyComparisonChart = ({ data }) => {
               direction: 'row',
               position: { vertical: 'top', horizontal: 'right' },
               padding: 0,
-              labelStyle: { fontSize: 12 },
-              itemGap: 15,
+              // labelStyle: { fontSize: 12 },
+              // itemGap: 15,
             },
           }}
           
