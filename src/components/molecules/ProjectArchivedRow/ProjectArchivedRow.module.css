@@ -9,6 +9,7 @@
   color: var(--rgb-black);
   gap: 8px;
   width: 100%;
+  cursor: pointer;
 }
 
 .row:last-child {
