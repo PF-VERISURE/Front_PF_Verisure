@@ -3,7 +3,7 @@ import style from "./Footer.module.css"
 
 const Footer = () => {
     return (
-        <main className={style.footer}>
+        <footer className={style.footer}>
             <section  className={style.section1}>
                 <p className={style.p}>Sobre Nosotros</p>
                 <p className={style.p}>Política de Cookies</p>
@@ -16,7 +16,7 @@ const Footer = () => {
                 </p>
                 
             </section>
-        </main>
+        </footer>
     )
 }
 
