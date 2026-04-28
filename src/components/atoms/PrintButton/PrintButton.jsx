@@ -1,4 +1,4 @@
-import styles from "./PrintButton.module.css";
+import style from "./PrintButton.module.css";
 import { Printer } from "lucide-react";
 
 const PrintButton = () => {
