@@ -1,6 +1,6 @@
 .row {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1.8fr 1fr;
+  grid-template-columns: 1.5fr 1.5fr 1.8fr 1fr;
   align-items: center;
   padding: 7px 12px;
   border-bottom: 1px solid #eee;
@@ -9,6 +9,7 @@
   color: var(--rgb-black);
   gap: 8px;
   width: 100%;
+  cursor: pointer;
 }
 
 .row:last-child {
@@ -36,7 +37,7 @@
   transition: opacity 0.2s ease;
   white-space: nowrap;
   justify-self: start;
-  margin-left: -16px;
+  margin-left: 70px;
 }
 
 .verBtn:hover {

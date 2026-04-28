@@ -63,7 +63,7 @@ const ProjectService =() =>{
             const res = await api.get(`${url}/all`);
             return res.data.data;
         } catch (error) {
-            console.error("Error getting all projects", error);
+            console.error("Error getti//ng all projects", error);
             throw error;
         }
     };
