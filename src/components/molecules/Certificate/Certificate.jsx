@@ -73,11 +73,11 @@ const handlePrint = () => {
       </footer>
 
       <section>
-        <button onClick={handlePrint}>
+        <button onClick={handlePrint} className={style.sectionButton}>
         Print / Download PDF
         </button>
 
-        <button onClick={handleShare}>Share</button>
+        <button onClick={handleShare} className={style.sectionButton}>Share</button>
       </section>
     </section>
     </section>
