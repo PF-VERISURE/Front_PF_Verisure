@@ -60,6 +60,12 @@ const validateField = (name, value, formState) => {
     case "locationType":
       return value ? "" : "Selecciona la modalidad.";
     case "address":
+      if (formState.locationType === "ONLINE") {
+        if (!value.trim()) return "El enlace del proyecto online es obligatorio.";
+        if (!value.startsWith("http://") && !value.startsWith("https://"))
+          return "El enlace del proyecto online debe comenzar por http:// o https://";
+        return "";
+      }
       return needsLocation && !value.trim() ? "La dirección es obligatoria para esta modalidad." : "";
     case "city":
       return needsLocation && !value.trim() ? "La ciudad es obligatoria para esta modalidad." : "";
