@@ -43,7 +43,7 @@ const AdminProject = () => {
   const fetchArchivadosYRechazados = async () => {
     try {
       const todos = await ProjectService().getAllProjects();
-      setArchivados(todos.filter((p) => p.status === "CLOSED"));
+      setArchivados(todos.filter((p) => p.status === "COMPLETED"));
       setRechazados(todos.filter((p) => p.status === "REJECTED"));
     } catch (error) {
       console.error("Error al cargar proyectos:", error);
