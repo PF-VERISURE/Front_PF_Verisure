@@ -29,15 +29,10 @@ const AdminSidebar = () => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.content}>
-                <SidebarMainItem
-                    icon={LayoutGrid}
-                    label="Dashboard"
-                    isActive={pathname === "/admin"}
-                    onClick={() => navigate("/admin")}
-                />
+                
                 <SidebarMainItem
                     icon={ChartColumn}
-                    label="Métricas"
+                    label="Dashboard"
                     isActive={pathname === "/admin/metricas"}
                     onClick={() => navigate("/admin/metricas")}
                 />
