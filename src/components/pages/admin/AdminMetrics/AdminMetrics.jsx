@@ -67,7 +67,7 @@ const AdminMetrics = () => {
       const participation = data.participationFunnel || [];
       const kpis = data.dashboardKpis || [];
   
-      if (projects.length === 0 && apps.length === 0) {
+      if (projects.length === 0 ) {
         setShowNoDataModal(true);
       } else {
         setShowNoDataModal(false);
