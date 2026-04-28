@@ -26,7 +26,7 @@ export const useDashboard = (year, month) => {
           DashboardService.getYearlyComparison(year),
           DashboardService.getGnoContributions(year)
         ]);
-          console.log(DashboardService.getGnoContributions(year))    
+            
         setData({
           dashboardKpis: kpis || {},
           projectsByCategory: projects || [],
