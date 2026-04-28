@@ -4,9 +4,9 @@ import { Printer } from "lucide-react";
 const PrintButton = () => {
   return (
     <>
-      <button className={styles.actionButton} onClick={() => window.print()}>
+      <button className={style.actionButton} onClick={() => window.print()}>
         <Printer />
-        <span className={styles.btnText}>Imprimir</span>
+        <span className={style.btnText}>Imprimir</span>
       </button>
     </>
   );

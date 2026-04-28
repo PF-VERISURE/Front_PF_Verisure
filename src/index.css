@@ -41,3 +41,23 @@ body{
     font-family: var(--font-primary);
     color: var(--rgb-secondary-black);
 }
+
+@media print {
+  /* Obliga a todos los elementos animados a quedarse quietos y visibles al imprimir */
+  * {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Si Framer Motion oculta cosas al salir, esto las fuerza a mostrarse en papel */
+  .framer-motion {
+    display: block !important;
+  }
+  
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
