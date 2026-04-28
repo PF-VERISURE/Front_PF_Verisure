@@ -1,4 +1,4 @@
-.metricsContent{
+.metricsContent {
   background-color: rgb(144, 143, 141);
   font-family: var(--font-primary);
 }
@@ -17,8 +17,9 @@
   flex-wrap: wrap;
 }
 
-.btnText{
-  font-family: var(--font-primary);;
+.btnText {
+  font-family: var(--font-primary);
+  ;
 }
 
 .filtersGroup {
@@ -54,16 +55,6 @@
   border-color: #bbb;
 }
 
-.pdfButton {
-  background-color: #E30613;
-  color: white;
-  border: none;
-}
-
-.pdfButton:hover {
-  background-color: #d62839;
-}
-
 .kpiContainer {
   display: grid;
   padding: 1.5rem;
@@ -81,7 +72,7 @@
   box-sizing: border-box;
 }
 
-.titleDonut{
+.titleDonut {
   text-align: center;
   margin: 1rem;
 }
@@ -90,10 +81,10 @@
   background: #f9f9f9;
   border-radius: 10px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.linechartContainer{
+.linechartContainer {
   display: grid;
   padding: 1.5rem;
   grid-template-columns: repeat(1, 1fr);
@@ -150,13 +141,13 @@
 }
 
 @media print {
-    
-  :global(nav), 
-  :global(header), 
-  :global(footer), 
+
+  :global(nav),
+  :global(header),
+  :global(footer),
   :global(aside),
   :global(.sidebar),
-  :global(.no-print) { 
+  :global(.no-print) {
     display: none !important;
   }
 
@@ -166,10 +157,10 @@
     padding: 0 !important;
     background-color: white !important;
   }
-  
+
   .controlsContainer {
     display: none;
-  } 
+  }
 
   .kpiContainer {
     display: grid;
@@ -177,11 +168,13 @@
     gap: 10px;
   }
 
-  .chartContainer, .MuiPaper-root {
+  .chartContainer,
+  .MuiPaper-root {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     margin-bottom: 20px !important;
-    box-shadow: none !important; /* Evita sombras pesadas en la tinta */
+    box-shadow: none !important;
+    /* Evita sombras pesadas en la tinta */
     border: 1px solid #eee !important;
   }
 }

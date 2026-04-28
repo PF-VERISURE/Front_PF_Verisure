@@ -1,10 +1,11 @@
 import style from '../AdminMetrics/AdminMetrics.module.css'
-import { useState, useEffect, useMemo, useCallback } from 'react'
-import { Printer, FileDown } from 'lucide-react'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import {
   Clock,
   Users2,
   HeartHandshake,
+  Printer,
+  FileDown,
   Sparkles,
   Heart,
   UserPlus,
@@ -13,17 +14,21 @@ import {
 import { useDashboard } from '../../../../hooks/useDashboard'
 import Title from '../../../atoms/Title/Title'
 import Subtitle from '../../../atoms/Subtitle/Subtitle'
+import PrintButton from '../../../atoms/PrintButton/PrintButton'
 import YearFilter from '../../../atoms/YearFilter/YearFilter'
 import MonthFilter from '../../../atoms/MonthFilter/MonthFilter'
-import ModalAlert from '../../../atoms/ModalAlerts/ModalAlert'
+import ModalMetrics from '../../../atoms/ModalAlerts/ModalMetrics/ModalMetrics'
 import KpiCard from '../../../atoms/KpiCard/KpiCard'
 import ProjectsPieChart from '../../../organisms/Metrics/ProjectsPieChart'
 import ParticipationPieChart from '../../../organisms/Metrics/ParticipationPieChart'
 import YearComparationLineChart from '../../../organisms/Metrics/YearComparationLineChart'
 import MonthEvolutionLineChart from '../../../organisms/Metrics/MonthEvolutionLineChart'
 import GnoContributionBarChart from '../../../organisms/Metrics/GnoContributionBarChart'
+import DownloadButton from '../../../atoms/DownloadButton/DownloadButton'
 
 const AdminMetrics = () => {
+
+  const componentRef = useRef();
 
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('');
@@ -75,9 +80,6 @@ const AdminMetrics = () => {
     }
   }, [data, loading, selectedYear, selectedMonth]);
 
-  // const hasProjectsData = data?.projectsByCategory?.length > 0;
-  // const hasAppsData = data?.applicationsByCategory?.length > 0;
-
   const handleYearChange = (e) => {setSelectedYear(e.target.value);
                                     setSelectedMonth('')}
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
@@ -95,9 +97,9 @@ const AdminMetrics = () => {
 
   return (
     <>
-    <main className={style.metricsContainer}>
+    <main ref={componentRef} className={style.metricsContainer}>
       {showNoDataModal && (
-        <ModalAlert 
+        <ModalMetrics 
           text="No existen datos registrados para el mes seleccionado."
           onClose={handleResetFilters}
           actions={[{ label: 'Entendido', onClick: handleResetFilters }]}
@@ -113,15 +115,8 @@ const AdminMetrics = () => {
         </div>
 
         <div className={style.actionsGroup}>
-          <button className={style.actionButton} onClick={() => window.print()}>
-            <Printer/>
-            <span className={style.btnText}>Imprimir</span>
-          </button>
-          
-          <button className={`${style.actionButton} ${style.pdfButton}`} onClick={() => window.print()}>
-            <FileDown />
-            <span className={style.btnText}>Descargar</span>
-          </button>
+          <PrintButton />
+          <DownloadButton contentRef={componentRef}/>
         </div>
       </section>
 
@@ -164,25 +159,25 @@ const AdminMetrics = () => {
       <section className={style.chartsDonuts}>
         <div className={style.chartContainer}>
           <h3 className={style.titleDonut}>Proyectos por Categorías</h3>
-          <ProjectsPieChart data={data.projectsByCategory}/>
+          <ProjectsPieChart data={data?.projectsByCategory}/>
         </div>
         
         <div className={style.chartContainer}>
           <h3 className={style.titleDonut}>Interés y Participación</h3>
-          <ParticipationPieChart data={data.participationFunnel}/>
+          <ParticipationPieChart data={data?.participationFunnel}/>
         </div>
       </section>
 
       <section className={style.chartContainer}>
-        <MonthEvolutionLineChart data={data.mothEvolution}/>
+        <MonthEvolutionLineChart data={data?.mothEvolution}/>
       </section>
 
       <section className={style.chartContainer}>
-        <YearComparationLineChart data={data.yearComparation}/>
+        <YearComparationLineChart data={data?.yearComparation}/>
       </section>
 
       <section className={style.chartContainer}>
-        <GnoContributionBarChart data={data.gnoContribution}/>
+        <GnoContributionBarChart data={data?.gnoContribution}/>
       </section>
     
     </main>
