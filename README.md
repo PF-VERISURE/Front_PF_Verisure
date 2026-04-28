@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:e30613,50:6B21A8,100:1d4ed8&height=220&section=header&text=VERISURE%20VOLUNTEERING&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Conectando%20corazones%20con%20causas%20que%20importan&descAlignY=58&descSize=16" />
+<img src="https://capsule-render.vercel.app/api?type=soft&color=0:e30613,20:c2185b,50:6B21A8,80:1d4ed8,100:0d47a1&height=260&section=header&text=VERISURE%20VOLUNTEERING&fontSize=44&fontColor=ffffff&animation=twinkling&fontAlignY=40&desc=Conectando%20corazones%20con%20causas%20que%20importan&descAlignY=60&descSize=17" />
 
 <br/>
 
@@ -399,7 +399,7 @@ Los proyectos se clasifican según los **Objetivos de Desarrollo Sostenible** de
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1d4ed8,50:6B21A8,100:e30613&height=120&section=footer&animation=fadeIn" />
+<img src="https://capsule-render.vercel.app/api?type=slice&color=0:0d47a1,30:1d4ed8,60:6B21A8,80:c2185b,100:e30613&height=150&section=footer&animation=twinkling" />
 
 **Hecho con ❤️ por el equipo de Femcoders · Bootcamp 2024**
 
