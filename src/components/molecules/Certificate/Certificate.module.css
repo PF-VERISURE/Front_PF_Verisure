@@ -83,7 +83,7 @@
   color: #1a1a1a;
 }
 
-section button {
+.sectionButton {
   margin: 0.5rem;
   padding: 0.6rem 1rem;
 
@@ -97,7 +97,7 @@ section button {
   transition: 0.2s ease;
 }
 
-section button:hover {
+.sectionButton:hover {
   opacity: 0.9;
   transform: translateY(-2px);
 }
