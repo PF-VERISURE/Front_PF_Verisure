@@ -103,7 +103,7 @@ const PublishedProjectsList = ({ title }) => {
                 text={
                     applicationType === "WAITLISTED" ? (
                     <div>
-                        <div>Etes proyecto no tiene plaza libre en este momento.</div>
+                        <div>Este proyecto no tiene plaza libre en este momento.</div>
                         <div>Has sido inscrito en la lista de espera</div>
                     </div>
                     ) : (
