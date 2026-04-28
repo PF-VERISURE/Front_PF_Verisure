@@ -1,6 +1,6 @@
-import { PieChart, pieClasses } from "@mui/x-charts";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { PieChart, pieClasses } from '@mui/x-charts';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const CATEGORY_COLORS = {
   reduccion_de_las_desigualdades: "rgb(221, 19, 103)",
@@ -15,7 +15,7 @@ const CATEGORY_COLORS = {
   energia_asequible_y_no_contaminante: "rgb(252, 195, 11)",
 };
 
-const PieChartProjects = ({ data }) => {
+const ProjectsPieChart = ({ data }) => {
   const normalizeText = (text) => {
     if (!text) return "";
     return text
@@ -57,7 +57,6 @@ const PieChartProjects = ({ data }) => {
         ]}
         width={300}
         height={250}
-       
         slotProps={{
           legend: { hidden: true }
         }}
@@ -115,4 +114,4 @@ const PieChartProjects = ({ data }) => {
   );
 };
 
-export default PieChartProjects;
+export default ProjectsPieChart;

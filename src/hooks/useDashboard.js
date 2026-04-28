@@ -4,9 +4,12 @@ import DashboardService from '../services/DashboardService';
 export const useDashboard = (year, month) => {
   
   const [data, setData] = useState({
+    dashboardKpis: {},
     projectsByCategory: [],
-    //applicationsByCategory: [],
-    dashboardKpis: {}
+    participationFunnel: [],
+    mothEvolution: [],
+    yearComparation:[],
+    gnoContribution: []
   });
 
   const [loading, setLoading] = useState(true);
@@ -15,19 +18,25 @@ export const useDashboard = (year, month) => {
   const fetchAllData = useCallback(async () => {
     setLoading(true);
     try {
-        const [projects, kpis] = await Promise.all([
+        const [kpis, projects, participation, evolution, comparation, contribution] = await Promise.all([
+          DashboardService.getDashboardKpis(year, month),
           DashboardService.getProjectsByCategory(year, month),
-          //DashboardService.getApplicationsByCategory(year, month),
-          DashboardService.getDashboardKpis(year, month)
+          DashboardService.getParticipationFunnel(year, month),
+          DashboardService.getMonthlyEvolution(year),
+          DashboardService.getYearlyComparison(year),
+          DashboardService.getGnoContributions(year)
         ]);
-                 
+          console.log(DashboardService.getGnoContributions(year))    
         setData({
+          dashboardKpis: kpis || {},
           projectsByCategory: projects || [],
-          //applicationsByCategory: applications || [],
-          dashboardKpis: kpis || {}
+          participationFunnel: participation || [],
+          mothEvolution: evolution || [],
+          yearComparation: comparation || [],
+          gnoContribution: contribution || []
         });
         setError(null);
-       
+      
       } catch (error) {
         setError(error.message || 'Error al cargar los datos del dashboard');
 

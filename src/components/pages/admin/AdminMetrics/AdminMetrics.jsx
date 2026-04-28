@@ -9,18 +9,19 @@ import {
   Heart,
   UserPlus,
   Hourglass,
-} from "lucide-react";
+} from 'lucide-react'
 import { useDashboard } from '../../../../hooks/useDashboard'
 import Title from '../../../atoms/Title/Title'
-import ChartFrame from '../../../atoms/ChartFrame/ChartFrame'
-import DonutChart from '../../../organisms/Metrics/DonutChart'
-import CatBarChart from '../../../organisms/Metrics/CatBarChart'
 import Subtitle from '../../../atoms/Subtitle/Subtitle'
 import YearFilter from '../../../atoms/YearFilter/YearFilter'
 import MonthFilter from '../../../atoms/MonthFilter/MonthFilter'
 import ModalAlert from '../../../atoms/ModalAlerts/ModalAlert'
 import KpiCard from '../../../atoms/KpiCard/KpiCard'
-import PieChartProjects from '../../../organisms/Metrics/PieChartProjects';
+import ProjectsPieChart from '../../../organisms/Metrics/ProjectsPieChart'
+import ParticipationPieChart from '../../../organisms/Metrics/ParticipationPieChart'
+import YearComparationLineChart from '../../../organisms/Metrics/YearComparationLineChart'
+import MonthEvolutionLineChart from '../../../organisms/Metrics/MonthEvolutionLineChart'
+import GnoContributionBarChart from '../../../organisms/Metrics/GnoContributionBarChart'
 
 const AdminMetrics = () => {
 
@@ -63,16 +64,9 @@ const AdminMetrics = () => {
     
     if (!loading && hasActiveFilters && data) {
       const projects = data.projectsByCategory || [];
-      const apps = data.applicationsByCategory || [];
+      const participation = data.participationFunnel || [];
       const kpis = data.dashboardKpis || [];
-      
-      console.log("Validando datos para modal:", { 
-        proyectos: projects.length, 
-        aplicaciones: apps.length,
-        filtrosActivos: hasActiveFilters 
-      });
-    
-
+  
       if (projects.length === 0 && apps.length === 0) {
         setShowNoDataModal(true);
       } else {
@@ -84,8 +78,7 @@ const AdminMetrics = () => {
   const hasProjectsData = data?.projectsByCategory?.length > 0;
   const hasAppsData = data?.applicationsByCategory?.length > 0;
 
-
-  const handleYearChange = (e) => {setSelectedYear(e.target.value);
+  const handleYearChange = (e) => {setSelectedYear(e.target.value)
                                     setSelectedMonth('');}
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
 
@@ -171,16 +164,27 @@ const AdminMetrics = () => {
       <section className={style.chartsDonuts}>
         <div className={style.chartContainer}>
           <h3 className={style.titleDonut}>Proyectos por Categorías</h3>
-          <PieChartProjects data={data.projectsByCategory}/>
+          <ProjectsPieChart data={data.projectsByCategory}/>
         </div>
         
         <div className={style.chartContainer}>
-          
-          <div className={style.pieChart}>Gráfica 2</div>
+          <h3 className={style.titleDonut}>Interés y Participación</h3>
+          <ParticipationPieChart data={data.participationFunnel}/>
         </div>
       </section>
+      
+      <section className={style.chartContainer}>
+        <MonthEvolutionLineChart data={data.mothEvolution}/>
+      </section>
 
+      <section className={style.chartContainer}>
+        <YearComparationLineChart data={data.yearComparation}/>
+      </section>
 
+      <section className={style.chartContainer}>
+        <GnoContributionBarChart data={data.gnoContribution}/>
+      </section>
+    
     </main>
   </>
   )
