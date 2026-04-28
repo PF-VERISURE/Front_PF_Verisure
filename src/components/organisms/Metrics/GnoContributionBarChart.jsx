@@ -63,7 +63,7 @@ const GnoContributionBarChart = ({ data }) => {
               direction: 'row',
               position: { vertical: 'bottom', horizontal: 'center' },
               padding: 0,
-              labelStyle: { fontSize: 13 },
+              //labelStyle: { fontSize: 13 },
             },
           }}
          
