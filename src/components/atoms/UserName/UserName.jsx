@@ -31,7 +31,7 @@ const UserName = () => {
           <p className={style.name}>{getDisplayName(user)}</p>
         </section>
       ) : (
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/login"  className={style.login}>Login</NavLink>
       )}
     </>
   );

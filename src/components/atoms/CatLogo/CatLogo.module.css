@@ -9,7 +9,7 @@
 
 .tooltip {
     position: absolute;
-    bottom: 110%; /* above the image */
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;

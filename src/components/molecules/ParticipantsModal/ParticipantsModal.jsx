@@ -1,4 +1,3 @@
-import { ChevronRight } from "lucide-react";
 import styles from "./ParticipantsModal.module.css";
 
 const getInitials = (name) => {
@@ -25,7 +24,6 @@ const ParticipantsModal = ({ participants, onClose }) => {
             <li key={index} className={styles.item}>
               <div className={styles.avatar}>{getInitials(nombre)}</div>
               <span className={styles.name}>{nombre}</span>
-              <ChevronRight size={18} className={styles.arrow} />
             </li>
           ))}
         </ul>

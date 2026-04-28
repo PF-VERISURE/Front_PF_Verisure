@@ -7,6 +7,19 @@ const UserProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState(null);
 
+  const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      const savedUser = localStorage.getItem("userData");
+
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+        setIsLogged(true);
+      }
+
+      setLoading(false);
+    }, []);
+
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -16,9 +29,13 @@ const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("userData");
-    const savedToken = localStorage.getItem("token");
-  }, []);
+  const savedUser = localStorage.getItem("userData");
+
+  if (savedUser) {
+    setUser(JSON.parse(savedUser));
+    setIsLogged(true);
+  }
+}, []);
 
   const login = async (credentials) => {
     try {
@@ -55,7 +72,7 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ isLogged, setIsLogged, login, logout, user,}}
+      value={{ isLogged, setIsLogged, login, logout, user, loading}}
     >
       {children}
     </UserContext.Provider>
