@@ -75,11 +75,11 @@ const AdminMetrics = () => {
     }
   }, [data, loading, selectedYear, selectedMonth]);
 
-  const hasProjectsData = data?.projectsByCategory?.length > 0;
-  const hasAppsData = data?.applicationsByCategory?.length > 0;
+  // const hasProjectsData = data?.projectsByCategory?.length > 0;
+  // const hasAppsData = data?.applicationsByCategory?.length > 0;
 
-  const handleYearChange = (e) => {setSelectedYear(e.target.value)
-                                    setSelectedMonth('');}
+  const handleYearChange = (e) => {setSelectedYear(e.target.value);
+                                    setSelectedMonth('')}
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
 
   const today = new Date();
@@ -172,7 +172,7 @@ const AdminMetrics = () => {
           <ParticipationPieChart data={data.participationFunnel}/>
         </div>
       </section>
-      
+
       <section className={style.chartContainer}>
         <MonthEvolutionLineChart data={data.mothEvolution}/>
       </section>
