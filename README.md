@@ -274,7 +274,15 @@ npm install
 # 4. Inicia el servidor de desarrollo
 npm run dev
 ```
+---
 
+## 💻 Proyecto Full Stack
+
+Este repositorio contiene exclusivamente el **Cliente Front-end**. Para que la plataforma funcione completamente, debe conectarse con la API REST.
+
+* **Repositorio Back-end:** [Verisure Volunteering API](https://github.com/PF-VERISURE/Back_PF_Verisure)
+
+---
 > ⚠️ Asegúrate de tener el backend corriendo en `http://localhost:8080`
 
 ```bash
