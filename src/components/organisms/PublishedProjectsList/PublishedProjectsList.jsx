@@ -108,7 +108,7 @@ const PublishedProjectsList = ({ title }) => {
                     </div>
                     ) : (
                     <div>
-                        <div>Registración exitosa!</div>
+                        <div>Registro exitoso!</div>
                         <div>Gracias por tu participación!</div>
                     </div>
                     )

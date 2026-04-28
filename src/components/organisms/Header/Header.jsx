@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <main className={style.header}>
+    <header className={style.header}>
       <section>
         <LogoAndName/>
       </section>
@@ -33,7 +33,7 @@ const Header = () => {
           </button>
         )}
       </section>
-    </main>
+    </header>
   );
 };
 

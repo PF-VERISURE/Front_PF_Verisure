@@ -60,6 +60,12 @@ const validateField = (name, value, formState) => {
     case "locationType":
       return value ? "" : "Selecciona la modalidad.";
     case "address":
+      if (formState.locationType === "ONLINE") {
+        if (!value.trim()) return "El enlace del proyecto online es obligatorio.";
+        if (!value.startsWith("http://") && !value.startsWith("https://"))
+          return "El enlace del proyecto online debe comenzar por http:// o https://";
+        return "";
+      }
       return needsLocation && !value.trim() ? "La dirección es obligatoria para esta modalidad." : "";
     case "city":
       return needsLocation && !value.trim() ? "La ciudad es obligatoria para esta modalidad." : "";
@@ -123,8 +129,8 @@ const OngNewProject = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) {
-      setErrors((prev) => ({ ...prev, image: "La imagen no puede superar 5 MB." }));
+    if (file.size > 10 * 1024 * 1024) {
+      setErrors((prev) => ({ ...prev, image: "La imagen no puede superar 10 MB." }));
       return;
     }
     setErrors((prev) => ({ ...prev, image: "" }));
@@ -147,7 +153,7 @@ const OngNewProject = () => {
       const msg = validateField(name, form[name], form);
       if (msg) e[name] = msg;
     });
-    if (image && image.size > 5 * 1024 * 1024) e.image = "La imagen no puede superar 5 MB.";
+    if (image && image.size > 10 * 1024 * 1024) e.image = "La imagen no puede superar 10 MB.";
     return e;
   };
 
@@ -315,7 +321,7 @@ const OngNewProject = () => {
               className={styles.fileInput}
             />
           </label>
-          <span className={styles.fileHint}>PNG, JPG o WEBP · Máx. 5 MB</span>
+          <span className={styles.fileHint}>PNG, JPG o WEBP · Máx. 10 MB</span>
           {errors.image && <span className={styles.errorText}>{errors.image}</span>}
         </FormRow>
 

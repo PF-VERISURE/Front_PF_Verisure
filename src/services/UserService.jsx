@@ -3,19 +3,6 @@ import api from "./api";
 
     const url = "/api/v1";
 
-    //LOGIN
-    //     const login = async (credentials) => {
-    //     try {
-    //     const response = await axios.post(`http://localhost:8080/api/v1/auth/login`, credentials);
-    //     // const token = response.data.token;
-    //     // localStorage.setItem("token", token);
-    //     return response;
-    //     } catch (error) {
-    //     console.error("Login error:", error.response?.data);
-    //     throw error;
-    //     }
-    // };
-
     const login = async (credentials) => {
     const response = await axios.post("http://localhost:8080/api/v1/auth/login", credentials);
 
@@ -32,8 +19,6 @@ import api from "./api";
 
     return response.data;
     };
-
-    //EMPLOYEES
 
     const getEmployeeById = async(id) =>{
         try{
@@ -64,8 +49,6 @@ import api from "./api";
             throw error;
         }
     };
-
-    //ONGs
 
     const getOngsById = async(id) =>{
         try{
@@ -118,7 +101,6 @@ import api from "./api";
         }
     };
 
-    //SDGs
     const getAllSdgs = async(id) =>{
         try{
             const response = await api.get(`${url}/sdgs`);
@@ -139,15 +121,5 @@ import api from "./api";
             throw error;
         }
     };
-
-//     const updateUser = async (id, userData) => {
-//         try {
-//             const response = await api.put(`${url}/admin/ongs/${id}`, userData);
-//         return response.data;
-//     } catch (error) {
-//         console.error("Error updating user", error);
-//         throw error;
-//     }
-// };
 
 export default {login, getEmployeeById, getAllEmployees, getOngsById, getAllOngs, getAllSdgs , deleteOngProfile,  createOngProfile,  getMyOngProfile, getMyEmployeeProfile  };
