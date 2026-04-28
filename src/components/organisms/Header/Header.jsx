@@ -29,7 +29,7 @@ const Header = () => {
             onClick={handleLogout} 
             className={style.logout}
           >
-            cerrar sesión
+            Cerrar sesión
           </button>
         )}
       </section>

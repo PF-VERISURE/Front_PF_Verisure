@@ -1,6 +1,5 @@
 import { Building2, FolderOpen, Tag, MapPin, Calendar, CalendarCheck, Users, ClipboardList, Clock, FileText } from "lucide-react";
 import styles from "./ProjectInfoModal.module.css";
-import { useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { ConfirmModal, InfoModal } from "../../templates/Modal/Modal";
 
