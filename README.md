@@ -401,10 +401,11 @@ Los proyectos se clasifican según los **Objetivos de Desarrollo Sostenible** de
 
 <img src="https://capsule-render.vercel.app/api?type=slice&color=0:0d47a1,30:1d4ed8,60:6B21A8,80:c2185b,100:e30613&height=150&section=footer&animation=twinkling" />
 
-**Hecho con ❤️ por el equipo de Femcoders · Bootcamp 2024**
+**Hecho con ❤️ por el equipo de Femcoders · Bootcamp Full Stack - FemCoders 2026**
 
 *"La tecnología más poderosa es la que conecta personas con propósito"*
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=PF-VERISURE.Front_PF_Verisure&style=flat&color=e30613)
 
 </div>
+
