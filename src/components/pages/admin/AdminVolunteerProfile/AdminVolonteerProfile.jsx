@@ -49,7 +49,7 @@ const AdminVolontarioPerfiles = () => {
           <tr className={styles.tableHead}>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Acción</th>
+            <th>Información</th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +59,7 @@ const AdminVolontarioPerfiles = () => {
               <td>{v.email}</td>
               <td>
                 <button className={styles.editButton} onClick={() => setSelected(v)}>
-                  Editar
+                  Ver perfil
                 </button>
               </td>
             </tr>

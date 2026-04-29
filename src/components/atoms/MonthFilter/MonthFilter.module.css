@@ -1,0 +1,30 @@
+.labelName{
+    margin-right: 8px;
+    font-weight: 600;
+    color: var(--rgb-black);
+}
+
+
+.dashboardSelect {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  min-width: 140px;
+}
+
+.dashboardSelect:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.dashboardSelect:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

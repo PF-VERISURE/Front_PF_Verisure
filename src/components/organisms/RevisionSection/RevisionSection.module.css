@@ -19,7 +19,7 @@
 
 .tableHeader {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 2fr 1.2fr;
+  grid-template-columns: 1.8fr 1.5fr 2fr 1.2fr;
   background-color: var(--rgb-black);
   color: #fff;
   font-size: 0.72rem;

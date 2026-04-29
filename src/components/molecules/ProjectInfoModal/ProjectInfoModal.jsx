@@ -1,6 +1,5 @@
 import { Building2, FolderOpen, Tag, MapPin, Calendar, CalendarCheck, Users, ClipboardList, Clock, FileText } from "lucide-react";
 import styles from "./ProjectInfoModal.module.css";
-import { useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { ConfirmModal, InfoModal } from "../../templates/Modal/Modal";
 
@@ -72,7 +71,6 @@ const ProjectInfoModal = ({ project, onClose, onApprove, onReject, applicationCo
           <div className={styles.actions}>
             <button className={styles.btnAprobar} onClick={onApprove}>Aprobar</button>
             <button className={styles.btnRechazar} onClick={onReject}>Rechazar</button>
-            <button className={styles.btnInfo}>Pedir Información</button>
           </div>
         )}
         {confirmModal.isOpen && (

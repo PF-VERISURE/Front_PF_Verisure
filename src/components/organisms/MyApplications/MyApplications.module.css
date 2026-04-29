@@ -1,11 +1,18 @@
 .main {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 28px;
 }
 
 .cards {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
+}
+
+.empty {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    padding: 40px 0;
+    text-align: center;
 }
