@@ -1,16 +1,6 @@
 import style from '../AdminMetrics/AdminMetrics.module.css'
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
-import {
-  Clock,
-  Users2,
-  HeartHandshake,
-  Printer,
-  FileDown,
-  Sparkles,
-  Heart,
-  UserPlus,
-  Hourglass,
-} from 'lucide-react'
+import {Clock, Users2, HeartHandshake,Sparkles, Heart, Hourglass} from 'lucide-react'
 import { useDashboard } from '../../../../hooks/useDashboard'
 import Title from '../../../atoms/Title/Title'
 import Subtitle from '../../../atoms/Subtitle/Subtitle'
@@ -115,8 +105,8 @@ const AdminMetrics = () => {
         </div>
 
         <div className={style.actionsGroup}>
-          <PrintButton />
-          <DownloadButton contentRef={componentRef}/>
+          <PrintButton contentRef={componentRef} selectedYear={selectedYear} selectedMonth={selectedMonth} />
+          <DownloadButton contentRef={componentRef} selectedYear={selectedYear} selectedMonth={selectedMonth} />
         </div>
       </section>
 

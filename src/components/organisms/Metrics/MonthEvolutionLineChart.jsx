@@ -33,6 +33,7 @@ const MonthlEvolutionLineChart = ({ data, year }) => {
 
       <Box sx={{ width: '100%', height: 300 }}>
         <LineChart
+          skipAnimation={true}
           xAxis={[{ 
             data: months, 
             scaleType: 'point',

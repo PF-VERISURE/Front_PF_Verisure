@@ -1,8 +1,7 @@
-import React from "react";
 import style from "./CertificateCard.module.css";
 import ProjectDetail from "../../atoms/ProjectDetail/ProjectDetail";
 import CatLogo from "../../atoms/CatLogo/CatLogo";
-import { Calendar, ClipboardClock, Users } from "lucide-react";
+import { Calendar, ClipboardClock} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Certificate = ({ certificate }) => {

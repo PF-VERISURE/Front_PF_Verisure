@@ -25,6 +25,7 @@ const GnoContributionBarChart = ({ data }) => {
 
       <Box sx={{ width: '100%', height: 500 }}>
         <BarChart
+          skipAnimation={true}
           dataset={chartDataset}
           layout="horizontal" 
           yAxis={[

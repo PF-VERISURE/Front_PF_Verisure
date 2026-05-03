@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Certificate.module.css";
 import CatLogo from "../../atoms/CatLogo/CatLogo";
 

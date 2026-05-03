@@ -27,6 +27,7 @@ const YearlyComparisonChart = ({ data }) => {
 
       <Box sx={{ width: '100%', height: 400 }}>
         <BarChart
+          skipAnimation={true}
           dataset={chartDataset}
           xAxis={[
             { 
@@ -52,9 +53,9 @@ const YearlyComparisonChart = ({ data }) => {
           }}
           
           sx={{
-            '& .MuiChartsAxis-line': { display: 'none' }, // Quita la línea del eje
-            '& .MuiChartsAxis-tick': { display: 'none' }, // Quita los ticks
-            '& .MuiChartsGrid-line': { strokeDasharray: '5 5', stroke: '#ebebeb' }, // Líneas punteadas
+            '& .MuiChartsAxis-line': { display: 'none' },
+            '& .MuiChartsAxis-tick': { display: 'none' },
+            '& .MuiChartsGrid-line': { strokeDasharray: '5 5', stroke: '#ebebeb' },
           }}
           grid={{ horizontal: true }} 
           margin={{ top: 50, bottom: 30, left: 40, right: 10 }}

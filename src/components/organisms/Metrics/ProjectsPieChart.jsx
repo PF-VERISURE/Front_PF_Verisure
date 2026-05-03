@@ -15,6 +15,19 @@ const CATEGORY_COLORS = {
   energia_asequible_y_no_contaminante: "rgb(252, 195, 11)",
 };
 
+const ALL_CATEGORIES = [
+  "Reducción de las desigualdades",
+  "Igualdad de género",
+  "Fin de la pobreza",
+  "Producción y consumo responsables",
+  "Agua limpia y saneamiento",
+  "Ciudades y comunidades sostenibles",
+  "Vida submarina",
+  "Hambre cero",
+  "Salud y bienestar",
+  "Energía asequible y no contaminante"
+];
+
 const ProjectsPieChart = ({ data }) => {
   const normalizeText = (text) => {
     if (!text) return "";
@@ -27,22 +40,41 @@ const ProjectsPieChart = ({ data }) => {
       .replace(/[^\w]/g, "");
   };
 
-  const formattedData = (data || []).map((item, index) => {
-    const colorKey = normalizeText(item.categoryName);
+  const formattedData = ALL_CATEGORIES.map((catName, index) => {
+
+    const foundItem = (data || []).find(d => 
+      normalizeText(d.categoryName) === normalizeText(catName)
+    );
+
+    const colorKey = normalizeText(catName);
     const assignedColor = CATEGORY_COLORS[colorKey] || "#666";
 
     return {
       id: index,
-      value: item.count,
-      label: item.categoryName,
+      value: foundItem ? Number(foundItem.count) : 0,
+      label: catName,
       color: assignedColor,
     };
+  });
+
+  (data || []).forEach(item => {
+    const isKnown = ALL_CATEGORIES.some(cat => normalizeText(cat) === normalizeText(item.categoryName));
+    if (!isKnown) {
+      const colorKey = normalizeText(item.categoryName);
+      formattedData.push({
+        id: formattedData.length,
+        value: Number(item.count) || 0,
+        label: item.categoryName,
+        color: CATEGORY_COLORS[colorKey] || "#666",
+      });
+    }
   });
 
   return (
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
       <PieChart
+        skipAnimation={true}
         series={[
           {
             data: formattedData,

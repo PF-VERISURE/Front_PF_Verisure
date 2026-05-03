@@ -24,6 +24,7 @@ const ParticipationPieChart = ({ data }) => {
       }}>
             
             <PieChart
+                skipAnimation={true}
                 series={[
                     {
                         innerRadius: 60, 
