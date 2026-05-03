@@ -18,15 +18,16 @@ api.interceptors.request.use(
 );
 
 api.interceptors.response.use(
-    (response) => response, 
+    (response) => response,
     (error) => {
         if (
-        error.response &&
-        (error.response.status === 401 || error.response.status === 403)
+            error.response &&
+            (error.response.status === 401 || error.response.status === 403)
         ) {
             localStorage.removeItem("token");
+            localStorage.removeItem("userData");
             alert("Tu sesión ha expirado. Por favor, vuelve a entrar.");
-            window.location.href = "/";
+            window.location.href = "/login";
         }
         return Promise.reject(error);
     }
